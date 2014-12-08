@@ -110,3 +110,36 @@ sales=# ALTER GROUP sale DROP USER sale2;
 ```
 pg_dump sales>/home/tk/pgsql/backup/1.bak
 ```
+
+
+##tips
+如果用到空间函数
+```c
+su -postgres
+ ``` 
+切换到postgres用户下
+```c
+pg_ctl -D /data/pgsql/ -l /data/pgsql/pgsql.log start 
+```
+启动数据库
+```c
+createdb template_postgis
+```
+创建数据库,此时，该数据库还没有具备空间特性
+```c
+psql -f /usr/local/pgsql/share/contrib/postgis-1.5/postgis.sql -d template_postgis 
+```
+执行postgis.sql脚本，创建相关空间数据库相关的函数，类型，操作符等 执行完这个脚本，该数据库就具有了空间特性了
+```c    
+psql template_postgis
+```
+连接到创建的空间数据库
+```c    
+select postgis_full_version(); 
+```
+查询postgis的版本信息，包含用到的三个库信息
+```c
+POSTGIS="1.5.4" GEOS="3.3.3-CAPI-1.7.4" PROJ="Rel. 4.8.0, 6 March 2012" LIBXML="2.6.26" USE_STATS
+createdb [-U username] -T template_postgis my_spatial_db
+```
+下次再创建数据库，只要以这个模板就可以了
