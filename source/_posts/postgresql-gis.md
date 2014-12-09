@@ -1,7 +1,7 @@
 title: postgresql-gis
 date: 2014-12-08 18:23:40
 categories: postgresql
-tags: gid
+tags: gis
 ---
 //ST_AsText 获取区域中心坐标。
 ```c
