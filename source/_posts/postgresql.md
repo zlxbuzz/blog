@@ -111,6 +111,21 @@ sales=# ALTER GROUP sale DROP USER sale2;
 pg_dump sales>/home/tk/pgsql/backup/1.bak
 ```
 
+##(8).复制数据库
+```c
+CREATE TABLE test_1 AS (SELECT * FROM test_2)
+```
+由于复制的表没有主键，则需要额外增加主键
+```c
+ALTER TABLE test_1 ADD CONSTRAINT test_1_pkey PRIMARY KEY (id)
+```
+
+
+
+cmd 下postgresql 导入sql数据文件
+
+> psql -h localhost  -d databaseName  -U username -f  filename
+
 
 ##tips
 如果用到空间函数
