@@ -119,8 +119,31 @@ CREATE TABLE test_1 AS (SELECT * FROM test_2)
 ```c
 ALTER TABLE test_1 ADD CONSTRAINT test_1_pkey PRIMARY KEY (id)
 ```
-
-
+说明：复制表(只复制结构,源表名：a 新表名：b)
+```c
+select * into b from a where 1<>1
+```
+说明：拷贝表(拷贝数据,源表名：a 目标表名：b)
+```c
+insert into b(a, b, c) select d,e,f from b;
+```
+说明：显示文章、提交人和最后回复时间
+```c
+select a.title,a.username,b.adddate from table a,(select
+max(adddate) adddate from table where table.title=a.title) b
+```
+说明：外连接查询(表名1：a 表名2：b)
+```c
+select a.a, a.b, a.c, b.c, b.d, b.f from a LEFT OUT JOIN b ON a.a =b.c
+```
+说明：日程安排提前五分钟提醒
+```c
+select * from 日程安排 where
+datediff('minute',f开始时间,getdate())>5
+说明：两张关联表，删除主表中已经在副表中没有的信息
+delete from info where not exists ( select * from infobz where
+info.infid=infobz.infid )
+```
 
 cmd 下postgresql 导入sql数据文件
 
