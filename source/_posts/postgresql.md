@@ -107,8 +107,12 @@ sales=# ALTER GROUP sale DROP USER sale2;
 ##(7).备份数据库
 
 可以使用pg_dump和pg_dumpall来完成。比如备份sales数据库：
-```
+```c
 pg_dump sales>/home/tk/pgsql/backup/1.bak
+```
+备份数据表
+```c
+pg_dump -h主机 -d数据库名 -t 你的表名 > 你的文件名
 ```
 
 ##(8).复制数据库
