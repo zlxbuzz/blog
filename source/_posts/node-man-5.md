@@ -14,14 +14,16 @@ app.set('view engine', 'html');
 //设置引擎后缀.  index.html 中的内容可以是 ejs 代码
 app.engine('.html', require('ejs').__express);
 ```
-ejs的特性： 
-1、缓存功能，能够缓存已经解析好的html模版；
-2、<% code %>用于执行其中javascript代码；
-3、<%= code %>会对code进行html转义； 
-4、<%- code %>将不会进行转义； 
-5、支持自定义标签，比如’<%’可以使用’{{’，’%>’用’}}’代替； 
-6、提供一些辅助函数，用于模版中使用 
-7、利用<%- include filename %>加载其他页面模版；
+```js
+	ejs的特性： 
+	1、缓存功能，能够缓存已经解析好的html模版；
+	2、<% code %>用于执行其中javascript代码；
+	3、<%= code %>会对code进行html转义； 
+	4、<%- code %>将不会进行转义； 
+	5、支持自定义标签，比如’<%’可以使用’左括号 左括号’，’%>’用’右括号 右括号’代替； 
+	6、提供一些辅助函数，用于模版中使用 
+	7、利用<%- include filename %>加载其他页面模版；
+```
 ##ejs 函数/运算符
 ####1.引入模板 不指定后缀就寻找 layout.ejs. (注意:如果没有定义模板目录,则 include无效)
 ```js
@@ -38,18 +40,18 @@ ejs的特性：
 ```
 意思就是模板名是动态的
 ####3.自定义 闭合标签. 
-厌倦了 <% %> ?
+厌倦了` <% %> ?`
 ```js
 //设置闭合标签
 var ejs = require('ejs');  
-ejs.open = '{{';  
-ejs.close = '}}';  
+ejs.open = '左括号 左括号';  
+ejs.close = '右括号 右括号';  
 ```
 express中全局设定
 ```js
 app.set("view options",{                                                                                  
-   "open":"{{",                                                                                  
-   "close":"}}"
+   "open":"左括号 左括号",                                                                                  
+   "close":"右括号 右括号"
 });
 ```
 ####4.变量
@@ -61,12 +63,14 @@ res.render('index',{'title':'haha');
 <title><%= title %></title>
 ```
 ####5.运行js代码
+
 ```js
 <%for(var i=p.length-1; i>=0; i--){%>
 <input type="button" value=<%=p[i]%>>
-<%}%>
+<%右括号%>
 ```
 ####6.选项 express中 通过 res.redirect('login’, [options]); 来对模板进行访问,options就可以设置模板引擎的一些选项 其中options的一些参数为：
+```js
 1、cache：是否缓存解析后的模版，需要filename作为key； 
 2、filename：模版文件名； 
 3、scope：complile后的Function执行所在的上下文环境； 
@@ -76,8 +80,9 @@ res.render('index',{'title':'haha');
 7、open，代码开头标记，默认为’<%’； 
 8、close，代码结束标记，默认为’%>’； 
 9、其他的一些用于解析模版时提供的变量。 在express中使用时，options参数将由response.render进行传入，其中包含了一些express中的设置，以及用户提供的变量值。
-
+```
 ####7.f辅助函数 此外ejs还提供了一些辅助函数，用于代替使用javascript代码，使得更加方便的操纵数据。
+```js
 1、first，返回数组的第一个元素； 
 2、last，返回数组的最后一个元素； 
 3、capitalize，返回首字母大写的字符串； 
@@ -99,7 +104,7 @@ res.render('index',{'title':'haha');
 20、reverse，翻转数组或字符串；
 21、get:’prop’，取得属性为’prop’的值； 
 22、json，转化为json格式字符串
-
+```
 辅助函数使用
 ```js
 //注意闭合标签  <%=:  %>
@@ -110,4 +115,3 @@ res.render('index',{'title':'haha');
     app.locals[‘say’] = function(){ return 'hello’; };
     在 app.locals 中定义的方法都可以在模板中引用
     <input type="button" value=<%=say()%>>
-
