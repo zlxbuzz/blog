@@ -4,171 +4,171 @@ categories: css
 tags: [css,css3]
 ---
 ##HTML代码
-```html
-<div&nbsp;class="grid">
 
-<figure&nbsp;class="effect-lily">
+	<div&nbsp;class="grid">
 
-<img&nbsp;src="img/12.jpg"&nbsp;alt="img12"/>
+	<figure&nbsp;class="effect-lily">
 
-<figcaption>
+	<img&nbsp;src="img/12.jpg"&nbsp;alt="img12"/>
 
-<div>
+	<figcaption>
 
-<h2>Nice&nbsp;<span>Lily</span></h2>
+	<div>
 
-<p>Lily&nbsp;likes&nbsp;to&nbsp;play&nbsp;with&nbsp;crayons&nbsp;and&nbsp;pencils</p>
+	<h2>Nice&nbsp;<span>Lily</span></h2>
 
-</div>
+	<p>Lily&nbsp;likes&nbsp;to&nbsp;play&nbsp;with&nbsp;crayons&nbsp;and&nbsp;pencils</p>
 
-<a&nbsp;href="#">View&nbsp;more</a>
+	</div>
 
-</figcaption>
+	<a&nbsp;href="#">View&nbsp;more</a>
 
-</figure>
+	</figcaption>
 
-<figure&nbsp;class="effect-lily">
+	</figure>
 
-<img&nbsp;src="img/1.jpg"&nbsp;alt="img1"/>
+	<figure&nbsp;class="effect-lily">
 
-<figcaption>
+	<img&nbsp;src="img/1.jpg"&nbsp;alt="img1"/>
 
-<div>
+	<figcaption>
 
-<h2>Nice&nbsp;<span>Lily</span></h2>
+	<div>
 
-<p>Lily&nbsp;likes&nbsp;to&nbsp;play&nbsp;with&nbsp;crayons&nbsp;and&nbsp;pencils</p>
+	<h2>Nice&nbsp;<span>Lily</span></h2>
 
-</div>
+	<p>Lily&nbsp;likes&nbsp;to&nbsp;play&nbsp;with&nbsp;crayons&nbsp;and&nbsp;pencils</p>
 
-<a&nbsp;href="#">View&nbsp;more</a>
+	</div>
 
-</figcaption>
+	<a&nbsp;href="#">View&nbsp;more</a>
 
-</figure>
+	</figcaption>
 
-</div>
-```
+	</figure>
+
+	</div>
+
 
 ##CSS代码
-```css
-figure.effect-lily img {
 
-max-width: none;
+	figure.effect-lily img {
 
-width: -webkit-calc(100% + 50px);
+	max-width: none;
 
-width: calc(100% + 50px);
+	width: -webkit-calc(100% + 50px);
 
-opacity: 0.7;
+	width: calc(100% + 50px);
 
--webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	opacity: 0.7;
 
-transition: opacity 0.35s, transform 0.35s;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 
--webkit-transform: translate3d(-40px,0, 0);
+	transition: opacity 0.35s, transform 0.35s;
 
-transform: translate3d(-40px,0,0);
+	-webkit-transform: translate3d(-40px,0, 0);
 
-}
+	transform: translate3d(-40px,0,0);
 
- 
+	}
 
-figure.effect-lily figcaption {
+	 
 
-text-align: left;
+	figure.effect-lily figcaption {
 
-}
+	text-align: left;
 
- 
+	}
 
-figure.effect-lily figcaption > div {
+	 
 
-position: absolute;
+	figure.effect-lily figcaption > div {
 
-bottom: 0;
+	position: absolute;
 
-left: 0;
+	bottom: 0;
 
-padding: 2em;
+	left: 0;
 
-width: 100%;
+	padding: 2em;
 
-height: 50%;
+	width: 100%;
 
-}
+	height: 50%;
 
- 
+	}
 
-figure.effect-lily h2,
+	 
 
-figure.effect-lily p {
+	figure.effect-lily h2,
 
--webkit-transform: translate3d(0,40px,0);
+	figure.effect-lily p {
 
-transform: translate3d(0,40px,0);
+	-webkit-transform: translate3d(0,40px,0);
 
-}
+	transform: translate3d(0,40px,0);
 
- 
+	}
 
-figure.effect-lily h2 {
+	 
 
--webkit-transition: -webkit-transform 0.35s;
+	figure.effect-lily h2 {
 
-transition: transform 0.35s;
+	-webkit-transition: -webkit-transform 0.35s;
 
-}
+	transition: transform 0.35s;
 
- 
+	}
 
-figure.effect-lily p {
+	 
 
-color: rgba(255,255,255,0.8);
+	figure.effect-lily p {
 
-opacity: 0;
+	color: rgba(255,255,255,0.8);
 
--webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
+	opacity: 0;
 
-transition: opacity 0.2s, transform 0.35s;
+	-webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
 
-}
+	transition: opacity 0.2s, transform 0.35s;
 
- 
+	}
 
-figure.effect-lily:hover img,
+	 
 
-figure.effect-lily:hover p {
+	figure.effect-lily:hover img,
 
-opacity: 1;
+	figure.effect-lily:hover p {
 
-}
+	opacity: 1;
 
- 
+	}
 
-figure.effect-lily:hover img,
+	 
 
-figure.effect-lily:hover h2,
+	figure.effect-lily:hover img,
 
-figure.effect-lily:hover p {
+	figure.effect-lily:hover h2,
 
--webkit-transform: translate3d(0,0,0);
+	figure.effect-lily:hover p {
 
-transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
 
-}
+	transform: translate3d(0,0,0);
 
- 
+	}
 
-figure.effect-lily:hover p {
+	 
 
--webkit-transition-delay: 0.05s;
+	figure.effect-lily:hover p {
 
-transition-delay: 0.05s;
+	-webkit-transition-delay: 0.05s;
 
--webkit-transition-duration: 0.35s;
+	transition-delay: 0.05s;
 
-transition-duration: 0.35s;
+	-webkit-transition-duration: 0.35s;
 
-}
-```
+	transition-duration: 0.35s;
+
+	}
+

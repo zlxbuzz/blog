@@ -1,7 +1,7 @@
 title: nodejs-lesson4 的挑战功能
 date: 2014-12-18 10:52:52
 categories: nodejs
-tags: [nodejs]
+tags: [node]
 ---
 ##Node.js 包教不包会的lession4的挑战功能
 https://github.com/buzzmjx/node-lessons/tree/master/lesson4
