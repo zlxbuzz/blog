@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: buzz
-subtitle:
-description:
+title: New Webber
+subtitle: for one time
+description: 
 author: json zhong
 email:
 language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://github.com/buzzmjx
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
@@ -79,7 +79,7 @@ disqus_shortname:
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: landscape 
+theme: coney 
 exclude_generator:
 
 # Deployment

@@ -12,7 +12,7 @@ menu:
 #### Widgets
 widgets: 
 - category
-- tag
+
 
 ## provide six widgets:category,tag,rss,archive,tagcloud,links.
 ## modify links in `/layout/_widget/links.ejs`.
@@ -85,7 +85,7 @@ baidu_share:
   color: 4
 
 theme_color:
-    background: "#dddddd"
+    background: "#111111"
     font: "#817c7c"
     theme: '#ea6753'
     footer: "#ddd"
