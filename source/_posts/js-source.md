@@ -1,4 +1,4 @@
-title: js时间戳与日期的转换
+title: js常用笔记
 date: 2015-03-11 17:20:11
 categories: js
 tags: js
