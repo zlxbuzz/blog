@@ -31,3 +31,70 @@ time3 = Date.parse(date)
 //    1398250549123
 //    1398250549000 
 ```
+
+
+####字符串截取
+
+```js
+substr(start [, length ])
+返回一个从指定位置开始的指定长度的子字符串
+substring(start, end)
+返回位于 String 对象中指定位置的子字符串。
+```
+
+####页面跳转
+```js
+window.navigate("top.jsp");
+window.history.back(-1);
+window.location.href="login.jsp?backurl="+window.location.href; 
+self.location='top.htm';
+top.location='xx.jsp';
+```
+
+####加载完成
+```js
+window.onload 
+必须等页面内包括图片的所有元素加载完成后才能执行。
+不能同时编写多个，只执行一个
+$(document).ready()
+是DOM结构绘制完毕后就可以执行
+可以编写多个
+简写$(function(){});
+$(window).load()等同与window.onload
+```
+
+####刷新页面
+```js
+history.go(0) 
+location.reload() 
+location=location 
+location.assign(location) 
+document.execCommand('Refresh') 
+window.navigate(location) 
+location.replace(location) 
+document.URL=location.href 
+```
+
+####json转化和解析
+```js
+JSON.parse("{a:'111',b:'ccc'}");  //解析
+eval("("+""+")"); //解析
+```
+
+####URI编码转换
+```js
+var a="':'";
+en = encodeURI(a);    //编码
+a = decodeURI(en);    //解码
+```
+
+####HTML编码转换
+```js
+function htmlEncode(value){
+  return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value){
+  return $('<div/>').html(value).text();
+}
+```

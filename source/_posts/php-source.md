@@ -56,3 +56,6 @@ while(!feof($remote_fp)){
 fclose($remote_fp);
 fclose($local_fp);
 ```
+
+##php基础类型
+![php数据类型](/php-type.jpg)
