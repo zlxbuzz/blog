@@ -3,7 +3,7 @@ date: 2015-03-11 17:20:11
 categories: js
 tags: js
 ---
-####将时间戳转换成日期格式：
+##将时间戳转换成日期格式：
 ```js
 var date = new Date(时间戳);
 Y = date.getFullYear() + '-';
@@ -15,7 +15,7 @@ s = date.getSeconds();
 console.log(Y+M+D+h+m+s);
 ```
 
-####将日期格式转换成时间戳：
+##将日期格式转换成时间戳：
 ```js
 date = new Date('2014-04-23 18:55:49:123');
 // 有三种方式获取
@@ -33,7 +33,7 @@ time3 = Date.parse(date)
 ```
 
 
-####字符串截取
+##字符串截取
 
 ```js
 substr(start [, length ])
@@ -42,7 +42,7 @@ substring(start, end)
 返回位于 String 对象中指定位置的子字符串。
 ```
 
-####页面跳转
+##页面跳转
 ```js
 window.navigate("top.jsp");
 window.history.back(-1);
@@ -51,7 +51,7 @@ self.location='top.htm';
 top.location='xx.jsp';
 ```
 
-####加载完成
+##加载完成
 ```js
 window.onload 
 必须等页面内包括图片的所有元素加载完成后才能执行。
@@ -63,7 +63,7 @@ $(document).ready()
 $(window).load()等同与window.onload
 ```
 
-####刷新页面
+##刷新页面
 ```js
 history.go(0) 
 location.reload() 
@@ -75,20 +75,20 @@ location.replace(location)
 document.URL=location.href 
 ```
 
-####json转化和解析
+##json转化和解析
 ```js
 JSON.parse("{a:'111',b:'ccc'}");  //解析
 eval("("+""+")"); //解析
 ```
 
-####URI编码转换
+##URI编码转换
 ```js
 var a="':'";
 en = encodeURI(a);    //编码
 a = decodeURI(en);    //解码
 ```
 
-####HTML编码转换
+##HTML编码转换
 ```js
 function htmlEncode(value){
   return $('<div/>').text(value).html();

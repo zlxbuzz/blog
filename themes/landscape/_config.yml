@@ -3,6 +3,7 @@ menu:
   首页: /
   php常用笔记: /2014/12/10/php-source
   js常用笔记:  /2015/03/11/js-source/
+  git常用笔记:  /2014/12/08/git-source/
   归档: /archives
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
