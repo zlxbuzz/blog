@@ -4,6 +4,16 @@ categories: git
 tags: git
 ---
 经常遇到的git相关操作。
+
+##git clone 取回远程的所有分支
+
+```c
+git clone git@github.com:dolymood/angular-example.git #获取某个远程库
+git fetch <远程主机名>  <分支名> #获取全部的分支 如果需要特定分支 可指定分支名
+git branch -a #查看所有分支 git branch -a 查看所有分支
+git checkout -b newBrach <远程分支> #创建并且切换到新的分支
+```
+
 ##返回某个文件的某个版本 
 
 ```c

@@ -23,23 +23,88 @@ tags: [angularjs,angular-ui]
 ```
 
 ##js初始化
+
+####1.依赖注入
 ```js
 var  myAppModule= angular.module('MyApp', ['ui.calendar']);
+
+```
+
+####2.简单配置
+```js
 myAppModule.controller('myappController',function($scope){
-	$scope.eventSources = [];
-	 $scope.uiConfig = {
-		  calendar:{
-			height: 450,
-			editable: true,
-			header:{
-			  left: 'month basicWeek basicDay agendaWeek agendaDay',
-			  center: 'title',
-			  right: 'today prev,next'
-			},
-			dayClick: $scope.alertEventOnClick,
-			eventDrop: $scope.alertOnDrop,
-			eventResize: $scope.alertOnResize
-		  }
+$scope.eventSources = [];//事件源
+
+```
+
+##### 根据api一共有多种数据的导入
+	```js
+		$scope.eventSource = {
+				url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+				className: 'gcal-event',           // an option!
+				currentTimezone: 'America/Chicago' // an option!
 		};
+	```
+	
+```js
+$scope.events = [
+  {title: 'All Day Event',start: new Date(y, m, 1)},
+  {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
+  {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
+  {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
+  {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
+  {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+];
+如果allDay 为 true 则时间块可以在日历中进行拖动
+```
+
+```js
+$scope.eventsF = function (start, end, timezone, callback) {
+  var s = new Date(start).getTime() / 1000;
+  var e = new Date(end).getTime() / 1000;
+  var m = new Date(start).getMonth();
+  var events = [{title: 'Feed Me ' + m,start: s + (50000),end: s + (100000),allDay: false, className: ['customFeed']}];
+  callback(events);
+};
+```
+
+```js
+$scope.calEventsExt = {
+   color: '#f00',
+   textColor: 'yellow',
+   events: [ 
+	  {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+	  {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+	  {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+	]
+};
+```
+
+####3.对插件的参数配置
+```js
+$scope.uiConfig = {
+	  calendar:{
+		height: 450,//宽度
+		editable: true,//可编辑
+		header:{//各个部位的需要显示的内容
+		  left: 'month basicWeek basicDay agendaWeek agendaDay',
+		  center: 'title',
+		  right: 'today prev,next'
+		},
+		dayClick: $scope.alertEventOnClick,//日期点击触发函数
+		eventDrop: $scope.alertOnDrop,//日期拖拽出发函数
+		eventResize: $scope.alertOnResize，
+		eventResize //日期拉伸出发函数 这些函数写在配置的前面～
+	  }
+	};
 });
+```
+
+
+####相关参数的中文
+```js
+$scope.uiConfig.calendar.dayNames = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    $scope.uiConfig.calendar.dayNamesShort = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    $scope.uiConfig.calendar.monthNamesShort = ["一月", "二月", "三月", "四月", "五月", "六月", "七月","八月","九月","十月","十一月","十二月"];
+    $scope.uiConfig.calendar.monthNames = ["一月", "二月", "三月", "四月", "五月", "六月", "七月","八月","九月","十月","十一月","十二月"];
 ```

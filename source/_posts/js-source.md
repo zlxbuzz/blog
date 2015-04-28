@@ -98,3 +98,10 @@ function htmlDecode(value){
   return $('<div/>').html(value).text();
 }
 ```
+
+
+##当属性名是另一个表达式时候
+```js
+a.b[c] // (a.b)[c]
+a[b //而不用 a.b
+```
