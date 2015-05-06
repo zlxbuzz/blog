@@ -34,4 +34,4 @@ vi /etc/apparmor.d/usr.sbin.mysqld
 service apparmor reload
 ```                                           
 ##重启apparmor权限服务进程和mysql进程
-$                                             
+                                             

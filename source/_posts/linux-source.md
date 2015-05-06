@@ -45,7 +45,7 @@ dpkg -L apache2 #查看指定软件的目录
 ```
 
 ##grep 搜索
-```bash
+```c
 grep -c aaa file #显示 file中包含aaa内容的行数是几
 grep -n aaa flie #列出所有的匹配行，并在最前面添加行的序列数
 grep -v aaa file #显示文件中不包含所搜索内容的行数，这个和-c的参数正好相反

@@ -69,7 +69,7 @@ author:
 
 #### Comment
 duoshuo: 
-  enable: false  ## duoshuo.com
+  enable: true  ## duoshuo.com
   short_name:  ## e.g. coney,duoshuo short name.
 
 #### Share button
