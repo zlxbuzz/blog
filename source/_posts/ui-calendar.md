@@ -108,3 +108,34 @@ $scope.uiConfig.calendar.dayNames = ["星期日", "星期一", "星期二", "星
     $scope.uiConfig.calendar.monthNamesShort = ["一月", "二月", "三月", "四月", "五月", "六月", "七月","八月","九月","十月","十一月","十二月"];
     $scope.uiConfig.calendar.monthNames = ["一月", "二月", "三月", "四月", "五月", "六月", "七月","八月","九月","十月","十一月","十二月"];
 ```
+
+
+####常见的问题
+```js
+//由于ui-calendar的ng-model会生成标志_d等参数,如果进行ajax 清空重复赋值可能会出现数据无法重新加载的问题
+//当点击下个月的按钮时可以采用slice方法将数组清空后重新赋值
+$scope.uiConfig 下的calendar参数可以
+viewRender:function(view){
+	var date =new Date(view.intervalStart._d).getMonth()+1;
+		workorderService.get({type:4,pid:$stateParams.sid,m:date},function(data){
+		$scope.eventSources.splice(0,1);
+		$scope.events=[];
+		var result=datas.handle(data);
+		if(result){
+			$scope.workorders=result.workorders;
+			for(var i in $scope.workorders){
+				$scope.events.push({
+					'title':'<i class="ace-icon fa fa-barcode" style="color:'+$scope.workorders[i].color+'"></i> '+$scope.workorders[i].wkname,
+					'start':$scope.workorders[i].jihua_date,
+					'allDay':true,
+					'backgroundColor':'white',
+					'textColor':'black',
+					'borderColor':'white',
+					'wkid':$scope.workorders[i].wkid
+				});			
+			}
+			$scope.eventSources.push($scope.events);
+		}
+	});
+}
+```

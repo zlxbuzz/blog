@@ -37,6 +37,7 @@ echo $_SERVER["argv"][2]."\n"; #b 输入的第二个参数
 | $x = 'true'  | string    | false   | false     | true    | true   |
 | $x = 'false' | string    | false   | false     | true    | true   |
 +--------------+-----------+---------+-----------+---------+--------+
+empty() 和 bool 不可能相等
 ```
 
 ##修改phpunit内存限制

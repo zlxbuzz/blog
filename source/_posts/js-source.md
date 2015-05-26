@@ -103,5 +103,40 @@ function htmlDecode(value){
 ##当属性名是另一个表达式时候
 ```js
 a.b[c] // (a.b)[c]
-a[b //而不用 a.b
+a[b] //而不用 a.b
+```
+
+##js转义字符实体
+```js
+function htmlEscape(s) {
+	return (s + '').replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/'/g, '&#039;')
+		.replace(/"/g, '&quot;')
+		.replace(/\n/g, '<br />');
+}
+```
+
+##判断number
+```js
+var isNumber = function(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+};
+```
+
+##js原型
+```js
+//Object和Function都是构造函数，所有的构造函数的都是Function的实例对象,Object是Function的实例对象
+//Function.prototype是Object的实例对象
+Object.__proto__ === Function.prototype
+Function.__proto__ === Function.prototype
+Function.prototype.__proto__ === Object.prototype
+//instanceof的结果不要仅是: 如果右侧构造函数的prototype属性能在左侧的对象的原型链中找到,
+// 那么就返回true, 否则就返回false
+Object intanceof Function: Object.__proto__ === Function.prototype  //true
+Function instanceof Object: Function.__proto__.__proto__ === Object.prototype //true
+//实例对象的constructor属性指向其构造函数
+Object.constructor === Function
+Function.constructor === Function
 ```

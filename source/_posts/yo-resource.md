@@ -1,7 +1,7 @@
 title: yeoman使用心得
 date: 2015-05-01 15:27:59
 categories: js
-tags: Yoeman
+tags: Yeoman
 ---
 最近在用前端的项目构建工具`yeoman`，在此记录下心得。
 ##`Yeoman`介绍
@@ -9,7 +9,7 @@ tags: Yoeman
 
 `YO`：`Yeoman`核心工具，项目工程依赖目录和文件生成工具，项目生产环境和编译环境生成工具。
 `GRUNT`：前端构建工具。
-`BOWER`：`Web` 开发的包管理器，概念上类似 `npm`，`npm` 专注于`NodeJs` 模块，而 `bower` 专注于 `CSS`、`JavaScrip`t、图像等前端相关内容的管理。
+`BOWER`：`Web` 开发的包管理器，概念上类似 `npm`，`npm` 专注于`NodeJs` 模块，而 `bower` 专注于 `CSS`、`JavaScript`、图像等前端相关内容的管理。
 ##`yo`的安装
 ```bash
 npm install -g yo #yo作为全局的安装

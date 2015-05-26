@@ -1,4 +1,4 @@
-title: ES6中的`let`和`const`
+title: ES6中的let和const
 date: 2015-04-27 15:06:24
 categories: js
 tags: js

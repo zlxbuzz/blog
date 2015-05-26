@@ -51,7 +51,7 @@ git checkout -b master develop // 创建并切换到 develop 分支
 
 ```c
 git config user.name "xx"
-git config user.email.com "xx@xx.com"
+git config user.email "xx@xx.com"
 ```
 
 ##Git设置
