@@ -5,6 +5,17 @@ tags: git
 ---
 经常遇到的git相关操作。
 
+##git rebase
+```c
+git checkout bat
+git rebase origin #把"bat"分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到".git/rebase"目录中),然后把"bat"分支更新 
+#为最新的"origin"分支，最后把保存的这些补丁应用到"mywork"分支上
+
+git rebase和git merge的区别
+merge相当于将双方的修改综合
+rebase相当于将对方修改之后,在提交自己的修改,结果一样
+```
+
 ##git clone 取回远程的所有分支
 
 ```c
@@ -55,8 +66,8 @@ git config user.email "xx@xx.com"
 ```
 
 ##Git设置
-
+```c
 Git的全局设置在~/.gitconfig中，单独设置在project/.git/config下。
 
 忽略设置全局在~/.gitignore_global中，单独设置在project/.gitignore下。
-
+```

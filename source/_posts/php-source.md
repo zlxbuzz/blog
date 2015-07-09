@@ -3,6 +3,12 @@ date: 2014-12-10 15:07:16
 categories: php
 tags: [php,命令行,参数]
 ---
+
+##PHP内置小型web server
+```php
+php -S localhost:8080 -t /www #-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程
+```
+
 ##PHP命令行参数
 
 ```php

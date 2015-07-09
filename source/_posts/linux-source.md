@@ -31,6 +31,32 @@ gzip -r 目录(压缩目录下所有的子文件，但是不能压缩目录)
 lsof -i:80  #查看80端口 root下
 lsof #查看本地网络服务活动状态
 ```
+##修改主机名称
+```c
+vi /etc/hostname #主机名
+vi /etc/hosts #域名解析
+```
+
+##apt操作
+```c
+apt-cache search package 搜索包    
+apt-cache show package 获取包的相关信息，如说明、大小、版本等    
+sudo apt-get install package 安装包    
+sudo apt-get install package - - reinstall 重新安装包    
+sudo apt-get -f install 修复安装"-f = ——fix-missing"    
+sudo apt-get remove package 删除包    
+sudo apt-get remove package - - purge 删除包，包括删除配置文件等    
+sudo apt-get update 更新源    
+sudo apt-get upgrade 更新已安装的包    
+sudo apt-get dist-upgrade 升级系统    
+sudo apt-get dselect-upgrade 使用 dselect 升级    
+apt-cache depends package 了解使用依赖    
+apt-cache rdepends package 是查看该包被哪些包依赖    
+sudo apt-get build-dep package 安装相关的编译环境    
+apt-get source package 下载该包的源代码    
+sudo apt-get clean && sudo apt-get autoclean 清理无用的包    
+sudo apt-get check 检查是否有损坏的依赖
+```
 
 ##查看Linux内核版本或发布版本
 ```c
@@ -109,12 +135,74 @@ shutdown -h #关机
 history 查看用户所有使用过的历史命令
 history -w更新历史命令保存文件
 history -c清空历史命令（错误信息及他人入侵的参考）
+#注销后保存在 ~/.bash_history中
 
 使用上、下箭头调用以前的历史命令
 使用"!n"重复执行第n条历史命令
 使用"!!"重复执行上一条命令
 使用"!字串"重复执行最后一条以该字串开头的命令
 ```
+
+
+##重定向
+```bash
+标准输入输出 0 标准输入 1标准输出 2 标准错误输出
+命令 > 文件（覆盖）,命令 >> 文件（追加） 都是正确语句的重定向,
+命令 > 文件 2>&1 (覆盖)，命令 >> 文件 2>&1，正确错误信息输出都保存到同一个文件。
+命令&>文件 （覆盖），命令&>>文件 (追加)，正确错误信息输出都保存到同一个文件。
+命令 >> 文件1 2>>文件2 把正确的输出追加到文件1中，错误输出追加到文件2中。
+/dev/null 是系统预留的用来接受垃圾的文件，即任何东西写到这个文件里面都会消失即不存在。
+
+wc -c 统计字节数
+wc -l 统计单词数
+```
+
+##变量操作
+```bash
+set 查看变量
+set -u 调用未声明的变量时会报错
+x=${x}111 变量叠加
+unset x 删除变量x
+env 查看环境变量
+PS1变量：命令提示符设置
+	\d #显示日期，格式为“星期 月 日”
+	\H #显示完整的主机名，如默认的主机名“localhost.localdomain”
+	\h #显示主机名，如localhost
+	\t #显示24小时制时间，格式为“HH:MM:SS”
+	\A #显示24小时制时间，格式为“HH:MM”
+	\u #显示当前用户名
+	\w #显示当前所在目录的最后一个目录
+	\W #显示当前所在目录的最后一个目录
+	\$ #提示符。如果是root用户会显示提示符为“#”，如果是普通用户会显示提示符为“$”
+
+命令行位置变量:
+	$n　 n为数字，$0代表命令本身，$1-$9代表第一到第九个参数，十以上的参数需要用大括号包含，如${10}
+	$* 这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体
+	$@ 　这个变量也代表命令行中所有参数，不过$@把每个参数区分对待
+	$# 　这个变量代表命令行所有参数的个数
+
+预定义变量:
+	$? ：最后一次执行命令的返回状态，如果正确执行，则返回0；
+	$$：返回当前进程的PID号；
+	
+	$!：返回后台的进程PID号；
+read -n
+read -p "please input name " name #-p表示输出提示信息 read [选项] 变量名
+read -t 30 #-t 表示等待时间单位为秒 -t 30 表示30秒，若30秒后没有输入数据终止执行脚本
+read -s #隐藏信息
+
+变量声明:
+	declare声明变量类型
+	declare [+/-] [选项] 变量名 -设定类型 +取消类型
+	declare -p 变量名 显示变量类型
+	declare -i 变量名 声明为整形
+	declare -a 声明为数组
+	declare -x 变量 相当于 export export其实是调用了declare -x
+	declare -r 变量 将变量变为只读属性 改为只读属性后，无法进行操作了。
+	
+数值计算 dd=$(expr $aa + $bb)
+```
+
 
 ##磁盘管理
 ```bash
@@ -191,4 +279,77 @@ swapoff /devsdb8 #停用交换分区
 /etc/passwd #所有用户
 用户名:密码占位符:用户编号:用户组编号:用户注释信息:用户主目录:shell类型
 /etc/shadow #所有用户密码
+```
+
+
+##系统服务管理
+```bash
+#systemctl命令将service和chkconfig命令结合在了一起
+systemctl enable nginx.service #使nginx自动启动
+systemctl disable nginx.service #取消nginx自动启动
+检查服务状态 systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active)
+显示所有已启动的服务	systemctl list-units --type=service
+启动某服务	systemctl start nginx.service
+停止某服务	systemctl stop nginx.service
+重启某服务	systemctl restart nginx.service
+```
+
+##数据同步
+```bash
+rsync [option] 源路径 目标路径
+	a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性
+	b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用–suffix选项来指定不同的备份文件前缀。
+	–backup-dir 将备份文件(如~filename)存放在在目录下。
+	-suffix=SUFFIX 定义备份文件前缀
+	–delete 删除那些DST中SRC没有的文件
+	–bwlimit=KBPS 限制I/O带宽
+	
+#将本机/tmp/a文件夹 同步至/tmp/b
+rsync -avzP --delete /tmp/a /tmp/b
+#将远程主机x中/tmp/a下的文件下载至本机 /tmp/b
+rsync -avz -e ssh root@192.168.0.1:/tmp/a /tmp/b
+```
+
+##采集
+```bash
+wget [options] [URL]
+	-o:记录log信息，用法-ofilename
+	-a:追加log信息
+	-O:将文件保存到文件 -Ofilename
+	-c:断点续传
+	–referer,referer值，采集必用
+	–load-cookies=FILE 在开始会话前从文件 FILE中加载cookie
+	–save-cookies=FILE 在会话结束后将 cookies保存到 FILE文件中
+	-nc, –no-clobber 不要覆盖已经存在的文件
+	-T,–timeout=SECONDS 设置超时时间
+	-x,强制建立目录(保持目标网站的目录结构)
+	-r,递归下载整个网站
+curl [option] [url]
+	-c:断点续传
+	-o:文件名，要自己写
+	-O:文件名，自动(和服务器上的名字一样)
+	-D:保存cookie,curl -D cookie.txt URL
+	-b:使用cookie,curl -b cookie.txt URL
+	-A:发送浏览器信息，伪装成浏览器。curl -A “Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1626.0″ URL,这样对方服务器会认为我们是一个在macos上跑的chrom浏览器。
+	-e:填写referer值。
+	-d:post模式，以application/x-www-url-encoded发送请求。d后面填写要提交的参数即可 curl -d”a=xx&b=xx&c=xx”。
+	-F模拟 multipart/form-data 形式的 form 上传文件。curl -F “action=upload” -F”filename=@file.gz;type=application/octet-stream” URL
+
+```
+
+
+##ssh
+
+```bash
+ ssh user@host #远程登陆
+ ssh -p port user@host #远程登陆某个端口
+ ssh-keygen #在～/.ssh/下生成自己的公钥和私钥
+ ssh-copy-id user@host #将自己的公钥copy到远程 免登陆，也可以直接$ ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+ 如果不行，远传配置/etc/ssh/sshd_config 
+ 　RSAAuthentication yes
+　　PubkeyAuthentication yes
+　　AuthorizedKeysFile .ssh/authorized_keys
+ 
+ 　$ ssh -L 本地端口:目标主机:目标主机端口 #本地端口转发
+ 　$ ssh -R 远程主机端口:目标主机:目标主机端口 #远程端口转发
 ```

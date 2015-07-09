@@ -32,6 +32,20 @@ time3 = Date.parse(date)
 //    1398250549000 
 ```
 
+##js数组去重
+```js
+Array.prototype.unique3 = function(){
+	var res = [];
+	var json = {};
+	for(var i = 0; i < this.length; i++){
+		if(!json[this[i]]){
+			res.push(this[i]);
+			json[this[i]] = true;
+		}
+	}
+	return res;
+}
+```
 
 ##字符串截取
 
@@ -127,6 +141,13 @@ var isNumber = function(n) {
 
 ##js原型
 ```js
+//每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承
+//任何一个prototype对象都有一个constructor属性，指向它的构造函数
+
+//如果替换了prototype对象
+　　o.prototype = {};
+//下一步必然是为新的prototype对象加上constructor属性，并将这个属性指回原来的构造函数
+o.prototype.constructor = o;
 //Object和Function都是构造函数，所有的构造函数的都是Function的实例对象,Object是Function的实例对象
 //Function.prototype是Object的实例对象
 Object.__proto__ === Function.prototype
@@ -139,4 +160,21 @@ Function instanceof Object: Function.__proto__.__proto__ === Object.prototype //
 //实例对象的constructor属性指向其构造函数
 Object.constructor === Function
 Function.constructor === Function
+```
+##js继承
+```js
+　function extend(Child, Parent) {
+　　　　var F = function(){};
+　　　　F.prototype = Parent.prototype;
+　　　　Child.prototype = new F();//空对象实例化几乎不占内存
+　　　　Child.prototype.constructor = Child;
+　　　　Child.uber = Parent.prototype;
+　　}
+```
+
+##js判断是否存在
+```js
+if (typeof myObj == "undefined") {
+　　　var myObj = { };
+}
 ```

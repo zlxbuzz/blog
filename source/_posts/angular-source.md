@@ -43,3 +43,19 @@ $scope.success = function() {
 	  }
   })
 ```
+
+##ngresource promise问题
+```js
+#如果用了ngresource,为了使promise对象正确resolve,需要调用$promise
+$q.all([workorderService.get({pid:sid,m:m,y:y}).$promise,taskService.get({act:'ptid:'+sid,m:m,y:y}).$promise])
+.then(function(results){	
+	defer.resolve(results);
+});
+return defer.promise;
+```
+
+##select选择框
+```html
+<select ng-options="x.v as x.name for x in sites.status" name="status" ng-model="sites.statuss"></select>
+ng-model的值对应x.v，需要区分字符串和整型 
+```

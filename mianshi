@@ -1,0 +1,27 @@
+1.PHP 客户端禁用cookie后session解决方案?
+  ini_set("session.use_trans_sid",1);
+  ini_set("session.use_only_cookies",0);
+  ini_set("session.use_cookies",0);
+  session_start();
+
+
+
+  将sessionid通过session_id()函数赋给变量，将变量传递get过去
+  <?php
+  session_start();
+  $_SESSION[’var1’]="中华人民共和国";
+  $sn = session_id();
+  $url="<a href=".""s2.php?s=".$sn."">下一页</a>";
+  echo $url;
+  ?>
+  <?php
+  session_id($_GET[’s’]);
+  session_start();
+  echo "传递的session变量var1的值为：".$_SESSION[’var1’];
+  ?>
+
+
+  session 入库或者保存为文件
+
+
+
