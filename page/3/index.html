@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node-man-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/15/node-man-1/" class="article-date">
+  <time datetime="2014-12-15T03:52:34.000Z" itemprop="datePublished">2014-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/15/node-man-1/">Node.js 核心模块方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##模块</p>
+<p>####核心模块</p>
+<p>核心模块是被编译成二进制代码，引用的时候只需require表示符即可</p>
+<p>####os 系统基本信息</p>
+<p>os模块可提供操作系统的一些基本信息</p>
+<p>1.返回系统临时目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.tmpdir() </span><br><span class="line">结果如: C:\Users\ADMINI~<span class="number">1</span>\AppData\Local\Temp</span><br></pre></td></tr></table></figure></p>
+<p>2.返回 CPU 的字节序，可能的是 “BE” 或 “LE”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.endianness()</span><br><span class="line">结果如: LE (inter i3)</span><br></pre></td></tr></table></figure></p>
+<p>3.返回操作系统的主机名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.hostname()</span><br><span class="line">结果如: QH-<span class="number">20141006</span>HJKT</span><br></pre></td></tr></table></figure></p>
+<p>4.返回操作系统名称<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.type()</span><br><span class="line">结果如: Windows_NT</span><br></pre></td></tr></table></figure></p>
+<p>5.返回操作系统平台<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.platform()</span><br><span class="line">结果如: win32</span><br></pre></td></tr></table></figure></p>
+<p>6.返回操作系统 CPU 架构，可能的值有 “x64”、”arm” 和 “ia32”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.arch()</span><br><span class="line">结果如: x64</span><br></pre></td></tr></table></figure></p>
+<p>7.返回操作系统的发行版本<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.release()</span><br><span class="line">结果如: <span class="number">6.1</span><span class="number">.7601</span></span><br></pre></td></tr></table></figure></p>
+<p>8.返回操作系统运行的时间，以秒为单位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.uptime()</span><br><span class="line">结果如: <span class="number">7847.6797442</span></span><br></pre></td></tr></table></figure></p>
+<p>9.返回一个包含 1、5、15 分钟平均负载的数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.loadavg()</span><br><span class="line">结果如: <span class="number">6.1</span><span class="number">.7601</span></span><br></pre></td></tr></table></figure></p>
+<p>10.返回系统内存总量，单位为字节<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.totalmem()</span><br><span class="line">结果如: <span class="number">3931602944</span></span><br></pre></td></tr></table></figure></p>
+<p>11.返回操作系统空闲内存量，单位是字节<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.freemem()</span><br><span class="line">结果如: <span class="number">1307422720</span></span><br></pre></td></tr></table></figure></p>
+<p>12.返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.cpus()</span><br></pre></td></tr></table></figure></p>
+<p>13.获取网络接口的一个列表信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.networkInterfaces() 结果如: <span class="number">1307422720</span></span><br></pre></td></tr></table></figure></p>
+<p>14.一个定义了操作系统的一行结束的标识的常量<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.EOL</span><br></pre></td></tr></table></figure></p>
+<p>####process 进程管理</p>
+<p>process 是一个全局变量.无需 require;</p>
+<p>1.返回应用程序当前目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.cwd() 结果如: c:\Users\Administrator\MongoDb_Test</span><br></pre></td></tr></table></figure></p>
+<p>2.改变应用程序目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.chdir(“目录”)</span><br></pre></td></tr></table></figure></p>
+<p>3.标准输出流.将内容打印到输出设备上.console.log就是封装了它<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdout.write(‘aa\n’) 结果如: aa</span><br></pre></td></tr></table></figure></p>
+<p>4.标准错误流<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stderr.write(‘aa\n’) 结果如: aa</span><br></pre></td></tr></table></figure></p>
+<p>5.进程的输入流. 通过注册事件的方式来获取输入的内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.on(<span class="string">'readable’, function() &#123; var chunk = process.stdin.read(); if (chunk !== null) &#123; process.stdout.write('</span>data: <span class="string">' + chunk); &#125; &#125;);</span></span><br></pre></td></tr></table></figure></p>
+<p>6.结束进程<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.exit(code);</span><br></pre></td></tr></table></figure></p>
+<p>参数code为退出后返回的代码，如果省略则默认返回0</p>
+<p>7.注册事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdout.on(<span class="string">'data’,function(data)&#123; console.log(data); &#125;);</span></span><br></pre></td></tr></table></figure></p>
+<p>8.为事件循环设置一项任务,Node.js 会在下次事件循环调响应时调用 callback<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(callback)</span><br></pre></td></tr></table></figure></p>
+<p>9.设置编码, 默认 utf8. node.js编码格式只支持UTF8、ascii、base64，暂时不支持GBK、gb2312<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.setEncoding(编码); process.stdout.setEncoding(编码); process.stderr.setEncoding(编码);</span><br></pre></td></tr></table></figure></p>
+<p>####fs 文件管理</p>
+<p>fs 模块提供了异步和同步2个版本 fs.readFile() fs.readFileSync()</p>
+<p>1.写入文件内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">'test.txt’, ‘Hello Node’ , [encoding], [callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>2.追加写入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.appendFile(<span class="string">'test.txt’,’Hello Node’,[encoding],[callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>3.文件是否存在<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.exists(<span class="string">'test.txt’,[callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>4.修改文件名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.rename(旧文件,新文件,[callback]);</span><br></pre></td></tr></table></figure></p>
+<p>5.移动文件. 没有专门函数,通过修改文件名可以达到目的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.rename(oldPath,newPath,[callback]);</span><br></pre></td></tr></table></figure></p>
+<p>6.读取文件内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">'test.txt’, [encoding], [callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>7.删除文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.unlink(<span class="string">'test.txt’, [callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>8.创建目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.mkdir(路径, 权限, [callback]); 路径：新创建的目录。 权限：可选参数，只在linux下有效，表示目录的权限，默认为<span class="number">0777</span>，表示文件所有者、文件所有者所在的组的用户、所有用户，都有权限进行读、写、执行的操作。</span><br></pre></td></tr></table></figure></p>
+<p>9.删除目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.rmdir(path, [callback]);</span><br></pre></td></tr></table></figure></p>
+<p>10.读取目录. 读取到指定目录下所有的文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readdir(path, [callback]);</span><br></pre></td></tr></table></figure></p>
+<p>11.打开文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.open(path,flags, [mode], [callback(err,fd)])</span><br></pre></td></tr></table></figure></p>
+<p>12.关闭文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.close(fd, [callback(err)]) fd 是打开文件后的标示符</span><br></pre></td></tr></table></figure></p>
+<p>13.读取文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.read(fd,buffer,offset,length,position,[callback(err, bytesRead, buffer)])</span><br></pre></td></tr></table></figure></p>
+<p>14.写入文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(filename, data,[encoding],[callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>15.获取真实路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.realpath(path, [callback(err,resolvedPath)])</span><br></pre></td></tr></table></figure></p>
+<p>16.更改所有权<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.chown(path, uid, gid, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>17.更改权限<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.fchmod(fd, mode, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>18.获取文件信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.stat(path, [callback(err, stats)])</span><br></pre></td></tr></table></figure></p>
+<p>19.创建硬链接<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.link(srcpath, dstpath, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>20.读取链接<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readlink(path, [callback(err,linkString)])</span><br></pre></td></tr></table></figure></p>
+<p>21.修改文件时间戳<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.utimes(path, atime, mtime, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>22.同步磁盘缓存<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.fsync(fd, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>####url 文件管理</p>
+<p>1.解析url，返回一个json格式的数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    url.parse(‘http:<span class="comment">//www.baidu.com’);</span></span><br><span class="line"></span><br><span class="line">结果如: &#123; protocol: <span class="string">'http:’, slashes: null, auth: null, host: null, port: null, hostname: null, hash: null, search: null, query: null, pathname: '</span>www.baidu.com’, path: <span class="string">'www.baidu.com’, href: ‘http://www.baidu.com’ &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>2.解析url - 条件解析<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    url.parse('http://www.baidu.com?page=1’,true); 结果如: &#123; protocol: 'http:’, slashes: true, auth: null, host: 'www.baidu.com’, port: null, hostname: 'www.baidu.com’, hash: null, search: '?page=1’,</span><br><span class="line"></span><br><span class="line">query: &#123; page: ‘1’ &#125;, pathname: '/’, path: '/?page=1’, href: ‘http://www.baidu.com/?page=1’ &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.解析主机<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.parse(<span class="string">'http://www.baidu.com/news’,false,true); 结果如:&#123; protocol: '</span>http:’, slashes: <span class="literal">true</span>, auth: <span class="literal">null</span>, host: <span class="string">'www.baidu.com’, port: null, hostname: '</span>www.baidu.com’, hash: <span class="literal">null</span>, search: <span class="literal">null</span>, query: <span class="literal">null</span>, pathname: <span class="string">'/news’, path: '</span>/news’, href: ‘http:<span class="comment">//www.baidu.com/news’ &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>4.格式化为url. 将json数组逆向成url<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.format(&#123; protocol: <span class="string">'http:’, hostname:’www.baidu.com’, port:’80’, pathname :’/news’, query:&#123;page:1&#125; &#125;); 结果如: http://www.baidu.com/news?page=1</span></span><br></pre></td></tr></table></figure></p>
+<p>5.封装路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.resolve(<span class="string">'http://example.com/’, ‘/one’) // ‘http://example.com/one’ url.resolve('</span>http:<span class="comment">//example.com/one’, ‘/two’) // ‘http://example.com/two’</span></span><br></pre></td></tr></table></figure></p>
+<p>####path 路径管理</p>
+<p>用于处理和转换文件路径的工具集,用于处理目录的对象</p>
+<p>1.格式化路径. 将不符合规范的路径经过格式化转换为标准路径,解析路径中的.与…外，还能去掉多余的斜杠<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.normalize(‘/path<span class="comment">///normalize/hi/…’); 结果如: ‘/path/normalize/’ 标准化之后的路径里的斜杠在Windows系统下是，而在Linux系统下是/</span></span><br></pre></td></tr></table></figure></p>
+<p>2.组合路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.join(<span class="string">'///you’, '</span>/are’, ‘<span class="comment">//beautiful’); 结果如: ‘/you/are/beautiful’</span></span><br></pre></td></tr></table></figure></p>
+<p>3.返回路径中的目录名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.dirname(‘/foo/strong/cool/nice’); 结果如: ‘/foo/strong/cool’</span><br></pre></td></tr></table></figure></p>
+<p>4.返回路径最后一部分,还可以排除指定字符串<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.basename(‘/foo/strong/basename/index.html’); path.basename(‘/foo/strong/basename/index.html’,’.html’); 结果如: index.html 和 index</span><br></pre></td></tr></table></figure></p>
+<p>5.返回路径后缀<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.extname(‘index.html’); 结果如: .html</span><br></pre></td></tr></table></figure></p>
+<p>####Query String 字符串转换</p>
+<p>用于实现URL参数字符串与参数对象之间的互相转换</p>
+<p>1.序列化对象.将对象类型转换成一个字符串类型（默认的分割符（“&amp;”）和分配符（“=”））<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">querystring.stringify(&#123;foo:’bar’,cool:['xux’, ‘yys’]&#125;); 结果如: foo=bar&amp;cool=xux&amp;cool=yys</span><br><span class="line"></span><br><span class="line">重载1: querystring.stringify(&#123;foo:’bar’,cool:[‘xux’, ‘yys’]&#125;,’*’,’$’); 结果如: foo$bar*cool$xux*cool$yys</span><br></pre></td></tr></table></figure></p>
+<p>2.反序列化<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">querystring.parse(<span class="string">'foo@bar$cool@xux$cool@yys‘,’@’,’$’); 结果如: &#123; foo: ‘bar’ , cool: ['</span>xux’, ‘yys’] &#125;</span><br></pre></td></tr></table></figure></p>
+<p>####util 使用工具</p>
+<p>提供常用函数的集合，用于弥补核心JavaScript的一些功能过于精简的不足。并且还提供了一系列常用工具，用来对数据的输出和验证</p>
+<p>1.任意对象转化为字符串,用于调试输出<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.inspect(object,[showHidden],[depth],[colors])</span><br></pre></td></tr></table></figure></p>
+<p>2.格式化字符串. 就像c语言的 printf函数 支持的占位符有：“%s(字符串)”、“%d(数字&lt;整型和浮点型&gt;)”、“%j(JSON)”、“%(单独一个百分号则不作为一个参数)”<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">util.format('%s:%s’, ‘foo’); 结果如: foo:%s</span><br><span class="line"></span><br><span class="line">util.format('%s:%s’, 'foo’, 'bar’, ‘baz’); 结果如: foo:bar baz 额外的参数将会调用util.inspect()转换为字符串连接在一起</span><br><span class="line"></span><br><span class="line">util.format(1, 2, 3); 结果如: 1 2 3 , 第一个参数是一个非格式化字符串，则会把所有的参数转成字符串并以空格隔开拼接在一块</span><br></pre></td></tr></table></figure></p>
+<p>3.验证函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">util.isArray(object); 判断对象是否为数组类型，是则返回ture,否则为<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">util.isDate(object); 判断对象是否为日期类型，是则返回ture,否则返回<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">util.isRegExp(object); 判断对象是否为正则类型，是则返回ture,否则返回<span class="literal">false</span> ,util.isArray()、util.isRegExp()、util.isDate()、util.isError() util.format()、util. debug()</span><br></pre></td></tr></table></figure></p>
+<p>4.继承<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.inherits( 子类, 基类) 实现对象间原型继承</span><br></pre></td></tr></table></figure></p>
+<p>####child_process 子进程</p>
+<p>node.js是基于单线程模型架构，这样的设计可以带来高效的CPU利用率，但是无法却利用多个核心的CPU，为了解决这个问题，node.js提供了child_process模块，通过多进程来实现对多核CPU的利用. child_process模块提供了四个创建子进程的函数，分别是spawn，exec，execFile和fork</p>
+<p>1.用给定的命令发布一个子进程，带有‘args’命令行参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.spawn(command, [args], [options]) command &#123;<span class="built_in">String</span>&#125;要运行的命令行 args &#123;<span class="built_in">Array</span>&#125; 字符串参数列表 options &#123;<span class="built_in">Object</span>&#125; cwd &#123;<span class="built_in">String</span>&#125; 子进程的当前的工作目录 stdio &#123;<span class="built_in">Array</span>|<span class="built_in">String</span>&#125; 子进程 stdio 配置. (参阅下文) customFds &#123;<span class="built_in">Array</span>&#125; Deprecated 作为子进程 stdio 使用的 文件标示符. (参阅下文) env &#123;<span class="built_in">Object</span>&#125; 环境变量的键值对 detached &#123;<span class="built_in">Boolean</span>&#125; 子进程将会变成一个进程组的领导者. (参阅下文) uid &#123;<span class="built_in">Number</span>&#125; 设置用户进程的ID. (See setuid(<span class="number">2</span>).) gid &#123;<span class="built_in">Number</span>&#125; 设置进程组的ID. (See setgid(<span class="number">2</span>).) 返回: &#123;ChildProcess object&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.创建子进程<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.exec(command, [options], callback)</span><br></pre></td></tr></table></figure></p>
+<p>3.创建进程 - 直接运行指定文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.execFile( file);</span><br></pre></td></tr></table></figure></p>
+<p>4.直接运行Node.js模块<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.fork( modulePath ); fork函数只支持运行JavaScript代码</span><br></pre></td></tr></table></figure></p>
+<p>####http HTTP</p>
+<p>2个方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.createServer([requestListener]) 创建HTTP服务器 http.createClient([port], [host]) 创建HTTP客户端</span><br></pre></td></tr></table></figure></p>
+<p>http.Server</p>
+<p>由 http.createServer 创建所返回的实例</p>
+<p>http.Server 事件</p>
+<pre><code>request 客户端请求到来 提供<span class="number">2</span>个参数: req, res 分别是http<span class="class">.ServerRequest</span> 和 http<span class="class">.ServerResponse</span> 的实例.表示请求和响应消息
+
+connection TCP建立连接时触发 提供<span class="number">1</span>个 socket 参数 net<span class="class">.Socket</span> 实例
+
+close 服务器关闭时触发 无参数
+
+还有checkContinue 、 upgrade 、 clientError 等事件. request 经常使用,所以包含在了 createServer函数中
+</code></pre><p>http.ServerRequest 对象 HTTP请求的消息, 一般由 http.Server的 request 事件发送</p>
+<p>属性: complete 客户端请求是否已经发送完成 httpVersion HTTP 协议版本，通常是 1.0 或 1.1 method HTTP 请求方法，如 GET、POST、PUT、DELETE 等 url 原始的请求路径，例如 /static/image/x.jpg 或 /user?name=byvoid headers HTTP 请求头 trailers HTTP 请求尾（不常见） connection 当前 HTTP 连接套接字，为 net.Socket 的实例 socket connection 属性的别名 client client 属性的别名</p>
+<p>GET: 的请求是直接嵌入路径中的. 解析?后面的路径就行了. url 模块中 parse 函数提供了这个功能</p>
+<p>POST:</p>
+<p><strong>HTTP 请求分: 请求头.  请求体</strong><br>http.ServerRequest 提供3个事件控制请求体传输<br>data:   请求体数据来到时. 参数 chunk 表示接收到的数据<br>end:    请求体数据传输完成时<br>close   用户当前请求结束时<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> post = <span class="string">''</span>;</span><br><span class="line">req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;    post += chunk;  &#125;);</span><br><span class="line">req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  post = querystring.parse(post);</span><br><span class="line">res.end(util.inspect(post));&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>http.ServerResponse 对象 http.ServerResponse是返回给客户端的信息,决定了用户最终看到的结果. 有3个重要的成员函数. 用于响应头,响应内容以及结束请求</p>
+<p>1.向客户端发送响应头</p>
+<pre><code>res.writeHead(statusCode, [headers]) statusCode, 是HTTP状态码. 如<span class="number">200</span>,<span class="number">404.</span>
+headers 类似数组的对象,表示响应头的每个属性 { <span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>, <span class="string">"Connection"</span>: “keep-alive” }
+</code></pre><p>2.发送响应内容, 如果是字符串,需要制定编码方式, 默认 utf-8</p>
+<pre><code>res.<span class="function"><span class="title">write</span><span class="params">(data, [encoding])</span></span>
+</code></pre><p>3.结束响应,告知客户端所有响应完成. 此函数必须调用一次</p>
+<pre><code><span class="tag">res</span><span class="class">.end</span>(<span class="attr_selector">[data]</span> , <span class="attr_selector">[encoding]</span> )
+</code></pre><p>文件模块</p>
+<p>文件模块，则是指js文件、json文件或者是.node文件<br>无<br>核心<br>事件</p>
+<p>####挂接模块<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(‘events’).EventEmitter;</span><br></pre></td></tr></table></figure></p>
+<p>1.实例化一个EventEmitter对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> EventEmitter();</span><br></pre></td></tr></table></figure></p>
+<p>2.注册事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emitter.on( ‘Event_Name’ , callBack_Fun ) emitter.once( ‘Event_Name’ , callBack_Fun ) <span class="comment">//注册一个单次监听器,触发一次后立刻解除</span></span><br></pre></td></tr></table></figure></p>
+<p>3.发射事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.emit(‘Event_Name’ , 参数<span class="number">1</span>,参数<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>4.移除事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emitter…removeListener(‘Event_Name’ , callBack_Fun) emitter.removeAllListeners( [‘Event_Name’] ) <span class="comment">//如果指定了事件名,就移除指定的,否则移除所有事件</span></span><br></pre></td></tr></table></figure></p>
+<p>##模块和包</p>
+<p>Node.js 的模块和包机制的实现参照了 CommonJS 的标准，但并未完全遵循。</p>
+<h4 id="包">包</h4><p>包是在模块基础上更深一步的抽象, 类似于 c/c++ 的函数库.<br>Node.js 包是一个目录. 其中包含一个JSON格式的说明文件 package.json<br>CommonJS 规范特征:<br>-&gt;   package.json 必须在包的顶层目录下<br>-&gt;   二进制文件在bin目录下<br>-&gt;   JavaScript代码在lib目录下<br>-&gt;   文档应该在doc目录下<br>-&gt;   单元测试在test目录下</p>
+<h4 id="require(‘Modile_Name’)">require(‘Modile_Name’)</h4><p>功能: 加载其他模块<br>说明: 不会重复加载以加载的模块</p>
+<h4 id="exports-setName">exports.setName</h4><p>功能: 公开一个模块中的函数或对象<br>说明: exports 本身仅仅是一个普通的空对象，即 {}. 所以 exports.函数  就是给它加了函数<br>    module.exports  则是用一个对象取代 exports  对象. (不可以对 exports 直接赋值替代此功能)</p>
+<p>方式1:<br>    //使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.SayName = <span class="function"><span class="keyword">function</span>(<span class="params">thyName</span>) </span>&#123;<span class="built_in">console</span>.log(thyName)&#125;;</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="comment">//调用</span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">require</span>(<span class="string">'./fileName'</span>);</span><br><span class="line">test.SayName(<span class="string">'XueYou'</span>);</span><br></pre></td></tr></table></figure>
+<p>方式2:<br>    //使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name;</span><br><span class="line">    <span class="keyword">this</span>.setNam()&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.SayName()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = hello;</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="comment">//调用</span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">require</span>(<span class="string">'./fileName'</span>);</span><br><span class="line">test = <span class="keyword">new</span> test();  <span class="comment">//注意因为是对象,所以要new</span></span><br><span class="line">test.SayName();</span><br></pre></td></tr></table></figure>
+<p>其他<br>express 与 webstorm 配置</p>
+<p>Node interpreter : node.exe 路径 Node parameters : ./bin/www Working directory : 工作目录 JavaScript file : app.js</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/15/node-man-1/" data-id="cie9xujel002nc5fyokrhno6c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node-man-5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/15/node-man-5/" class="article-date">
+  <time datetime="2014-12-15T03:52:34.000Z" itemprop="datePublished">2014-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/15/node-man-5/">Node.js Ejs 方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##express 中使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置模板目录</span></span><br><span class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));    </span><br><span class="line"></span><br><span class="line"><span class="comment">//设置模板引擎</span></span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置引擎后缀.  index.html 中的内容可以是 ejs 代码</span></span><br><span class="line">app.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ejs的特性： </span><br><span class="line"><span class="number">1</span>、缓存功能，能够缓存已经解析好的html模版；</span><br><span class="line"><span class="number">2</span>、&lt;% code %&gt;用于执行其中javascript代码；</span><br><span class="line"><span class="number">3</span>、&lt;%= code %&gt;会对code进行html转义； </span><br><span class="line"><span class="number">4</span>、&lt;%- code %&gt;将不会进行转义； </span><br><span class="line"><span class="number">5</span>、支持自定义标签，比如’&lt;%’可以使用’左括号 左括号’，’%&gt;’用’右括号 右括号’代替； </span><br><span class="line"><span class="number">6</span>、提供一些辅助函数，用于模版中使用 </span><br><span class="line"><span class="number">7</span>、利用&lt;%- include filename %&gt;加载其他页面模版；</span><br></pre></td></tr></table></figure>
+<p>##ejs 函数/运算符</p>
+<p>####1.引入模板 不指定后缀就寻找 layout.ejs. (注意:如果没有定义模板目录,则 include无效)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% include layout.html%&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">%-</span> <span class="attribute">include</span> <span class="attribute">layout.html</span>%&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>####2.静态编译模板,没有 IO 操作，会非常快，而且可以公用本地变量.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">users.forEach</span>(<span class="attribute">function</span>(<span class="attribute">user</span>)&#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> <span class="attribute">include</span> <span class="attribute">user</span>/<span class="attribute">show</span> %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> &#125;) %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>意思就是模板名是动态的</p>
+<p>####3.自定义 闭合标签.<br>厌倦了<code>&lt;% %&gt; ?</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置闭合标签</span></span><br><span class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>);  </span><br><span class="line">ejs.open = <span class="string">'左括号 左括号'</span>;  </span><br><span class="line">ejs.close = <span class="string">'右括号 右括号'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>express中全局设定<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.set(<span class="string">"view options"</span>,&#123;                                                                                  </span><br><span class="line">   <span class="string">"open"</span>:<span class="string">"左括号 左括号"</span>,                                                                                  </span><br><span class="line">   <span class="string">"close"</span>:<span class="string">"右括号 右括号"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>####4.变量<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//传递 index 模板引擎参数</span></span><br><span class="line">res.render(<span class="string">'index'</span>,&#123;<span class="string">'title'</span>:<span class="string">'haha'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用参数</span></span><br><span class="line">&lt;title&gt;<span class="xml"><span class="tag">&lt;<span class="title">%=</span> <span class="attribute">title</span> %&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>####5.运行js代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="keyword">for</span>(<span class="keyword">var</span> i=p.length-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--)&#123;%&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">&lt;%=p[i]%</span>&gt;</span>&gt;</span><br><span class="line"><span class="tag">&lt;<span class="title">%右括号%</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>####6.选项 express中 通过 res.redirect(‘login’, [options]); 来对模板进行访问,options就可以设置模板引擎的一些选项 其中options的一些参数为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、cache：是否缓存解析后的模版，需要filename作为key； </span><br><span class="line"><span class="number">2</span>、filename：模版文件名； </span><br><span class="line"><span class="number">3</span>、scope：complile后的<span class="built_in">Function</span>执行所在的上下文环境； </span><br><span class="line"><span class="number">4</span>、debug：标识是否是debeg状态，debug为<span class="literal">true</span>则会输出生成的<span class="built_in">Function</span>内容；</span><br><span class="line"><span class="number">5</span>、compileDebug：标识是否是编译debug，为<span class="literal">true</span>则会生成解析过程中的跟踪信息，用于调试； </span><br><span class="line"><span class="number">6</span>、client，标识是否用于浏览器客户端运行，为<span class="literal">true</span>则返回解析后的可以单独运行的<span class="built_in">Function</span>函数； </span><br><span class="line"><span class="number">7</span>、open，代码开头标记，默认为’&lt;%’； </span><br><span class="line"><span class="number">8</span>、close，代码结束标记，默认为’%&gt;’； </span><br><span class="line"><span class="number">9</span>、其他的一些用于解析模版时提供的变量。 在express中使用时，options参数将由response.render进行传入，其中包含了一些express中的设置，以及用户提供的变量值。</span><br></pre></td></tr></table></figure></p>
+<p>####7.f辅助函数 此外ejs还提供了一些辅助函数，用于代替使用javascript代码，使得更加方便的操纵数据。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、first，返回数组的第一个元素； </span><br><span class="line"><span class="number">2</span>、last，返回数组的最后一个元素； </span><br><span class="line"><span class="number">3</span>、capitalize，返回首字母大写的字符串； </span><br><span class="line"><span class="number">4</span>、downcase，返回字符串的小写； </span><br><span class="line"><span class="number">5</span>、upcase，返回字符串的大写； </span><br><span class="line"><span class="number">6</span>、sort，排序（<span class="built_in">Object</span>.create(obj).sort()？）；</span><br><span class="line"><span class="number">7</span>、sort_by:’prop’，按照指定的prop属性进行升序排序； </span><br><span class="line"><span class="number">8</span>、size，返回长度，即length属性，不一定非是数组才行； </span><br><span class="line"><span class="number">9</span>、plus:n，加上n，将转化为<span class="built_in">Number</span>进行运算； </span><br><span class="line"><span class="number">10</span>、minus:n，减去n，将转化为<span class="built_in">Number</span>进行运算； </span><br><span class="line"><span class="number">11</span>、times:n，乘以n，将转化为<span class="built_in">Number</span>进行运算；</span><br><span class="line"><span class="number">12</span>、divided_by:n，除以n，将转化为<span class="built_in">Number</span>进行运算； </span><br><span class="line"><span class="number">13</span>、join:’val’，将数组用’val’最为分隔符，进行合并成一个字符串； </span><br><span class="line"><span class="number">14</span>、truncate:n，截取前n个字符，超过长度时，将返回一个副本 </span><br><span class="line"><span class="number">15</span>、truncate_words:n，取得字符串中的前n个word，word以空格进行分割； </span><br><span class="line"><span class="number">16</span>、replace:pattern,substitution，字符串替换，substitution不提供将删除匹配的子串；<span class="number">17</span>、prepend:val，如果操作数为数组，则进行合并；为字符串则添加val在前面； </span><br><span class="line"><span class="number">18</span>、append:val，如果操作数为数组，则进行合并；为字符串则添加val在后面； </span><br><span class="line"><span class="number">19</span>、map:’prop’，返回对象数组中属性为prop的值组成的数组； </span><br><span class="line"><span class="number">20</span>、reverse，翻转数组或字符串；</span><br><span class="line"><span class="number">21</span>、get:’prop’，取得属性为’prop’的值； </span><br><span class="line"><span class="number">22</span>、json，转化为json格式字符串</span><br></pre></td></tr></table></figure></p>
+<p>辅助函数使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意闭合标签  &lt;%=:  %&gt;</span></span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="xml"><span class="tag">&lt;<span class="title">%=:p|first%</span>&gt;</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>####8.给模板添加方法</p>
+<pre><code><span class="keyword">app</span>.locals[‘say’] = function(){ <span class="keyword">return</span> 'hello’; };
+在 <span class="keyword">app</span>.locals 中定义的方法都可以在模板中引用
+&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"button"</span> value=&lt;%=say()%&gt;&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/15/node-man-5/" data-id="cie9xuje00024c5fydtniv4dj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejs/">ejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css3-xuanfu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/11/css3-xuanfu/" class="article-date">
+  <time datetime="2014-12-11T09:41:41.000Z" itemprop="datePublished">2014-12-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/11/css3-xuanfu/">CSS3鼠标悬停图片动画 多种文字动画效果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##HTML代码</p>
+<pre><code><span class="tag">&lt;<span class="title">div&amp;nbsp;class="grid"</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">figure&amp;nbsp;class="effect-lily"</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">img&amp;nbsp;src="img</span>/<span class="attribute">12.jpg</span>"&amp;<span class="attribute">nbsp</span>;<span class="attribute">alt</span>=<span class="value">"img12"</span>/&gt;</span>
+
+<span class="tag">&lt;<span class="title">figcaption</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">h2</span>&gt;</span>Nice&amp;nbsp;<span class="tag">&lt;<span class="title">span</span>&gt;</span>Lily<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>Lily&amp;nbsp;likes&amp;nbsp;to&amp;nbsp;play&amp;nbsp;with&amp;nbsp;crayons&amp;nbsp;and&amp;nbsp;pencils<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">a&amp;nbsp;href="#"</span>&gt;</span>View&amp;nbsp;more<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">figcaption</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">figure&amp;nbsp;class="effect-lily"</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">img&amp;nbsp;src="img</span>/<span class="attribute">1.jpg</span>"&amp;<span class="attribute">nbsp</span>;<span class="attribute">alt</span>=<span class="value">"img1"</span>/&gt;</span>
+
+<span class="tag">&lt;<span class="title">figcaption</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">h2</span>&gt;</span>Nice&amp;nbsp;<span class="tag">&lt;<span class="title">span</span>&gt;</span>Lily<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>Lily&amp;nbsp;likes&amp;nbsp;to&amp;nbsp;play&amp;nbsp;with&amp;nbsp;crayons&amp;nbsp;and&amp;nbsp;pencils<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">a&amp;nbsp;href="#"</span>&gt;</span>View&amp;nbsp;more<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">figcaption</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>##CSS代码</p>
+<pre><code><span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">img</span> <span class="rules">{
+
+<span class="rule"><span class="attribute">max-width</span>:<span class="value"> none</span></span>;
+
+<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="function">-webkit-calc</span>(<span class="number">100%</span> + <span class="number">50px</span>)</span></span>;
+
+<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="function">calc</span>(<span class="number">100%</span> + <span class="number">50px</span>)</span></span>;
+
+<span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0.7</span></span></span>;
+
+<span class="rule"><span class="attribute">-webkit-transition</span>:<span class="value"> opacity <span class="number">0.35s</span>, -webkit-transform <span class="number">0.35s</span></span></span>;
+
+<span class="rule"><span class="attribute">transition</span>:<span class="value"> opacity <span class="number">0.35s</span>, transform <span class="number">0.35s</span></span></span>;
+
+<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">40px</span>,<span class="number">0</span>, <span class="number">0</span>)</span></span>;
+
+<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">40px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;
+
+}</span>
+
+
+
+<span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">figcaption</span> <span class="rules">{
+
+<span class="rule"><span class="attribute">text-align</span>:<span class="value"> left</span></span>;
+
+}</span>
+
+
+
+<span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">figcaption</span> &gt; <span class="tag">div</span> <span class="rules">{
+
+<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+
+<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;
+
+<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+
+<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">2em</span></span></span>;
+
+<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;
+
+<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50%</span></span></span>;
+
+}</span>
+
+
+
+<span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">h2</span>,
+
+<span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">p</span> <span class="rules">{
+
+<span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">40px</span>,<span class="number">0</span>)</span></span>;
+
+<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">40px</span>,<span class="number">0</span>)</span></span>;
+
+}</span>
+
+
+
+<span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">h2</span> <span class="rules">{
+
+<span class="rule"><span class="attribute">-webkit-transition</span>:<span class="value"> -webkit-transform <span class="number">0.35s</span></span></span>;
+
+<span class="rule"><span class="attribute">transition</span>:<span class="value"> transform <span class="number">0.35s</span></span></span>;
+
+}</span>
+
+
+
+<span class="tag">figure</span><span class="class">.effect-lily</span> <span class="tag">p</span> <span class="rules">{
+
+<span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.8</span>)</span></span>;
+
+<span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0</span></span></span>;
+
+<span class="rule"><span class="attribute">-webkit-transition</span>:<span class="value"> opacity <span class="number">0.2s</span>, -webkit-transform <span class="number">0.35s</span></span></span>;
+
+<span class="rule"><span class="attribute">transition</span>:<span class="value"> opacity <span class="number">0.2s</span>, transform <span class="number">0.35s</span></span></span>;
+
+}</span>
+
+
+
+<span class="rule"><span class="attribute">figure.effect-lily</span>:<span class="value">hover img,
+
+figure.effect-lily:hover p {
+
+opacity: <span class="number">1</span></span></span>;
+
+}
+
+
+
+<span class="rule"><span class="attribute">figure.effect-lily</span>:<span class="value">hover img,
+
+figure.effect-lily:hover h2,
+
+figure.effect-lily:hover p {
+
+-webkit-transform: <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;
+
+<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;
+
+}
+
+
+
+<span class="rule"><span class="attribute">figure.effect-lily</span>:<span class="value">hover p {
+
+-webkit-transition-delay: <span class="number">0.05s</span></span></span>;
+
+<span class="rule"><span class="attribute">transition-delay</span>:<span class="value"> <span class="number">0.05s</span></span></span>;
+
+<span class="rule"><span class="attribute">-webkit-transition-duration</span>:<span class="value"> <span class="number">0.35s</span></span></span>;
+
+<span class="rule"><span class="attribute">transition-duration</span>:<span class="value"> <span class="number">0.35s</span></span></span>;
+
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/11/css3-xuanfu/" data-id="cie9xujfn004bc5fyu55g3qcr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-php-source" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/10/php-source/" class="article-date">
+  <time datetime="2014-12-10T07:07:16.000Z" itemprop="datePublished">2014-12-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/10/php-source/">php常用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##PHP内置小型web server<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -S localhost:<span class="number">8080</span> -t /www <span class="comment">#-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程</span></span><br></pre></td></tr></table></figure></p>
+<p>##PHP命令行参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/local/bin/php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">"argc"</span>].<span class="string">"\n"</span>; <span class="comment">#2，为参数的个数</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">"argv"</span>][<span class="number">1</span>].<span class="string">"\n"</span>;<span class="comment">#a  输入的第一个参数</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">"argv"</span>][<span class="number">2</span>].<span class="string">"\n"</span>; <span class="comment">#b 输入的第二个参数</span></span><br><span class="line"><span class="comment">#$_SERVER["argc"]数组返回一个整型的数，代表从命令行上回车后一共输入了几个参数。</span></span><br><span class="line"><span class="comment">#从PHP命令行读取参数范例中的结果已经看出，要访问已经传入的参数值，需要从索引1开始。</span></span><br><span class="line"><span class="comment">#因为脚本本身的文件已经占用了索引0，即$_SERVER["argv"][0]</span></span><br></pre></td></tr></table></figure>
+<p>##PHP类型判断</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">+--------------+-----------+---------+-----------+---------+--------+</span><br><span class="line">| 真值表        | gettype() | <span class="keyword">empty</span>() | is_null() | isset() | (bool) |</span><br><span class="line">+--------------+-----------+---------+-----------+---------+--------+</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">""</span>      | string    | <span class="literal">true</span>    | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">false</span>  |</span><br><span class="line">| <span class="variable">$x</span>=null      | NULL      | <span class="literal">true</span>    | <span class="literal">true</span>      | <span class="literal">false</span>   | <span class="literal">false</span>  |</span><br><span class="line">| var <span class="variable">$x</span>       | NULL      | <span class="literal">true</span>    | <span class="literal">true</span>      | <span class="literal">false</span>   | <span class="literal">false</span>  |</span><br><span class="line">| <span class="variable">$x</span> = <span class="keyword">array</span>() | <span class="keyword">array</span>     | <span class="literal">true</span>    | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">false</span>  |</span><br><span class="line">| <span class="variable">$x</span> = <span class="literal">false</span>   | boolean   | <span class="literal">true</span>    | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">false</span>  |</span><br><span class="line">| <span class="variable">$x</span> = <span class="number">15</span>      | integer   | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="number">1</span>       | integer   | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="number">0</span>       | integer   | <span class="literal">true</span>    | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">false</span>  |</span><br><span class="line">| <span class="variable">$x</span> = -<span class="number">1</span>      | integer   | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'15'</span>    | string    | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'1'</span>     | string    | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'0'</span>     | string    | <span class="literal">true</span>    | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">false</span>  |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'-1'</span>    | string    | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'foo'</span>   | string    | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'true'</span>  | string    | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">| <span class="variable">$x</span> = <span class="string">'false'</span> | string    | <span class="literal">false</span>   | <span class="literal">false</span>     | <span class="literal">true</span>    | <span class="literal">true</span>   |</span><br><span class="line">+--------------+-----------+---------+-----------+---------+--------+</span><br><span class="line"><span class="keyword">empty</span>() 和 bool 不可能相等</span><br></pre></td></tr></table></figure>
+<p>##修改phpunit内存限制<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpunit <span class="operator">-d</span> memory_<span class="built_in">limit</span>=<span class="number">512</span>M</span><br></pre></td></tr></table></figure></p>
+<p>##php下载远程文件到本地<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span> = <span class="string">'http://picturescdn.qiniudn.com/93aa93787ae02be68192b3533d3e76b0'</span>;</span><br><span class="line"><span class="variable">$remote_fp</span> = fopen(<span class="variable">$url</span>,<span class="string">'rb'</span>);<span class="comment">#指定fopen的打开模式为b(二进制模式)</span></span><br><span class="line"><span class="variable">$local_fp</span> = fopen(date(<span class="string">'YmdHis'</span>),<span class="string">'wb'</span>);</span><br><span class="line"><span class="keyword">while</span>(!feof(<span class="variable">$remote_fp</span>))&#123;</span><br><span class="line">    fwrite(<span class="variable">$local_fp</span>,fread(<span class="variable">$remote_fp</span>,<span class="number">128</span>));</span><br><span class="line">&#125;</span><br><span class="line">fclose(<span class="variable">$remote_fp</span>);</span><br><span class="line">fclose(<span class="variable">$local_fp</span>);</span><br></pre></td></tr></table></figure></p>
+<p>##cURL 常用函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="variable">$curlobj</span>=curl_init(<span class="string">'http://www.baidu.com'</span>);<span class="comment">//初始化culr</span></span><br><span class="line"><span class="variable">$curlobj</span> = curl_init();			</span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_URL, <span class="string">"http://www.baidu.com"</span>);<span class="comment">// 初始化，两种</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//相关常用的option</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);	<span class="comment">// 执行之后不直接打印出来，否则会直接输出</span></span><br><span class="line"><span class="variable">$output</span>=curl_exec(<span class="variable">$curlobj</span>);	<span class="comment">// 执行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果模拟cookie登录 要先设置cookie</span></span><br><span class="line">date_default_timezone_set(<span class="string">'PRC'</span>); <span class="comment">// 使用Cookie时，必须先设置时区</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_COOKIESESSION, <span class="number">1</span>); </span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_HEADER, <span class="number">0</span>); </span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>); <span class="comment">// 支持页面链接跳转  这个设置必须关闭安全模式 </span></span><br><span class="line"><span class="comment">//以及关闭open_basedir，金额贝尔不过对服务器安全不利</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将数据post</span></span><br><span class="line"><span class="variable">$postdata</span>=<span class="string">'username=buzzmjx@126.com&amp;password=123456'</span>;</span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_POST, <span class="number">1</span>);  <span class="comment">//允许post</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_POSTFIELDS, <span class="variable">$postdata</span>);  <span class="comment">//post 数据</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">"application/x-www-form-urlencoded; charset=utf-8"</span>,</span><br><span class="line"> <span class="string">"Content-length: "</span>.strlen(<span class="variable">$postdata</span>))); </span><br><span class="line"></span><br><span class="line"><span class="comment">//从ftp下载</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_TIMEOUT, <span class="number">300</span>); <span class="comment">// times out after 300s</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_USERPWD, <span class="string">"buzzmjx:123456"</span>);<span class="comment">//FTP用户名：密码</span></span><br><span class="line"><span class="variable">$outfile</span> = fopen(<span class="string">'dest.txt'</span>, <span class="string">'wb'</span>);<span class="comment">//保存到本地的文件名</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_FILE, <span class="variable">$outfile</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//上传ftp</span></span><br><span class="line"><span class="variable">$fp</span> = fopen(<span class="string">'test.php'</span>, <span class="string">'r'</span>);</span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_UPLOAD, <span class="number">1</span>);</span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_INFILE, <span class="variable">$fp</span>);</span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_INFILESIZE, filesize(<span class="variable">$localfile</span>));</span><br><span class="line"><span class="variable">$rtn</span> = curl_exec(<span class="variable">$curlobj</span>);  </span><br><span class="line"> </span><br><span class="line"><span class="comment">// 设置HTTPS支持</span></span><br><span class="line">date_default_timezone_set(<span class="string">'PRC'</span>); <span class="comment">// 使用Cookie时，必须先设置时区</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_SSL_VERIFYPEER, <span class="number">0</span>); <span class="comment">// 对认证证书来源的检查从证书中检查</span></span><br><span class="line"><span class="comment">//SSL加密算法是否存在</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_SSL_VERIFYHOST, <span class="number">2</span>); <span class="comment">// </span></span><br><span class="line"><span class="comment">//webservice</span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_POSTFIELDS, <span class="variable">$data</span>); <span class="comment">//data为soapxml </span></span><br><span class="line">curl_setopt(<span class="variable">$curlobj</span>, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">"Content-Type: application/soap+xml; charset=utf-8"</span>, </span><br><span class="line">	<span class="string">"Content-length: "</span>.strlen(<span class="variable">$data</span>),</span><br><span class="line"><span class="string">"SOAPAction:\"http://WebXml.com.cn/getWeatherbyCityName\""</span>)); </span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭</span></span><br><span class="line">curl_close(<span class="variable">$curlobj</span>);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/10/php-source/" data-id="cie9xujd1000zc5fyhuy67sgx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/参数/">参数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令行/">命令行</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-source" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/10/linux-source/" class="article-date">
+  <time datetime="2014-12-10T07:07:16.000Z" itemprop="datePublished">2014-12-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/10/linux-source/">linux常用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##网络状态<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -an |grep ESTABLISHED |wc -l <span class="preprocessor">#查看网络连接状态</span></span><br></pre></td></tr></table></figure></p>
+<p>##压缩命令<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">支持tar,tar.gz：</span><br><span class="line">	tar zxvf aaa.tar.gz <span class="preprocessor">#解压</span></span><br><span class="line">	tar zcvf aaa.tar.gz aaa <span class="preprocessor">#压缩</span></span><br><span class="line">	-c:建立新的存档</span><br><span class="line">	-x:解压</span><br><span class="line">	-v:详细内容</span><br><span class="line">	-f:指定存档或设备	</span><br><span class="line">zip:</span><br><span class="line">	unzip FileName.zip</span><br><span class="line">	zip FileName.zip DirName</span><br><span class="line">	</span><br><span class="line">.gz</span><br><span class="line">gzip 源文件（压缩成.gz的压缩文件，源文件会消失）</span><br><span class="line">gzip -c 源文件 &gt; 压缩文件（压缩为.gz格式，源文件保留）</span><br><span class="line">gzip -r 目录(压缩目录下所有的子文件，但是不能压缩目录)</span><br></pre></td></tr></table></figure></p>
+<p>##查看端口的占用情况<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:<span class="number">80</span>  <span class="preprocessor">#查看<span class="number">80</span>端口 root下</span></span><br><span class="line">lsof <span class="preprocessor">#查看本地网络服务活动状态</span></span><br></pre></td></tr></table></figure></p>
+<p>##修改主机名称<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hostname <span class="preprocessor">#主机名</span></span><br><span class="line">vi /etc/hosts <span class="preprocessor">#域名解析</span></span><br></pre></td></tr></table></figure></p>
+<p>##apt操作<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search package 搜索包    </span><br><span class="line">apt-cache show package 获取包的相关信息，如说明、大小、版本等    </span><br><span class="line">sudo apt-get install package 安装包    </span><br><span class="line">sudo apt-get install package - - reinstall 重新安装包    </span><br><span class="line">sudo apt-get -f install 修复安装<span class="string">"-f = ——fix-missing"</span>    </span><br><span class="line">sudo apt-get remove package 删除包    </span><br><span class="line">sudo apt-get remove package - - purge 删除包，包括删除配置文件等    </span><br><span class="line">sudo apt-get update 更新源    </span><br><span class="line">sudo apt-get upgrade 更新已安装的包    </span><br><span class="line">sudo apt-get dist-upgrade 升级系统    </span><br><span class="line">sudo apt-get dselect-upgrade 使用 dselect 升级    </span><br><span class="line">apt-cache depends package 了解使用依赖    </span><br><span class="line">apt-cache rdepends package 是查看该包被哪些包依赖    </span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境    </span><br><span class="line">apt-get source package 下载该包的源代码    </span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包    </span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure></p>
+<p>##查看Linux内核版本或发布版本<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
+<p>##查看端口<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat –tlnp</span><br><span class="line">netstat -an</span><br></pre></td></tr></table></figure></p>
+<p>##debian 安装软件<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i &lt;file.deb&gt;<span class="preprocessor">#安装指定的deb包</span></span><br><span class="line">dpkg -R &lt;dir&gt; <span class="preprocessor">#安装目录下的所有deb包</span></span><br><span class="line">dpkg -r &lt;file.deb&gt;<span class="preprocessor">#删除指定的deb包</span></span><br><span class="line">dpkg -L apache2 <span class="preprocessor">#查看指定软件的目录</span></span><br></pre></td></tr></table></figure></p>
+<p>##grep 搜索<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">grep -c aaa file <span class="preprocessor">#显示 file中包含aaa内容的行数是几</span></span><br><span class="line">grep -n aaa flie <span class="preprocessor">#列出所有的匹配行，并在最前面添加行的序列数</span></span><br><span class="line">grep -v aaa file <span class="preprocessor">#显示文件中不包含所搜索内容的行数，这个和-c的参数正好相反</span></span><br><span class="line">grep -i aaa file <span class="preprocessor">#列出所搜索内容的匹配行，搜索过程中不区分大小写</span></span><br><span class="line">grep -l aaa * <span class="preprocessor">#列出所有包含aaa内容的文件的名</span></span><br><span class="line">grep -r aaa <span class="preprocessor">#对当前目录和所有的子目录进行搜索</span></span><br><span class="line">grep -w aaa file：<span class="preprocessor">#精确搜索，可以说准确性搜索，比如：grep -w b* a.txt：</span></span><br><span class="line">						<span class="preprocessor">#此命令执行时，*不会默认为任何字符，只表示字面意思，就是一个*字符.</span></span><br><span class="line">grep -x aaa file <span class="preprocessor">#完全匹配输出，比如：grep -x hello a.txt，只会输出某一行存在hello字符串，</span></span><br><span class="line"><span class="preprocessor">#并且此行仅包含hello的内容。假设a.txt中有一行“hello all”，执行上述命令，此行不会被搜索到。</span></span><br></pre></td></tr></table></figure></p>
+<p>##自启动<br><strong>运行级别(Runlevel)</strong>指的是Unix或者Linux等类Unix操作系统下不同的运行模式。运行级别通常分为7等，分别是从0到6.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">**<span class="number">0</span>** 停机</span><br><span class="line">**<span class="number">1</span>** 单用户，Does not configure network interfaces, start daemons, or allow non-root logins</span><br><span class="line">**<span class="number">2</span>** 多用户，无网络连接 Does not configure network interfaces or start daemons</span><br><span class="line">**<span class="number">3</span>** 多用户，启动网络连接 Starts the system normally.</span><br><span class="line">**<span class="number">4</span>** 用户自定义</span><br><span class="line">**<span class="number">5</span>** 多用户带图形界面</span><br><span class="line">**<span class="number">6</span>** 重启</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#在/etc下,根据不同的运行级别,通过脚本来启动服务</span></span><br><span class="line">/etc/rc0.d Run level <span class="number">0</span></span><br><span class="line">/etc/rc1.d Run level <span class="number">1</span></span><br><span class="line">/etc/rc2.d Run level <span class="number">2</span></span><br><span class="line">/etc/rc3.d Run level <span class="number">3</span></span><br><span class="line">/etc/rc4.d Run level <span class="number">4</span></span><br><span class="line">/etc/rc5.d Run level <span class="number">5</span></span><br><span class="line">/etc/rc6.d Run level <span class="number">6</span></span><br><span class="line"><span class="preprocessor">#可能会有:</span></span><br><span class="line">K01apache2与S91apache2</span><br><span class="line"></span><br><span class="line">K:终止,S:启动</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#修改常用的工具: sysv-rc-conf</span></span><br><span class="line">sudo apt-get install sysv-rc-conf</span><br></pre></td></tr></table></figure></p>
+<p>##设置软链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -n file1 file2 <span class="comment">#创建file1的软链接file2,最好用绝对路径,否则可能会造成目录错误</span></span><br></pre></td></tr></table></figure></p>
+<p>##安全关机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now <span class="comment">#安全重启服务器</span></span><br><span class="line">shutdown -h <span class="comment">#关机</span></span><br></pre></td></tr></table></figure></p>
+<p>##历史命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> 查看用户所有使用过的历史命令</span><br><span class="line"><span class="built_in">history</span> -w更新历史命令保存文件</span><br><span class="line"><span class="built_in">history</span> -c清空历史命令（错误信息及他人入侵的参考）</span><br><span class="line"><span class="comment">#注销后保存在 ~/.bash_history中</span></span><br><span class="line"></span><br><span class="line">使用上、下箭头调用以前的历史命令</span><br><span class="line">使用<span class="string">"!n"</span>重复执行第n条历史命令</span><br><span class="line">使用<span class="string">"!!"</span>重复执行上一条命令</span><br><span class="line">使用<span class="string">"!字串"</span>重复执行最后一条以该字串开头的命令</span><br></pre></td></tr></table></figure></p>
+<p>##重定向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">标准输入输出 <span class="number">0</span> 标准输入 <span class="number">1</span>标准输出 <span class="number">2</span> 标准错误输出</span><br><span class="line">命令 &gt; 文件（覆盖）,命令 &gt;&gt; 文件（追加） 都是正确语句的重定向,</span><br><span class="line">命令 &gt; 文件 <span class="number">2</span>&gt;&amp;<span class="number">1</span> (覆盖)，命令 &gt;&gt; 文件 <span class="number">2</span>&gt;&amp;<span class="number">1</span>，正确错误信息输出都保存到同一个文件。</span><br><span class="line">命令&amp;&gt;文件 （覆盖），命令&amp;&gt;&gt;文件 (追加)，正确错误信息输出都保存到同一个文件。</span><br><span class="line">命令 &gt;&gt; 文件<span class="number">1</span> <span class="number">2</span>&gt;&gt;文件<span class="number">2</span> 把正确的输出追加到文件<span class="number">1</span>中，错误输出追加到文件<span class="number">2</span>中。</span><br><span class="line">/dev/null 是系统预留的用来接受垃圾的文件，即任何东西写到这个文件里面都会消失即不存在。</span><br><span class="line"></span><br><span class="line">wc -c 统计字节数</span><br><span class="line">wc <span class="operator">-l</span> 统计单词数</span><br></pre></td></tr></table></figure></p>
+<p>##变量操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> 查看变量</span><br><span class="line"><span class="built_in">set</span> -u 调用未声明的变量时会报错</span><br><span class="line">x=<span class="variable">$&#123;x&#125;</span><span class="number">111</span> 变量叠加</span><br><span class="line"><span class="built_in">unset</span> x 删除变量x</span><br><span class="line">env 查看环境变量</span><br><span class="line">PS1变量：命令提示符设置</span><br><span class="line">	\d <span class="comment">#显示日期，格式为“星期 月 日”</span></span><br><span class="line">	\H <span class="comment">#显示完整的主机名，如默认的主机名“localhost.localdomain”</span></span><br><span class="line">	\h <span class="comment">#显示主机名，如localhost</span></span><br><span class="line">	\t <span class="comment">#显示24小时制时间，格式为“HH:MM:SS”</span></span><br><span class="line">	\A <span class="comment">#显示24小时制时间，格式为“HH:MM”</span></span><br><span class="line">	\u <span class="comment">#显示当前用户名</span></span><br><span class="line">	\w <span class="comment">#显示当前所在目录的最后一个目录</span></span><br><span class="line">	\W <span class="comment">#显示当前所在目录的最后一个目录</span></span><br><span class="line">	\$ <span class="comment">#提示符。如果是root用户会显示提示符为“#”，如果是普通用户会显示提示符为“$”</span></span><br><span class="line"></span><br><span class="line">命令行位置变量:</span><br><span class="line">	<span class="variable">$n</span>　 n为数字，<span class="variable">$0</span>代表命令本身，<span class="variable">$1</span>-<span class="variable">$9</span>代表第一到第九个参数，十以上的参数需要用大括号包含，如<span class="variable">$&#123;10&#125;</span></span><br><span class="line">	$* 这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体</span><br><span class="line">	<span class="variable">$@</span> 　这个变量也代表命令行中所有参数，不过<span class="variable">$@</span>把每个参数区分对待</span><br><span class="line">	<span class="variable">$#</span> 　这个变量代表命令行所有参数的个数</span><br><span class="line"></span><br><span class="line">预定义变量:</span><br><span class="line">	$? ：最后一次执行命令的返回状态，如果正确执行，则返回<span class="number">0</span>；</span><br><span class="line">	$$：返回当前进程的PID号；</span><br><span class="line">	</span><br><span class="line">	$!：返回后台的进程PID号；</span><br><span class="line"><span class="built_in">read</span> -n</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"please input name "</span> name <span class="comment">#-p表示输出提示信息 read [选项] 变量名</span></span><br><span class="line"><span class="built_in">read</span> -t <span class="number">30</span> <span class="comment">#-t 表示等待时间单位为秒 -t 30 表示30秒，若30秒后没有输入数据终止执行脚本</span></span><br><span class="line"><span class="built_in">read</span> <span class="operator">-s</span> <span class="comment">#隐藏信息</span></span><br><span class="line"></span><br><span class="line">变量声明:</span><br><span class="line">	<span class="built_in">declare</span>声明变量类型</span><br><span class="line">	<span class="built_in">declare</span> [+/-] [选项] 变量名 -设定类型 +取消类型</span><br><span class="line">	<span class="built_in">declare</span> -p 变量名 显示变量类型</span><br><span class="line">	<span class="built_in">declare</span> -i 变量名 声明为整形</span><br><span class="line">	<span class="built_in">declare</span> <span class="operator">-a</span> 声明为数组</span><br><span class="line">	<span class="built_in">declare</span> -x 变量 相当于 <span class="built_in">export</span> <span class="built_in">export</span>其实是调用了<span class="built_in">declare</span> -x</span><br><span class="line">	<span class="built_in">declare</span> -r 变量 将变量变为只读属性 改为只读属性后，无法进行操作了。</span><br><span class="line">	</span><br><span class="line">数值计算 dd=$(expr <span class="variable">$aa</span> + <span class="variable">$bb</span>)</span><br></pre></td></tr></table></figure></p>
+<p>##磁盘管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">分区类型：</span><br><span class="line">	主分区最多只能分<span class="number">4</span>个</span><br><span class="line">扩展分区：</span><br><span class="line">	最多只能有<span class="number">1</span>个</span><br><span class="line">	主分区加扩展分区最多有<span class="number">4</span>个</span><br><span class="line">	不能写入数据，只能包含逻辑分区</span><br><span class="line">逻辑分区</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df：查看磁盘分区使用状况</span><br><span class="line">	<span class="operator">-l</span>：仅显示本地默认磁盘（默认）</span><br><span class="line">	<span class="operator">-a</span>：显示所有文件系统的磁盘使用情况</span><br><span class="line">	-h以<span class="number">1024</span>进制计算最合适的单位显示磁盘容量</span><br><span class="line">	-H：显示以<span class="number">1000</span>进制计算最合适的单位显示磁盘容量</span><br><span class="line">	-T显示磁盘分区类型</span><br><span class="line">	-t显示指定类型文件系统的磁盘分区</span><br><span class="line">	-x不显示指定类型文件系统的磁盘分区</span><br><span class="line">du:统计磁盘上的文件大小</span><br><span class="line">	-b 以byte为单位统计文件</span><br><span class="line">	-k 以KB为单位统计文件</span><br><span class="line">	-m 以MB为单位统计文件</span><br><span class="line">	-h 按照<span class="number">1024</span>进制以最适合的单位统计文件</span><br><span class="line">	-H 按照<span class="number">1000</span>进制以最适合的单位统计文件</span><br><span class="line">	<span class="operator">-s</span> 指定统计目标</span><br><span class="line">du -sh *.zip <span class="comment">#以1024进制查看zip文件的大小</span></span><br><span class="line"><span class="number">1</span>.创建分区:</span><br><span class="line">一:MBR分区模式:</span><br><span class="line"> -主分区不超过<span class="number">4</span>个</span><br><span class="line"> -单个分区最大<span class="number">2</span>TB</span><br><span class="line"><span class="comment">#磁盘分区工具fdisk</span></span><br><span class="line">fdisk <span class="operator">-l</span> <span class="comment">#查看分区设备</span></span><br><span class="line">fdisk /dev/sdb <span class="comment">#进入分区的模式,m查看help,n添加新的分区,w保存,q改变分区类型</span></span><br><span class="line">二:GPT分区模式:(不适合安装<span class="number">32</span>位的系统)</span><br><span class="line"> -主分区最多有<span class="number">128</span>个</span><br><span class="line"> -单个分区几乎没有限制(<span class="number">18</span>EB=<span class="number">18874368</span>TB)</span><br><span class="line"> -可以说没有逻辑,扩展等说法,只是为了兼容MBR</span><br><span class="line"><span class="comment">#磁盘分区工具parted</span></span><br><span class="line"><span class="built_in">print</span> <span class="comment">#查看分区信息</span></span><br><span class="line">malabel gpt <span class="comment">#创建GPT分区(默认msdos为MBR分区模式)</span></span><br><span class="line">rm <span class="number">1</span> <span class="comment">#删除1号分区</span></span><br><span class="line">mkpart <span class="comment">#创建分区</span></span><br><span class="line">	-Partition name <span class="comment">#名称(类似windows卷标)</span></span><br><span class="line">	-File system <span class="built_in">type</span></span><br><span class="line">	-start <span class="comment">#从第几M开始    一般会让0-1M之间的一点点数据取消掉,使得数据对齐,从第1M开始 </span></span><br><span class="line">	-end  <span class="comment">#2000   2G</span></span><br><span class="line">mkpart name start end <span class="comment">#也可以一句话 </span></span><br><span class="line">quit <span class="comment">#退出 parted为立即生效</span></span><br><span class="line"><span class="number">2</span>.分区格式化:</span><br><span class="line"><span class="comment">#分区格式化工具 mkfs</span></span><br><span class="line">mkfs -t ext4 /dev/sda1 <span class="comment">#将第一块硬盘的1分区格式化为ext4文件系统</span></span><br><span class="line"><span class="comment">#MBR扩展分区不能格式化</span></span><br><span class="line"><span class="comment">#GPT分区 通过fdisk不能查看文件类型,只能通过parted</span></span><br><span class="line"><span class="number">3</span>.挂载分区</span><br><span class="line"><span class="comment">#挂载配置文件 /etc/fstab</span></span><br><span class="line">mount /dev/sdb1 /mnt/zlx <span class="comment">#临时挂载分区,重启失效</span></span><br><span class="line"><span class="number">4</span>.添加swap分区</span><br><span class="line">通过fdisk工具,先通过t选择分区 ,然后L显示类型,选择<span class="number">82</span>的swap id.</span><br><span class="line">mkswap /dev/sdb8 <span class="comment">#创建交换分区</span></span><br><span class="line">swapon /dev/sdb8 <span class="comment">#启用交换分区</span></span><br><span class="line">free <span class="comment">#查看交换分区</span></span><br><span class="line">swapoff /devsdb8 <span class="comment">#停用交换分区</span></span><br></pre></td></tr></table></figure></p>
+<p>##用户管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/etc/group</span><br><span class="line">组名:组密码占位符:组编号:组中用户名列表(相同则省略)</span><br><span class="line">组编号<span class="number">0</span>-<span class="number">499</span> 为系统的组</span><br><span class="line">/etc/gshadow <span class="comment">#存储当前系统中用户组的密码信息</span></span><br><span class="line">组名:组密码(*,!均为没有密码):组管理者:组中用户名列表</span><br><span class="line">/etc/passwd <span class="comment">#所有用户</span></span><br><span class="line">用户名:密码占位符:用户编号:用户组编号:用户注释信息:用户主目录:shell类型</span><br><span class="line">/etc/shadow <span class="comment">#所有用户密码</span></span><br></pre></td></tr></table></figure></p>
+<p>##系统服务管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#systemctl命令将service和chkconfig命令结合在了一起</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx.service <span class="comment">#使nginx自动启动</span></span><br><span class="line">systemctl <span class="built_in">disable</span> nginx.service <span class="comment">#取消nginx自动启动</span></span><br><span class="line">检查服务状态 systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active)</span><br><span class="line">显示所有已启动的服务	systemctl list-units --type=service</span><br><span class="line">启动某服务	systemctl start nginx.service</span><br><span class="line">停止某服务	systemctl stop nginx.service</span><br><span class="line">重启某服务	systemctl restart nginx.service</span><br></pre></td></tr></table></figure></p>
+<p>##数据同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rsync [option] 源路径 目标路径</span><br><span class="line">	a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性</span><br><span class="line">	b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用–suffix选项来指定不同的备份文件前缀。</span><br><span class="line">	–backup-dir 将备份文件(如~filename)存放在在目录下。</span><br><span class="line">	-suffix=SUFFIX 定义备份文件前缀</span><br><span class="line">	–delete 删除那些DST中SRC没有的文件</span><br><span class="line">	–bwlimit=KBPS 限制I/O带宽</span><br><span class="line">	</span><br><span class="line"><span class="comment">#将本机/tmp/a文件夹 同步至/tmp/b</span></span><br><span class="line">rsync -avzP --delete /tmp/a /tmp/b</span><br><span class="line"><span class="comment">#将远程主机x中/tmp/a下的文件下载至本机 /tmp/b</span></span><br><span class="line">rsync -avz <span class="operator">-e</span> ssh root@<span class="number">192.168</span>.<span class="number">0.1</span>:/tmp/a /tmp/b</span><br></pre></td></tr></table></figure></p>
+<p>##采集<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">wget [options] [URL]</span><br><span class="line">	-o:记录<span class="built_in">log</span>信息，用法-ofilename</span><br><span class="line">	<span class="operator">-a</span>:追加<span class="built_in">log</span>信息</span><br><span class="line">	-O:将文件保存到文件 -Ofilename</span><br><span class="line">	-c:断点续传</span><br><span class="line">	–referer,referer值，采集必用</span><br><span class="line">	–load-cookies=FILE 在开始会话前从文件 FILE中加载cookie</span><br><span class="line">	–save-cookies=FILE 在会话结束后将 cookies保存到 FILE文件中</span><br><span class="line">	-nc, –no-clobber 不要覆盖已经存在的文件</span><br><span class="line">	-T,–timeout=SECONDS 设置超时时间</span><br><span class="line">	-x,强制建立目录(保持目标网站的目录结构)</span><br><span class="line">	-r,递归下载整个网站</span><br><span class="line">curl [option] [url]</span><br><span class="line">	-c:断点续传</span><br><span class="line">	-o:文件名，要自己写</span><br><span class="line">	-O:文件名，自动(和服务器上的名字一样)</span><br><span class="line">	-D:保存cookie,curl -D cookie.txt URL</span><br><span class="line">	-b:使用cookie,curl -b cookie.txt URL</span><br><span class="line">	-A:发送浏览器信息，伪装成浏览器。curl -A “Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10</span>_8_5) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) Chrome/<span class="number">31.0</span>.<span class="number">1626.0</span>″ URL,这样对方服务器会认为我们是一个在macos上跑的chrom浏览器。</span><br><span class="line">	<span class="operator">-e</span>:填写referer值。</span><br><span class="line">	<span class="operator">-d</span>:post模式，以application/x-www-url-encoded发送请求。d后面填写要提交的参数即可 curl <span class="operator">-d</span>”a=xx&amp;b=xx&amp;c=xx”。</span><br><span class="line">	-F模拟 multipart/form-data 形式的 form 上传文件。curl -F “action=upload” -F”filename=@file.gz;<span class="built_in">type</span>=application/octet-stream” URL</span><br></pre></td></tr></table></figure></p>
+<p>##ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host <span class="comment">#远程登陆</span></span><br><span class="line">ssh -p port user@host <span class="comment">#远程登陆某个端口</span></span><br><span class="line">ssh-keygen <span class="comment">#在～/.ssh/下生成自己的公钥和私钥</span></span><br><span class="line">ssh-copy-id user@host <span class="comment">#将自己的公钥copy到远程 免登陆，也可以直接$ ssh user@host 'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub</span></span><br><span class="line">如果不行，远传配置/etc/ssh/sshd_config </span><br><span class="line">　RSAAuthentication yes</span><br><span class="line">　　PubkeyAuthentication yes</span><br><span class="line">　　AuthorizedKeysFile .ssh/authorized_keys</span><br><span class="line"></span><br><span class="line">　$ ssh -L 本地端口:目标主机:目标主机端口 <span class="comment">#本地端口转发</span></span><br><span class="line">　$ ssh -R 远程主机端口:目标主机:目标主机端口 <span class="comment">#远程端口转发</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/10/linux-source/" data-id="cie9xujev0039c5fy07e26uky" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-php-header" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/php-header/" class="article-date">
+  <time datetime="2014-12-08T10:30:44.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/08/php-header/">php header函数的详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####发送一个原始 HTTP 标头[Http Header]到客户端。标头 (header) 是服务器以 HTTP 协义传 HTML 资料到浏览器前所送出的字串，在标头与 HTML 文件之间尚需空一行分隔<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Header(“Location: http:<span class="comment">//www.php100.com”;);</span></span><br><span class="line"><span class="keyword">exit</span>; <span class="comment">//在每个重定向之后都必须加上“exit”,避免发生错误后，继续执行。</span></span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>####禁止页面在IE中缓存<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">header( ‘Expires: Mon, <span class="number">26</span> Jul <span class="number">1997</span> <span class="number">05</span>:<span class="number">00</span>:<span class="number">00</span> GMT’ );</span><br><span class="line">header( ‘Last-Modified: ‘ . gmdate( ‘D, d M Y H:i:s’ ) . ‘ GMT’ );</span><br><span class="line">header( ‘Cache-Control: no-store, no-cache, must-revalidate’ );</span><br><span class="line">header( ‘Cache-Control: post-check=<span class="number">0</span>, pre-check=<span class="number">0</span>′, <span class="keyword">false</span> );</span><br><span class="line">header( ‘Pragma: no-cache’ ); <span class="comment">//兼容http1.0和https</span></span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br><span class="line">CacheControl = no-cache</span><br><span class="line">Pragma=no-cache</span><br><span class="line">Expires = -<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>####实现文件下载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">'Content-Type: application/octet-stream'</span>);<span class="comment">//设置内容类型</span></span><br><span class="line">header(<span class="string">'Content-Disposition: attachment; filename="example.zip"'</span>); <span class="comment">//设置MIME用户作为附件下载 如果将attachment换成inline意思为在线打开</span></span><br><span class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);<span class="comment">//设置传输方式</span></span><br><span class="line">header(<span class="string">'Content-Length: '</span>.filesize(<span class="string">'example.zip'</span>));<span class="comment">//设置内容长度</span></span><br><span class="line">　　<span class="comment">// load the file to send:</span></span><br><span class="line">readfile(<span class="string">'example.zip'</span>);<span class="comment">//读取需要下载的文件</span></span><br></pre></td></tr></table></figure></p>
+<p>####向浏览器发送Status标头，<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ok</span></span><br><span class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">200</span> OK’);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置一个404头:</span></span><br><span class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">404</span> Not Found’);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置地址被永久的重定向</span></span><br><span class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently’);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.</span>x <span class="number">200</span> OK</span><br><span class="line">Date: Thu, <span class="number">03</span> Aug <span class="number">2006</span> <span class="number">07</span>:<span class="number">49</span>:<span class="number">11</span> GMT</span><br><span class="line">Server: Apache/<span class="number">2.0</span><span class="number">.55</span> (Win32) PHP/<span class="number">5.0</span><span class="number">.5</span></span><br><span class="line">X-Powered-By: PHP/<span class="number">5.0</span><span class="number">.5</span></span><br><span class="line">Status: <span class="number">404</span> Not Found</span><br><span class="line">Content-Length: <span class="number">0</span></span><br><span class="line">Keep-Alive: timeout=<span class="number">15</span>, max=<span class="number">98</span></span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Type: text/html</span><br></pre></td></tr></table></figure></p>
+<p>####注意<br>•Location和”:”之间不能有空格，否则会出现错误（注释：我刚测试了，在我本地环境下，没有跳转页面，但是也没有报错，不清楚什么原因）；<br>•在用header前不能有任何的输出（注释：这点大家都知道的，如果header之前有任何的输出，包括空白，就会出现header already sent by xxx的错误）；<br>•header 后面的东西还会执行的；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/08/php-header/" data-id="cie9xujd50017c5fy1ctuo7nl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/header/">header</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/mongodb/" class="article-date">
+  <time datetime="2014-12-08T10:30:44.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mongodb/">mongodb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/08/mongodb/">MongoDB基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>成功启动MongoDB后，再打开一个命令行窗口输入mongo，就可以进行数据库的一些操作。<br>输入help可以看到基本操作命令：</p>
+<p>##基本<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">show dbs:显示数据库列表</span><br><span class="line">show collections：显示当前数据库中的集合（类似关系数据库中的表）</span><br><span class="line">show users：显示用户</span><br><span class="line"></span><br><span class="line">use &lt;db name&gt;：切换当前数据库，这和MS-SQL里面的意思一样</span><br><span class="line">db.help()：显示数据库操作命令，里面有很多的命令</span><br><span class="line">db.foo.help()：显示集合操作命令，同样有很多的命令，foo指的是当前数据库下，一个叫foo的集合，并非真正意义上的命令</span><br><span class="line">db.foo.find()：对于当前数据库中的foo集合进行数据查找（由于没有条件，会列出所有数据）</span><br><span class="line">db.foo.find( &#123; a : 1 &#125; )：对于当前数据库中的foo集合进行查找，条件是数据中有一个属性叫a，且a的值为1</span><br><span class="line"></span><br><span class="line">MongoDB没有创建数据库的命令，但有类似的命令。</span><br><span class="line"></span><br><span class="line">如：如果你想创建一个“myTest”的数据库，先运行use myTest命令，之后就做一些操作（如：db.createCollection('user')）,这样就可以创建一个名叫“myTest”的数据库。</span><br></pre></td></tr></table></figure></p>
+<p>##数据库常用命令<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、Help查看命令提示</span><br><span class="line"></span><br><span class="line"> help</span><br><span class="line"></span><br><span class="line">  db.help();</span><br><span class="line"></span><br><span class="line">  db.yourColl.help();</span><br><span class="line"></span><br><span class="line">  db.youColl.find().help();</span><br><span class="line"></span><br><span class="line">  rs.help();</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、切换/创建数据库</span><br><span class="line"></span><br><span class="line"> use yourDB;  当创建一个集合(table)的时候会自动创建当前数据库</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查询所有数据库</span><br><span class="line"></span><br><span class="line"> show dbs;</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、删除当前使用数据库</span><br><span class="line"></span><br><span class="line"> db.dropDatabase();</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、从指定主机上克隆数据库</span><br><span class="line"></span><br><span class="line"> db.cloneDatabase(“<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>”); 将指定机器上的数据库的数据克隆到当前数据库</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、从指定的机器上复制指定数据库数据到某个数据库</span><br><span class="line"></span><br><span class="line"> db.copyDatabase(<span class="string">"mydb"</span>, <span class="string">"temp"</span>, <span class="string">"127.0.0.1"</span>);将本机的mydb的数据复制到temp数据库中</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>、修复当前数据库</span><br><span class="line"></span><br><span class="line"> db.repairDatabase();</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>、查看当前使用的数据库</span><br><span class="line"></span><br><span class="line"> db.getName();</span><br><span class="line"></span><br><span class="line"> db; db和getName方法是一样的效果，都可以查询当前使用的数据库</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>、显示当前db状态</span><br><span class="line"></span><br><span class="line"> db.stats();</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>、当前db版本</span><br><span class="line"></span><br><span class="line"> db.version();</span><br><span class="line"></span><br><span class="line"><span class="number">11</span>、查看当前db的链接机器地址</span><br><span class="line"></span><br><span class="line"> db.getMongo();</span><br></pre></td></tr></table></figure></p>
+<p>##Collection聚集集合<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>、创建一个聚集集合（table）</span><br><span class="line"></span><br><span class="line"> db.createCollection(“collName”, &#123;size: <span class="number">20</span>, capped: <span class="number">5</span>, max: <span class="number">100</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、得到指定名称的聚集集合（table）</span><br><span class="line"></span><br><span class="line"> db.getCollection(<span class="string">"account"</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、得到当前db的所有聚集集合</span><br><span class="line"></span><br><span class="line"> db.getCollectionNames();</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、显示当前db所有聚集索引的状态</span><br><span class="line"></span><br><span class="line"> db.printCollectionStats();</span><br></pre></td></tr></table></figure></p>
+<p> ##用户相关<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、添加一个用户</span><br><span class="line"></span><br><span class="line"> db.addUser(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line"> db.addUser(<span class="string">"userName"</span>, <span class="string">"pwd123"</span>, <span class="literal">true</span>); 添加用户、设置密码、是否只读</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、数据库认证、安全模式</span><br><span class="line"></span><br><span class="line"> db.auth(<span class="string">"userName"</span>, <span class="string">"123123"</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、显示当前所有用户</span><br><span class="line"></span><br><span class="line"> show users;</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、删除用户</span><br><span class="line"></span><br><span class="line"> db.removeUser(<span class="string">"userName"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>##其他<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、查询之前的错误信息</span><br><span class="line"> db.getPrevError();</span><br><span class="line"><span class="number">2</span>、清除错误记录</span><br><span class="line"> db.resetError();</span><br></pre></td></tr></table></figure></p>
+<p>##查看聚集集合基本信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>、查看帮助  db.yourColl.help();</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、查询当前集合的数据条数  db.yourColl.count();</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查看数据空间大小 db.userInfo.dataSize();</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、得到当前聚集集合所在的db db.userInfo.getDB();</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、得到当前聚集的状态 db.userInfo.stats();</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、得到聚集集合总大小 db.userInfo.totalSize();</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>、聚集集合储存空间大小 db.userInfo.storageSize();</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>、Shard版本信息  db.userInfo.getShardVersion()</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>、聚集集合重命名 db.userInfo.renameCollection(<span class="string">"users"</span>); 将userInfo重命名为users</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>、删除当前聚集集合 db.userInfo.drop();</span><br></pre></td></tr></table></figure></p>
+<p>##聚集集合查询<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1、查询所有记录</span><br><span class="line"></span><br><span class="line">db.userInfo.find();</span><br><span class="line"></span><br><span class="line">相当于：select* from userInfo;</span><br><span class="line"></span><br><span class="line">默认每页显示20条记录，当显示不下的情况下，可以用it迭代命令查询下一页数据。注意：键入it命令不能带“；”</span><br><span class="line"></span><br><span class="line">但是你可以设置每页显示数据的大小，用DBQuery.shellBatchSize= 50;这样每页就显示50条记录了。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2、查询去掉后的当前聚集集合中的某列的重复数据</span><br><span class="line"></span><br><span class="line">db.userInfo.distinct("name");</span><br><span class="line"></span><br><span class="line">会过滤掉name中的相同数据</span><br><span class="line"></span><br><span class="line">相当于：select distict name from userInfo;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">3、查询age = 22的记录</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;"age": 22&#125;);</span><br><span class="line"></span><br><span class="line">相当于： select * from userInfo where age = 22;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">4、查询age &gt; 22的记录</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gt: 22&#125;&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select * from userInfo where age &gt;22;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">5、查询age &lt; 22的记录</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$lt: 22&#125;&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select * from userInfo where age &lt;22;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">6、查询age &gt;= 25的记录</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gte: 25&#125;&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select * from userInfo where age &gt;= 25;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">7、查询age &lt;= 25的记录</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$lte: 25&#125;&#125;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">8、查询age &gt;= 23 并且 age &lt;= 26</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gte: 23, $lte: 26&#125;&#125;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">9、查询name中包含 mongo的数据</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;name: /mongo/&#125;);</span><br><span class="line"></span><br><span class="line">//相当于%%</span><br><span class="line"></span><br><span class="line">select * from userInfo where name like ‘%mongo%’;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">10、查询name中以mongo开头的</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;name: /^mongo/&#125;);</span><br><span class="line"></span><br><span class="line">select * from userInfo where name like ‘mongo%’;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">11、查询指定列name、age数据</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select name, age from userInfo;</span><br><span class="line"></span><br><span class="line">当然name也可以用true或false,当用ture的情况下河name:1效果一样，如果用false就是排除name，显示name以外的列信息。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">12、查询指定列name、age数据, age &gt; 25</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gt: 25&#125;&#125;, &#123;name: 1, age: 1&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select name, age from userInfo where age &gt;25;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">13、按照年龄排序</span><br><span class="line"></span><br><span class="line">升序：db.userInfo.find().sort(&#123;age: 1&#125;);</span><br><span class="line"></span><br><span class="line">降序：db.userInfo.find().sort(&#123;age: -1&#125;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">14、查询name = zhangsan, age = 22的数据</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;name: 'zhangsan', age: 22&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select * from userInfo where name = ‘zhangsan’ and age = ‘22’;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">15、查询前5条数据</span><br><span class="line"></span><br><span class="line">db.userInfo.find().limit(5);</span><br><span class="line"></span><br><span class="line">相当于：selecttop 5 * from userInfo;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">16、查询10条以后的数据</span><br><span class="line"></span><br><span class="line">db.userInfo.find().skip(10);</span><br><span class="line"></span><br><span class="line">相当于：select * from userInfo where id not in (</span><br><span class="line"></span><br><span class="line">selecttop 10 * from userInfo</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">17、查询在5-10之间的数据</span><br><span class="line"></span><br><span class="line">db.userInfo.find().limit(5).skip(5);</span><br><span class="line"></span><br><span class="line">可用于分页，limit是pageSize，skip是第几页*pageSize</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">18、or与 查询</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;$or: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;);</span><br><span class="line"></span><br><span class="line">相当于：select * from userInfo where age = 22 or age = 25;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">19、查询第一条数据</span><br><span class="line"></span><br><span class="line">db.userInfo.findOne();</span><br><span class="line"></span><br><span class="line">相当于：selecttop 1 * from userInfo;</span><br><span class="line"></span><br><span class="line">db.userInfo.find().limit(1);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">20、查询某个结果集的记录条数</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gte: 25&#125;&#125;).count();</span><br><span class="line"></span><br><span class="line">相当于：select count(*) from userInfo where age &gt;= 20;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">21、按照某列进行排序</span><br><span class="line"></span><br><span class="line">db.userInfo.find(&#123;sex: &#123;$exists: true&#125;&#125;).count();</span><br><span class="line"></span><br><span class="line">相当于：select count(sex) from userInfo;</span><br></pre></td></tr></table></figure></p>
+<p>##索引</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、创建索引</span><br><span class="line"></span><br><span class="line">db.userInfo.ensureIndex(&#123;name: <span class="number">1</span>&#125;);</span><br><span class="line"></span><br><span class="line">db.userInfo.ensureIndex(&#123;name: <span class="number">1</span>, ts: -<span class="number">1</span>&#125;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、查询当前聚集集合所有索引</span><br><span class="line"></span><br><span class="line">db.userInfo.getIndexes();</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查看总索引记录大小</span><br><span class="line"></span><br><span class="line">db.userInfo.totalIndexSize();</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、读取当前集合的所有index信息</span><br><span class="line"></span><br><span class="line">db.users.reIndex();</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、删除指定索引</span><br><span class="line"></span><br><span class="line">db.users.dropIndex(<span class="string">"name_1"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、删除所有索引索引</span><br><span class="line"></span><br><span class="line">db.users.dropIndexes();</span><br></pre></td></tr></table></figure>
+<p>##修改、添加、删除集合数据<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">1、添加</span><br><span class="line"></span><br><span class="line">db.users.save(&#123;name: ‘zhangsan’, age: 25, sex: true&#125;);</span><br><span class="line"></span><br><span class="line">添加的数据的数据列，没有固定，根据添加的数据为准</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2、修改</span><br><span class="line"></span><br><span class="line">db.users.update(&#123;age: 25&#125;, &#123;$set: &#123;name: 'changeName'&#125;&#125;, false, true);</span><br><span class="line"></span><br><span class="line">相当于：update users set name = ‘changeName’ where age = 25;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">db.users.update(&#123;name: 'Lisi'&#125;, &#123;$inc: &#123;age: 50&#125;&#125;, false, true);</span><br><span class="line"></span><br><span class="line">相当于：update users set age = age + 50 where name = ‘Lisi’;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">db.users.update(&#123;name: 'Lisi'&#125;, &#123;$inc: &#123;age: 50&#125;, $set: &#123;name: 'hoho'&#125;&#125;, false, true);</span><br><span class="line"></span><br><span class="line">相当于：update users set age = age + 50, name = ‘hoho’ where name = ‘Lisi’;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">3、删除</span><br><span class="line"></span><br><span class="line">db.users.remove(&#123;age: 132&#125;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">4、查询修改删除</span><br><span class="line"></span><br><span class="line">db.users.findAndModify(&#123;</span><br><span class="line"></span><br><span class="line">    query: &#123;age: &#123;$gte: 25&#125;&#125;, </span><br><span class="line"></span><br><span class="line">    sort: &#123;age: -1&#125;, </span><br><span class="line"></span><br><span class="line">    update: &#123;$set: &#123;name: 'a2'&#125;, $inc: &#123;age: 2&#125;&#125;,</span><br><span class="line"></span><br><span class="line">    remove: true</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">db.runCommand(&#123; findandmodify : "users", </span><br><span class="line"></span><br><span class="line">    query: &#123;age: &#123;$gte: 25&#125;&#125;, </span><br><span class="line"></span><br><span class="line">    sort: &#123;age: -1&#125;, </span><br><span class="line"></span><br><span class="line">    update: &#123;$set: &#123;name: 'a2'&#125;, $inc: &#123;age: 2&#125;&#125;,</span><br><span class="line"></span><br><span class="line">    remove: true</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">update 或 remove 其中一个是必须的参数; 其他参数可选。</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">详解</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td style="text-align:center">查询过滤条件</td>
+<td style="text-align:right">{}</td>
+</tr>
+<tr>
+<td>sort</td>
+<td style="text-align:center">如果多个文档符合查询过滤条件，将以该参数指定的排列方式选择出排在首位的对象，该对象将被操作</td>
+<td style="text-align:right">{}</td>
+</tr>
+<tr>
+<td>remove</td>
+<td style="text-align:center">若为true，被选中对象将在返回前被删除</td>
+<td style="text-align:right">N/A</td>
+</tr>
+<tr>
+<td>update</td>
+<td style="text-align:center">一个 修改器对象</td>
+<td style="text-align:right">N/A</td>
+</tr>
+<tr>
+<td>new</td>
+<td style="text-align:center">若为true，将返回修改后的对象而不是原始对象。在删除操作中，该参数被忽略。</td>
+<td style="text-align:right">false</td>
+</tr>
+<tr>
+<td>fields</td>
+<td style="text-align:center">参见Retrieving a Subset of Fields (1.5.0+)</td>
+<td style="text-align:right">All fields</td>
+</tr>
+<tr>
+<td>upsert</td>
+<td style="text-align:center">创建新对象若查询结果为空。 示例 (1.5.4+)</td>
+<td style="text-align:right">false</td>
+</tr>
+</tbody>
+</table>
+<p>##语句块操作<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">1、简单Hello World</span><br><span class="line"></span><br><span class="line">print("Hello World!");</span><br><span class="line"></span><br><span class="line">这种写法调用了print函数，和直接写入"Hello World!"的效果是一样的；</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2、将一个对象转换成json</span><br><span class="line"></span><br><span class="line">tojson(new Object());</span><br><span class="line"></span><br><span class="line">tojson(new Object('a'));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">3、循环添加数据</span><br><span class="line"></span><br><span class="line">&gt; for (var i = 0; i &lt; 30; i++) &#123;</span><br><span class="line"></span><br><span class="line">... db.users.save(&#123;name: "u_" + i, age: 22 + i, sex: i % 2&#125;);</span><br><span class="line"></span><br><span class="line">... &#125;;</span><br><span class="line"></span><br><span class="line">这样就循环添加了30条数据，同样也可以省略括号的写法</span><br><span class="line"></span><br><span class="line">&gt; for (var i = 0; i &lt; 30; i++) db.users.save(&#123;name: "u_" + i, age: 22 + i, sex: i % 2&#125;);</span><br><span class="line"></span><br><span class="line">也是可以的，当你用db.users.find()查询的时候，显示多条数据而无法一页显示的情况下，可以用it查看下一页的信息；</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">4、find 游标查询</span><br><span class="line"></span><br><span class="line">&gt;var cursor = db.users.find();</span><br><span class="line"></span><br><span class="line">&gt; while (cursor.hasNext()) &#123; </span><br><span class="line"></span><br><span class="line">    printjson(cursor.next()); </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这样就查询所有的users信息，同样可以这样写</span><br><span class="line"></span><br><span class="line">var cursor = db.users.find();</span><br><span class="line"></span><br><span class="line">while (cursor.hasNext()) &#123; printjson(cursor.next); &#125;</span><br><span class="line"></span><br><span class="line">同样可以省略&#123;&#125;号</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">5、forEach迭代循环</span><br><span class="line"></span><br><span class="line">db.users.find().forEach(printjson);</span><br><span class="line"></span><br><span class="line">forEach中必须传递一个函数来处理每条迭代的数据信息</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">6、将find游标当数组处理</span><br><span class="line"></span><br><span class="line">var cursor = db.users.find();</span><br><span class="line"></span><br><span class="line">cursor[4];</span><br><span class="line"></span><br><span class="line">取得下标索引为4的那条数据</span><br><span class="line"></span><br><span class="line">既然可以当做数组处理，那么就可以获得它的长度：cursor.length();或者cursor.count();</span><br><span class="line"></span><br><span class="line">那样我们也可以用循环显示数据</span><br><span class="line"></span><br><span class="line">for (var i = 0, len = c.length(); i &lt; len; i++) printjson(c[i]);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">7、将find游标转换成数组</span><br><span class="line"></span><br><span class="line">&gt; var arr = db.users.find().toArray();</span><br><span class="line"></span><br><span class="line">&gt; printjson(arr[2]);</span><br><span class="line"></span><br><span class="line">用toArray方法将其转换为数组</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">8、定制我们自己的查询结果</span><br><span class="line"></span><br><span class="line">只显示age &lt;= 28的并且只显示age这列数据</span><br><span class="line"></span><br><span class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: 1&#125;).forEach(printjson);</span><br><span class="line"></span><br><span class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: true&#125;).forEach(printjson);</span><br><span class="line"></span><br><span class="line">排除age的列</span><br><span class="line"></span><br><span class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: false&#125;).forEach(printjson);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">9、forEach传递函数显示信息</span><br><span class="line"></span><br><span class="line">db.things.find(&#123;x:4&#125;).forEach(function(x) &#123;print(tojson(x));&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/08/mongodb/" data-id="cie9xujeq002zc5fy1hjixy5g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-markdow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/markdow/" class="article-date">
+  <time datetime="2014-12-08T10:30:44.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/markdown/">markdown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/08/markdow/">markdow</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/DeepinScrot-3131.png" alt="描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/08/markdow/" data-id="cie9xujet0034c5fyptapjfry" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git-source" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/git-source/" class="article-date">
+  <time datetime="2014-12-08T10:23:40.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/08/git-source/">git  常用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经常遇到的git相关操作。</p>
+<p>##git rebase<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git checkout bat</span><br><span class="line">git rebase origin <span class="preprocessor">#把<span class="string">"bat"</span>分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到<span class="string">".git/rebase"</span>目录中),然后把<span class="string">"bat"</span>分支更新 </span></span><br><span class="line"><span class="preprocessor">#为最新的<span class="string">"origin"</span>分支，最后把保存的这些补丁应用到<span class="string">"mywork"</span>分支上</span></span><br><span class="line"></span><br><span class="line">git rebase和git merge的区别</span><br><span class="line">merge相当于将双方的修改综合</span><br><span class="line">rebase相当于将对方修改之后,在提交自己的修改,结果一样</span><br></pre></td></tr></table></figure></p>
+<p>##git clone 取回远程的所有分支</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:dolymood/angular-example.git <span class="preprocessor">#获取某个远程库</span></span><br><span class="line">git fetch &lt;远程主机名&gt;  &lt;分支名&gt; <span class="preprocessor">#获取全部的分支 如果需要特定分支 可指定分支名</span></span><br><span class="line">git branch -a <span class="preprocessor">#查看所有分支 git branch -a 查看所有分支</span></span><br><span class="line">git checkout -b newBrach &lt;远程分支&gt; <span class="preprocessor">#创建并且切换到新的分支</span></span><br></pre></td></tr></table></figure>
+<p>##返回某个文件的某个版本 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> 文件名 <span class="preprocessor">#查看某个文件的历史记录 可以加参数-p查看diff   获取commit id</span></span><br><span class="line">git reset commitid 文件名 <span class="preprocessor">#返回该文件的当前的版本，会在缓存区</span></span><br><span class="line">git checkout 文件名 <span class="preprocessor">#返回之前的版本</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#可以用git reflog 查看所有的版本信息</span></span><br><span class="line"><span class="preprocessor">#git log --pretty=oneline filename 通过一行查看单个文件的提交情况</span></span><br><span class="line"><span class="preprocessor">#git show commitid 查看该提交id的修改情况</span></span><br></pre></td></tr></table></figure>
+<p>##跳转到某个版本</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog <span class="preprocessor">#查看所有版本信息</span></span><br><span class="line">git reset --hard commitid <span class="preprocessor">#重置到某个特定的版本</span></span><br></pre></td></tr></table></figure>
+<p>##删除文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm filename   直接删除文件</span><br><span class="line">git rm --cached filename   删除文件暂存状态</span><br></pre></td></tr></table></figure>
+<p>##创建分支</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch develop <span class="comment">// 只创建分支</span></span><br><span class="line">git checkout -b master develop <span class="comment">// 创建并切换到 develop 分支</span></span><br></pre></td></tr></table></figure>
+<p>##设置 commit 的用户和邮箱</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name <span class="string">"xx"</span></span><br><span class="line">git config user.email <span class="string">"xx@xx.com"</span></span><br></pre></td></tr></table></figure>
+<p>##Git设置<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Git的全局设置在~/.gitconfig中，单独设置在project/.git/config下。</span><br><span class="line"></span><br><span class="line">忽略设置全局在~/.gitignore_global中，单独设置在project/.gitignore下。</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/08/git-source/" data-id="cie9xujfa003rc5fy31do9gnx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-postgresql-gis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/postgresql-gis/" class="article-date">
+  <time datetime="2014-12-08T10:23:40.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/postgresql/">postgresql</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/08/postgresql-gis/">postgresql-gis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></span><br></pre></td></tr></table></figure></p>
+<p>##ST_Geometry 类型</p>
+<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
+<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
+<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
+<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
+<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
+<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/08/postgresql-gis/" data-id="cie9xujcp000nc5fyej4lxzgp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gis/">gis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/angular/">angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/debian/">debian</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/apache/">apache</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/php/restful/">restful</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgresql/">postgresql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-ui/">angular-ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/">debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis/">gis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/header/">header</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful/">restful</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/参数/">参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/angular-ui/" style="font-size: 10px;">angular-ui</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gis/" style="font-size: 10px;">gis</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/postgresql/" style="font-size: 15px;">postgresql</a> <a href="/tags/restful/" style="font-size: 10px;">restful</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/参数/" style="font-size: 10px;">参数</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/php-auth/">HTTP Basic Authentication</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/elemjisuan/">ele.me外卖平分算钱</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/10/phalcon-config/">phalcon框架的nginx配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/03/crontab/">crontab记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

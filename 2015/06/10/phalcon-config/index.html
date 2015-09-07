@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>phalcon框架的nginx配置 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="phalcon是由C编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。
+##安装phalcon由于我是debian系统，所以首先https://phalconphp.com/en/download下载,通过编译成so扩展：123git clone --depth=1 git://github.com/phalcon/cphalcon.git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phalcon框架的nginx配置">
+<meta property="og:url" content="http://yoursite.com/2015/06/10/phalcon-config/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="phalcon是由C编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。
+##安装phalcon由于我是debian系统，所以首先https://phalconphp.com/en/download下载,通过编译成so扩展：123git clone --depth=1 git://github.com/phalcon/cphalcon.git">
+<meta property="og:image" content="http://yoursite.com/选区_057.png">
+<meta property="og:updated_time" content="2015-09-07T10:28:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="phalcon框架的nginx配置">
+<meta name="twitter:description" content="phalcon是由C编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。
+##安装phalcon由于我是debian系统，所以首先https://phalconphp.com/en/download下载,通过编译成so扩展：123git clone --depth=1 git://github.com/phalcon/cphalcon.git">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-phalcon-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/10/phalcon-config/" class="article-date">
+  <time datetime="2015-06-10T05:04:01.000Z" itemprop="datePublished">2015-06-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      phalcon框架的nginx配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>phalcon</code>是由<code>C</code>编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。</p>
+<p>##安装phalcon<br>由于我是<code>debian</code>系统，所以首先<code>https://phalconphp.com/en/download</code>下载,通过编译成<code>so</code>扩展：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=<span class="number">1</span> git://github.com/phalcon/cphalcon.git</span><br><span class="line"><span class="built_in">cd</span> cphalcon/build</span><br><span class="line">sudo ./install</span><br></pre></td></tr></table></figure></p>
+<p>之后会生成在php的扩展目录<code>extension-dir</code>（可以通过命令 <code>php-config</code> 查看具体的路径），之后将<code>phalcon.so</code>引入到<code>php.ini</code>中。<br>引入的方法有很多，这里由于<code>debian</code>按照不同的运行模式配置<code>php</code>，我就写一下到<code>nginx</code>的配置:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/php5/mod-available/phalcon.ini</span><br></pre></td></tr></table></figure></p>
+<p>之后写上<code>extension=phalcon.so</code>,然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/php5/fpm/conf.d/ <span class="comment">#nginx 的php配置环境fpm</span></span><br><span class="line">sudo ln <span class="operator">-s</span> /etc/php5/mod-available/phalcon.ini phalcon.ini <span class="comment">#设置软连接</span></span><br><span class="line">sudo systemctl restart php5-fpm.service <span class="comment">#重启php-fpm</span></span><br></pre></td></tr></table></figure></p>
+<p>最后可以在<code>phpinfo()</code>中看到<code>phalcon</code>信息，则说明加载成功</p>
+<p>##安装Phalcon Developer Tools工具<br><code>Phalcon Developer Tools</code>是phalcon的一款自动生成目录结构的工具，理论上<code>phalcon</code>没有固定的目录结构，可以随时使用。<br>安装<code>Phalcon Developer Tools</code>的方法有很多<code>http://phalcon.5iunix.net/reference/tools.html</code>，我介绍下最方便的。<br>通过<code>Composer</code>或者<code>PEAR</code>的方式由于国内的原因，不一定能成功。所以我这边通过<code>git</code>直接下载：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/phalcon/phalcon-devtools.git <span class="comment">#git上下载</span></span><br><span class="line"><span class="built_in">cd</span> phalcon-devtools </span><br><span class="line">ln <span class="operator">-s</span> ~/phalcon-devtools/phalcon.php /usr/bin/phalcon <span class="comment">#设置全局的环境变量</span></span><br><span class="line">chmod ugo+x /usr/bin/phalcon <span class="comment">#给所有`u：自己 g：同组 o：其他`人都有有执行的权限</span></span><br></pre></td></tr></table></figure></p>
+<p>如果没问题，之后就可以用了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">zhonglingxiao@aa:/etc/php5/apache2$ phalcon</span><br><span class="line"></span><br><span class="line">Phalcon DevTools (<span class="number">2.0</span>.<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">Available commands:</span><br><span class="line">  commands (<span class="built_in">alias</span> of: list, enumerate)</span><br><span class="line">  controller (<span class="built_in">alias</span> of: create-controller)</span><br><span class="line">  model (<span class="built_in">alias</span> of: create-model)</span><br><span class="line">  all-models (<span class="built_in">alias</span> of: create-all-models)</span><br><span class="line">  project (<span class="built_in">alias</span> of: create-project)</span><br><span class="line">  scaffold (<span class="built_in">alias</span> of: create-scaffold)</span><br><span class="line">  migration (<span class="built_in">alias</span> of: create-migration)</span><br><span class="line">  webtools (<span class="built_in">alias</span> of: create-webtools)</span><br></pre></td></tr></table></figure></p>
+<p>##生成结构并且配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phalcon create-project store <span class="comment">#生成目录</span></span><br></pre></td></tr></table></figure></p>
+<p>在<code>nginx</code>中进行配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/site-available/ <span class="comment">#进入配置目录</span></span><br><span class="line">sudo vi phalcon-hosts.conf <span class="comment">#创建配置文件</span></span><br></pre></td></tr></table></figure></p>
+<p>在<code>phalcon-hosts.conf</code>添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">       listen <span class="number">80</span>;<span class="comment">#80端口</span></span><br><span class="line">       listen [::]:<span class="number">80</span>;</span><br><span class="line">       server_name phalcon.com;</span><br><span class="line">       root /home/zhonglingxiao/learnphp/phalcon/store;</span><br><span class="line">       index index.php index.html;</span><br><span class="line">       location ~ \.php$ &#123;</span><br><span class="line">               </span><br><span class="line">               include snippets/fastcgi-php.conf;</span><br><span class="line">              fastcgi_pass unix:/var/run/php5-fpm.sock;</span><br><span class="line">              fastcgi_param SCRIPT_FILENAME /home/zhonglingxiao/learnphp/phalcon/store<span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">              include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">         location /&#123;</span><br><span class="line">                  rewrite ^$ public/ last;</span><br><span class="line">                  rewrite ^(.*)$  /public/index.php?_url=<span class="variable">$1</span> last;<span class="comment">#重写的规则</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>之后：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/etc/</span>nginx<span class="regexp">/site-enable/</span> </span><br><span class="line">sudo ln -s <span class="regexp">/etc/</span>nginx<span class="regexp">/site-available/</span>phalcon-hosts.conf phalcon-hosts.conf</span><br></pre></td></tr></table></figure></p>
+<p>然后修改host，<code>127.0.0.1 phalcon.com</code>；<br>之后重启<code>nginx</code>就好了 <code>sudo systemctl restart nginx.service</code>;<br>如果没问题的话，输入<code>phalcon.com</code>，就ok了～<br><img src="/选区_057.png" alt="描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/06/10/phalcon-config/" data-id="cie9xujdh001oc5fy7vwrtyn9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/11/elemjisuan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ele.me外卖平分算钱
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/03/crontab/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">crontab记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/angular/">angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/debian/">debian</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/apache/">apache</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/php/restful/">restful</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgresql/">postgresql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-ui/">angular-ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/">debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis/">gis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/header/">header</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful/">restful</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/参数/">参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/angular-ui/" style="font-size: 10px;">angular-ui</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gis/" style="font-size: 10px;">gis</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/postgresql/" style="font-size: 15px;">postgresql</a> <a href="/tags/restful/" style="font-size: 10px;">restful</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/参数/" style="font-size: 10px;">参数</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/php-auth/">HTTP Basic Authentication</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/elemjisuan/">ele.me外卖平分算钱</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/10/phalcon-config/">phalcon框架的nginx配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/03/crontab/">crontab记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

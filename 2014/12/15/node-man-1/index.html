@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.js 核心模块方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##模块
+####核心模块
+核心模块是被编译成二进制代码，引用的时候只需require表示符即可
+####os 系统基本信息
+os模块可提供操作系统的一些基本信息
+1.返回系统临时目录12os.tmpdir() 结果如: C:\Users\ADMINI~1\AppData\Local\Temp
+2.返回 CPU 的字节序，可能的是 “BE” 或 “LE”12os.endianness()结果如:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 核心模块方法">
+<meta property="og:url" content="http://yoursite.com/2014/12/15/node-man-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##模块
+####核心模块
+核心模块是被编译成二进制代码，引用的时候只需require表示符即可
+####os 系统基本信息
+os模块可提供操作系统的一些基本信息
+1.返回系统临时目录12os.tmpdir() 结果如: C:\Users\ADMINI~1\AppData\Local\Temp
+2.返回 CPU 的字节序，可能的是 “BE” 或 “LE”12os.endianness()结果如:">
+<meta property="og:updated_time" content="2015-09-07T10:28:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js 核心模块方法">
+<meta name="twitter:description" content="##模块
+####核心模块
+核心模块是被编译成二进制代码，引用的时候只需require表示符即可
+####os 系统基本信息
+os模块可提供操作系统的一些基本信息
+1.返回系统临时目录12os.tmpdir() 结果如: C:\Users\ADMINI~1\AppData\Local\Temp
+2.返回 CPU 的字节序，可能的是 “BE” 或 “LE”12os.endianness()结果如:">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-node-man-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/15/node-man-1/" class="article-date">
+  <time datetime="2014-12-15T03:52:34.000Z" itemprop="datePublished">2014-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js 核心模块方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##模块</p>
+<p>####核心模块</p>
+<p>核心模块是被编译成二进制代码，引用的时候只需require表示符即可</p>
+<p>####os 系统基本信息</p>
+<p>os模块可提供操作系统的一些基本信息</p>
+<p>1.返回系统临时目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.tmpdir() </span><br><span class="line">结果如: C:\Users\ADMINI~<span class="number">1</span>\AppData\Local\Temp</span><br></pre></td></tr></table></figure></p>
+<p>2.返回 CPU 的字节序，可能的是 “BE” 或 “LE”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.endianness()</span><br><span class="line">结果如: LE (inter i3)</span><br></pre></td></tr></table></figure></p>
+<p>3.返回操作系统的主机名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.hostname()</span><br><span class="line">结果如: QH-<span class="number">20141006</span>HJKT</span><br></pre></td></tr></table></figure></p>
+<p>4.返回操作系统名称<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.type()</span><br><span class="line">结果如: Windows_NT</span><br></pre></td></tr></table></figure></p>
+<p>5.返回操作系统平台<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.platform()</span><br><span class="line">结果如: win32</span><br></pre></td></tr></table></figure></p>
+<p>6.返回操作系统 CPU 架构，可能的值有 “x64”、”arm” 和 “ia32”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.arch()</span><br><span class="line">结果如: x64</span><br></pre></td></tr></table></figure></p>
+<p>7.返回操作系统的发行版本<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.release()</span><br><span class="line">结果如: <span class="number">6.1</span><span class="number">.7601</span></span><br></pre></td></tr></table></figure></p>
+<p>8.返回操作系统运行的时间，以秒为单位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.uptime()</span><br><span class="line">结果如: <span class="number">7847.6797442</span></span><br></pre></td></tr></table></figure></p>
+<p>9.返回一个包含 1、5、15 分钟平均负载的数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.loadavg()</span><br><span class="line">结果如: <span class="number">6.1</span><span class="number">.7601</span></span><br></pre></td></tr></table></figure></p>
+<p>10.返回系统内存总量，单位为字节<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.totalmem()</span><br><span class="line">结果如: <span class="number">3931602944</span></span><br></pre></td></tr></table></figure></p>
+<p>11.返回操作系统空闲内存量，单位是字节<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.freemem()</span><br><span class="line">结果如: <span class="number">1307422720</span></span><br></pre></td></tr></table></figure></p>
+<p>12.返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.cpus()</span><br></pre></td></tr></table></figure></p>
+<p>13.获取网络接口的一个列表信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.networkInterfaces() 结果如: <span class="number">1307422720</span></span><br></pre></td></tr></table></figure></p>
+<p>14.一个定义了操作系统的一行结束的标识的常量<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.EOL</span><br></pre></td></tr></table></figure></p>
+<p>####process 进程管理</p>
+<p>process 是一个全局变量.无需 require;</p>
+<p>1.返回应用程序当前目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.cwd() 结果如: c:\Users\Administrator\MongoDb_Test</span><br></pre></td></tr></table></figure></p>
+<p>2.改变应用程序目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.chdir(“目录”)</span><br></pre></td></tr></table></figure></p>
+<p>3.标准输出流.将内容打印到输出设备上.console.log就是封装了它<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdout.write(‘aa\n’) 结果如: aa</span><br></pre></td></tr></table></figure></p>
+<p>4.标准错误流<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stderr.write(‘aa\n’) 结果如: aa</span><br></pre></td></tr></table></figure></p>
+<p>5.进程的输入流. 通过注册事件的方式来获取输入的内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.on(<span class="string">'readable’, function() &#123; var chunk = process.stdin.read(); if (chunk !== null) &#123; process.stdout.write('</span>data: <span class="string">' + chunk); &#125; &#125;);</span></span><br></pre></td></tr></table></figure></p>
+<p>6.结束进程<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.exit(code);</span><br></pre></td></tr></table></figure></p>
+<p>参数code为退出后返回的代码，如果省略则默认返回0</p>
+<p>7.注册事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdout.on(<span class="string">'data’,function(data)&#123; console.log(data); &#125;);</span></span><br></pre></td></tr></table></figure></p>
+<p>8.为事件循环设置一项任务,Node.js 会在下次事件循环调响应时调用 callback<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(callback)</span><br></pre></td></tr></table></figure></p>
+<p>9.设置编码, 默认 utf8. node.js编码格式只支持UTF8、ascii、base64，暂时不支持GBK、gb2312<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.setEncoding(编码); process.stdout.setEncoding(编码); process.stderr.setEncoding(编码);</span><br></pre></td></tr></table></figure></p>
+<p>####fs 文件管理</p>
+<p>fs 模块提供了异步和同步2个版本 fs.readFile() fs.readFileSync()</p>
+<p>1.写入文件内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">'test.txt’, ‘Hello Node’ , [encoding], [callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>2.追加写入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.appendFile(<span class="string">'test.txt’,’Hello Node’,[encoding],[callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>3.文件是否存在<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.exists(<span class="string">'test.txt’,[callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>4.修改文件名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.rename(旧文件,新文件,[callback]);</span><br></pre></td></tr></table></figure></p>
+<p>5.移动文件. 没有专门函数,通过修改文件名可以达到目的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.rename(oldPath,newPath,[callback]);</span><br></pre></td></tr></table></figure></p>
+<p>6.读取文件内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">'test.txt’, [encoding], [callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>7.删除文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.unlink(<span class="string">'test.txt’, [callback]);</span></span><br></pre></td></tr></table></figure></p>
+<p>8.创建目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.mkdir(路径, 权限, [callback]); 路径：新创建的目录。 权限：可选参数，只在linux下有效，表示目录的权限，默认为<span class="number">0777</span>，表示文件所有者、文件所有者所在的组的用户、所有用户，都有权限进行读、写、执行的操作。</span><br></pre></td></tr></table></figure></p>
+<p>9.删除目录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.rmdir(path, [callback]);</span><br></pre></td></tr></table></figure></p>
+<p>10.读取目录. 读取到指定目录下所有的文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readdir(path, [callback]);</span><br></pre></td></tr></table></figure></p>
+<p>11.打开文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.open(path,flags, [mode], [callback(err,fd)])</span><br></pre></td></tr></table></figure></p>
+<p>12.关闭文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.close(fd, [callback(err)]) fd 是打开文件后的标示符</span><br></pre></td></tr></table></figure></p>
+<p>13.读取文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.read(fd,buffer,offset,length,position,[callback(err, bytesRead, buffer)])</span><br></pre></td></tr></table></figure></p>
+<p>14.写入文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(filename, data,[encoding],[callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>15.获取真实路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.realpath(path, [callback(err,resolvedPath)])</span><br></pre></td></tr></table></figure></p>
+<p>16.更改所有权<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.chown(path, uid, gid, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>17.更改权限<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.fchmod(fd, mode, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>18.获取文件信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.stat(path, [callback(err, stats)])</span><br></pre></td></tr></table></figure></p>
+<p>19.创建硬链接<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.link(srcpath, dstpath, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>20.读取链接<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readlink(path, [callback(err,linkString)])</span><br></pre></td></tr></table></figure></p>
+<p>21.修改文件时间戳<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.utimes(path, atime, mtime, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>22.同步磁盘缓存<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.fsync(fd, [callback(err)])</span><br></pre></td></tr></table></figure></p>
+<p>####url 文件管理</p>
+<p>1.解析url，返回一个json格式的数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    url.parse(‘http:<span class="comment">//www.baidu.com’);</span></span><br><span class="line"></span><br><span class="line">结果如: &#123; protocol: <span class="string">'http:’, slashes: null, auth: null, host: null, port: null, hostname: null, hash: null, search: null, query: null, pathname: '</span>www.baidu.com’, path: <span class="string">'www.baidu.com’, href: ‘http://www.baidu.com’ &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>2.解析url - 条件解析<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    url.parse('http://www.baidu.com?page=1’,true); 结果如: &#123; protocol: 'http:’, slashes: true, auth: null, host: 'www.baidu.com’, port: null, hostname: 'www.baidu.com’, hash: null, search: '?page=1’,</span><br><span class="line"></span><br><span class="line">query: &#123; page: ‘1’ &#125;, pathname: '/’, path: '/?page=1’, href: ‘http://www.baidu.com/?page=1’ &#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.解析主机<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.parse(<span class="string">'http://www.baidu.com/news’,false,true); 结果如:&#123; protocol: '</span>http:’, slashes: <span class="literal">true</span>, auth: <span class="literal">null</span>, host: <span class="string">'www.baidu.com’, port: null, hostname: '</span>www.baidu.com’, hash: <span class="literal">null</span>, search: <span class="literal">null</span>, query: <span class="literal">null</span>, pathname: <span class="string">'/news’, path: '</span>/news’, href: ‘http:<span class="comment">//www.baidu.com/news’ &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>4.格式化为url. 将json数组逆向成url<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.format(&#123; protocol: <span class="string">'http:’, hostname:’www.baidu.com’, port:’80’, pathname :’/news’, query:&#123;page:1&#125; &#125;); 结果如: http://www.baidu.com/news?page=1</span></span><br></pre></td></tr></table></figure></p>
+<p>5.封装路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.resolve(<span class="string">'http://example.com/’, ‘/one’) // ‘http://example.com/one’ url.resolve('</span>http:<span class="comment">//example.com/one’, ‘/two’) // ‘http://example.com/two’</span></span><br></pre></td></tr></table></figure></p>
+<p>####path 路径管理</p>
+<p>用于处理和转换文件路径的工具集,用于处理目录的对象</p>
+<p>1.格式化路径. 将不符合规范的路径经过格式化转换为标准路径,解析路径中的.与…外，还能去掉多余的斜杠<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.normalize(‘/path<span class="comment">///normalize/hi/…’); 结果如: ‘/path/normalize/’ 标准化之后的路径里的斜杠在Windows系统下是，而在Linux系统下是/</span></span><br></pre></td></tr></table></figure></p>
+<p>2.组合路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.join(<span class="string">'///you’, '</span>/are’, ‘<span class="comment">//beautiful’); 结果如: ‘/you/are/beautiful’</span></span><br></pre></td></tr></table></figure></p>
+<p>3.返回路径中的目录名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.dirname(‘/foo/strong/cool/nice’); 结果如: ‘/foo/strong/cool’</span><br></pre></td></tr></table></figure></p>
+<p>4.返回路径最后一部分,还可以排除指定字符串<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.basename(‘/foo/strong/basename/index.html’); path.basename(‘/foo/strong/basename/index.html’,’.html’); 结果如: index.html 和 index</span><br></pre></td></tr></table></figure></p>
+<p>5.返回路径后缀<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.extname(‘index.html’); 结果如: .html</span><br></pre></td></tr></table></figure></p>
+<p>####Query String 字符串转换</p>
+<p>用于实现URL参数字符串与参数对象之间的互相转换</p>
+<p>1.序列化对象.将对象类型转换成一个字符串类型（默认的分割符（“&amp;”）和分配符（“=”））<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">querystring.stringify(&#123;foo:’bar’,cool:['xux’, ‘yys’]&#125;); 结果如: foo=bar&amp;cool=xux&amp;cool=yys</span><br><span class="line"></span><br><span class="line">重载1: querystring.stringify(&#123;foo:’bar’,cool:[‘xux’, ‘yys’]&#125;,’*’,’$’); 结果如: foo$bar*cool$xux*cool$yys</span><br></pre></td></tr></table></figure></p>
+<p>2.反序列化<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">querystring.parse(<span class="string">'foo@bar$cool@xux$cool@yys‘,’@’,’$’); 结果如: &#123; foo: ‘bar’ , cool: ['</span>xux’, ‘yys’] &#125;</span><br></pre></td></tr></table></figure></p>
+<p>####util 使用工具</p>
+<p>提供常用函数的集合，用于弥补核心JavaScript的一些功能过于精简的不足。并且还提供了一系列常用工具，用来对数据的输出和验证</p>
+<p>1.任意对象转化为字符串,用于调试输出<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.inspect(object,[showHidden],[depth],[colors])</span><br></pre></td></tr></table></figure></p>
+<p>2.格式化字符串. 就像c语言的 printf函数 支持的占位符有：“%s(字符串)”、“%d(数字&lt;整型和浮点型&gt;)”、“%j(JSON)”、“%(单独一个百分号则不作为一个参数)”<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">util.format('%s:%s’, ‘foo’); 结果如: foo:%s</span><br><span class="line"></span><br><span class="line">util.format('%s:%s’, 'foo’, 'bar’, ‘baz’); 结果如: foo:bar baz 额外的参数将会调用util.inspect()转换为字符串连接在一起</span><br><span class="line"></span><br><span class="line">util.format(1, 2, 3); 结果如: 1 2 3 , 第一个参数是一个非格式化字符串，则会把所有的参数转成字符串并以空格隔开拼接在一块</span><br></pre></td></tr></table></figure></p>
+<p>3.验证函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">util.isArray(object); 判断对象是否为数组类型，是则返回ture,否则为<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">util.isDate(object); 判断对象是否为日期类型，是则返回ture,否则返回<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">util.isRegExp(object); 判断对象是否为正则类型，是则返回ture,否则返回<span class="literal">false</span> ,util.isArray()、util.isRegExp()、util.isDate()、util.isError() util.format()、util. debug()</span><br></pre></td></tr></table></figure></p>
+<p>4.继承<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.inherits( 子类, 基类) 实现对象间原型继承</span><br></pre></td></tr></table></figure></p>
+<p>####child_process 子进程</p>
+<p>node.js是基于单线程模型架构，这样的设计可以带来高效的CPU利用率，但是无法却利用多个核心的CPU，为了解决这个问题，node.js提供了child_process模块，通过多进程来实现对多核CPU的利用. child_process模块提供了四个创建子进程的函数，分别是spawn，exec，execFile和fork</p>
+<p>1.用给定的命令发布一个子进程，带有‘args’命令行参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.spawn(command, [args], [options]) command &#123;<span class="built_in">String</span>&#125;要运行的命令行 args &#123;<span class="built_in">Array</span>&#125; 字符串参数列表 options &#123;<span class="built_in">Object</span>&#125; cwd &#123;<span class="built_in">String</span>&#125; 子进程的当前的工作目录 stdio &#123;<span class="built_in">Array</span>|<span class="built_in">String</span>&#125; 子进程 stdio 配置. (参阅下文) customFds &#123;<span class="built_in">Array</span>&#125; Deprecated 作为子进程 stdio 使用的 文件标示符. (参阅下文) env &#123;<span class="built_in">Object</span>&#125; 环境变量的键值对 detached &#123;<span class="built_in">Boolean</span>&#125; 子进程将会变成一个进程组的领导者. (参阅下文) uid &#123;<span class="built_in">Number</span>&#125; 设置用户进程的ID. (See setuid(<span class="number">2</span>).) gid &#123;<span class="built_in">Number</span>&#125; 设置进程组的ID. (See setgid(<span class="number">2</span>).) 返回: &#123;ChildProcess object&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.创建子进程<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.exec(command, [options], callback)</span><br></pre></td></tr></table></figure></p>
+<p>3.创建进程 - 直接运行指定文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.execFile( file);</span><br></pre></td></tr></table></figure></p>
+<p>4.直接运行Node.js模块<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.fork( modulePath ); fork函数只支持运行JavaScript代码</span><br></pre></td></tr></table></figure></p>
+<p>####http HTTP</p>
+<p>2个方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.createServer([requestListener]) 创建HTTP服务器 http.createClient([port], [host]) 创建HTTP客户端</span><br></pre></td></tr></table></figure></p>
+<p>http.Server</p>
+<p>由 http.createServer 创建所返回的实例</p>
+<p>http.Server 事件</p>
+<pre><code>request 客户端请求到来 提供<span class="number">2</span>个参数: req, res 分别是http<span class="class">.ServerRequest</span> 和 http<span class="class">.ServerResponse</span> 的实例.表示请求和响应消息
+
+connection TCP建立连接时触发 提供<span class="number">1</span>个 socket 参数 net<span class="class">.Socket</span> 实例
+
+close 服务器关闭时触发 无参数
+
+还有checkContinue 、 upgrade 、 clientError 等事件. request 经常使用,所以包含在了 createServer函数中
+</code></pre><p>http.ServerRequest 对象 HTTP请求的消息, 一般由 http.Server的 request 事件发送</p>
+<p>属性: complete 客户端请求是否已经发送完成 httpVersion HTTP 协议版本，通常是 1.0 或 1.1 method HTTP 请求方法，如 GET、POST、PUT、DELETE 等 url 原始的请求路径，例如 /static/image/x.jpg 或 /user?name=byvoid headers HTTP 请求头 trailers HTTP 请求尾（不常见） connection 当前 HTTP 连接套接字，为 net.Socket 的实例 socket connection 属性的别名 client client 属性的别名</p>
+<p>GET: 的请求是直接嵌入路径中的. 解析?后面的路径就行了. url 模块中 parse 函数提供了这个功能</p>
+<p>POST:</p>
+<p><strong>HTTP 请求分: 请求头.  请求体</strong><br>http.ServerRequest 提供3个事件控制请求体传输<br>data:   请求体数据来到时. 参数 chunk 表示接收到的数据<br>end:    请求体数据传输完成时<br>close   用户当前请求结束时<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> post = <span class="string">''</span>;</span><br><span class="line">req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;    post += chunk;  &#125;);</span><br><span class="line">req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  post = querystring.parse(post);</span><br><span class="line">res.end(util.inspect(post));&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>http.ServerResponse 对象 http.ServerResponse是返回给客户端的信息,决定了用户最终看到的结果. 有3个重要的成员函数. 用于响应头,响应内容以及结束请求</p>
+<p>1.向客户端发送响应头</p>
+<pre><code>res.writeHead(statusCode, [headers]) statusCode, 是HTTP状态码. 如<span class="number">200</span>,<span class="number">404.</span>
+headers 类似数组的对象,表示响应头的每个属性 { <span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>, <span class="string">"Connection"</span>: “keep-alive” }
+</code></pre><p>2.发送响应内容, 如果是字符串,需要制定编码方式, 默认 utf-8</p>
+<pre><code>res.<span class="function"><span class="title">write</span><span class="params">(data, [encoding])</span></span>
+</code></pre><p>3.结束响应,告知客户端所有响应完成. 此函数必须调用一次</p>
+<pre><code><span class="tag">res</span><span class="class">.end</span>(<span class="attr_selector">[data]</span> , <span class="attr_selector">[encoding]</span> )
+</code></pre><p>文件模块</p>
+<p>文件模块，则是指js文件、json文件或者是.node文件<br>无<br>核心<br>事件</p>
+<p>####挂接模块<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(‘events’).EventEmitter;</span><br></pre></td></tr></table></figure></p>
+<p>1.实例化一个EventEmitter对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> EventEmitter();</span><br></pre></td></tr></table></figure></p>
+<p>2.注册事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emitter.on( ‘Event_Name’ , callBack_Fun ) emitter.once( ‘Event_Name’ , callBack_Fun ) <span class="comment">//注册一个单次监听器,触发一次后立刻解除</span></span><br></pre></td></tr></table></figure></p>
+<p>3.发射事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.emit(‘Event_Name’ , 参数<span class="number">1</span>,参数<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>4.移除事件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emitter…removeListener(‘Event_Name’ , callBack_Fun) emitter.removeAllListeners( [‘Event_Name’] ) <span class="comment">//如果指定了事件名,就移除指定的,否则移除所有事件</span></span><br></pre></td></tr></table></figure></p>
+<p>##模块和包</p>
+<p>Node.js 的模块和包机制的实现参照了 CommonJS 的标准，但并未完全遵循。</p>
+<h4 id="包">包</h4><p>包是在模块基础上更深一步的抽象, 类似于 c/c++ 的函数库.<br>Node.js 包是一个目录. 其中包含一个JSON格式的说明文件 package.json<br>CommonJS 规范特征:<br>-&gt;   package.json 必须在包的顶层目录下<br>-&gt;   二进制文件在bin目录下<br>-&gt;   JavaScript代码在lib目录下<br>-&gt;   文档应该在doc目录下<br>-&gt;   单元测试在test目录下</p>
+<h4 id="require(‘Modile_Name’)">require(‘Modile_Name’)</h4><p>功能: 加载其他模块<br>说明: 不会重复加载以加载的模块</p>
+<h4 id="exports-setName">exports.setName</h4><p>功能: 公开一个模块中的函数或对象<br>说明: exports 本身仅仅是一个普通的空对象，即 {}. 所以 exports.函数  就是给它加了函数<br>    module.exports  则是用一个对象取代 exports  对象. (不可以对 exports 直接赋值替代此功能)</p>
+<p>方式1:<br>    //使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.SayName = <span class="function"><span class="keyword">function</span>(<span class="params">thyName</span>) </span>&#123;<span class="built_in">console</span>.log(thyName)&#125;;</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="comment">//调用</span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">require</span>(<span class="string">'./fileName'</span>);</span><br><span class="line">test.SayName(<span class="string">'XueYou'</span>);</span><br></pre></td></tr></table></figure>
+<p>方式2:<br>    //使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name;</span><br><span class="line">    <span class="keyword">this</span>.setNam()&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.SayName()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = hello;</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="comment">//调用</span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">require</span>(<span class="string">'./fileName'</span>);</span><br><span class="line">test = <span class="keyword">new</span> test();  <span class="comment">//注意因为是对象,所以要new</span></span><br><span class="line">test.SayName();</span><br></pre></td></tr></table></figure>
+<p>其他<br>express 与 webstorm 配置</p>
+<p>Node interpreter : node.exe 路径 Node parameters : ./bin/www Working directory : 工作目录 JavaScript file : app.js</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/15/node-man-1/" data-id="cie9xujel002nc5fyokrhno6c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/12/15/node-man-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node.js MongoDB数据库方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/15/node-man-5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node.js Ejs 方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/angular/">angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/debian/">debian</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/apache/">apache</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/php/restful/">restful</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgresql/">postgresql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-ui/">angular-ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/">debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis/">gis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/header/">header</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful/">restful</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/参数/">参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/angular-ui/" style="font-size: 10px;">angular-ui</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gis/" style="font-size: 10px;">gis</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/postgresql/" style="font-size: 15px;">postgresql</a> <a href="/tags/restful/" style="font-size: 10px;">restful</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/参数/" style="font-size: 10px;">参数</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/php-auth/">HTTP Basic Authentication</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/elemjisuan/">ele.me外卖平分算钱</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/10/phalcon-config/">phalcon框架的nginx配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/03/crontab/">crontab记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

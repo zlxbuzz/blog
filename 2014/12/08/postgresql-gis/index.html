@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>postgresql-gis | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="//ST_AsText 获取区域中心坐标。1select *,ST_AsText(ST_Centroid(&quot;geom&quot;)) from &quot;dmaguihua&quot;
+##ST_Geometry 类型
+ST_Geometry 类型是几何类型层次中的最大超类型。主要用到两个函数ST_GeomFromTextST_AsTexthttp://dcx.sap.com/1201/zh/dbspatial/pg-api">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postgresql-gis">
+<meta property="og:url" content="http://yoursite.com/2014/12/08/postgresql-gis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="//ST_AsText 获取区域中心坐标。1select *,ST_AsText(ST_Centroid(&quot;geom&quot;)) from &quot;dmaguihua&quot;
+##ST_Geometry 类型
+ST_Geometry 类型是几何类型层次中的最大超类型。主要用到两个函数ST_GeomFromTextST_AsTexthttp://dcx.sap.com/1201/zh/dbspatial/pg-api">
+<meta property="og:updated_time" content="2015-09-07T10:28:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="postgresql-gis">
+<meta name="twitter:description" content="//ST_AsText 获取区域中心坐标。1select *,ST_AsText(ST_Centroid(&quot;geom&quot;)) from &quot;dmaguihua&quot;
+##ST_Geometry 类型
+ST_Geometry 类型是几何类型层次中的最大超类型。主要用到两个函数ST_GeomFromTextST_AsTexthttp://dcx.sap.com/1201/zh/dbspatial/pg-api">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-postgresql-gis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/postgresql-gis/" class="article-date">
+  <time datetime="2014-12-08T10:23:40.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/postgresql/">postgresql</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      postgresql-gis
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></span><br></pre></td></tr></table></figure></p>
+<p>##ST_Geometry 类型</p>
+<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
+<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
+<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
+<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
+<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
+<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/08/postgresql-gis/" data-id="cie9xujcp000nc5fyej4lxzgp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gis/">gis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/12/08/git-source/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          git  常用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/08/postgres-php/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">postgres-php</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/angular/">angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/debian/">debian</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/apache/">apache</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/php/restful/">restful</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgresql/">postgresql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-ui/">angular-ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/">debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis/">gis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/header/">header</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful/">restful</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/参数/">参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/angular-ui/" style="font-size: 10px;">angular-ui</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gis/" style="font-size: 10px;">gis</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/postgresql/" style="font-size: 15px;">postgresql</a> <a href="/tags/restful/" style="font-size: 10px;">restful</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/参数/" style="font-size: 10px;">参数</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/php-auth/">HTTP Basic Authentication</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/elemjisuan/">ele.me外卖平分算钱</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/10/phalcon-config/">phalcon框架的nginx配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/03/crontab/">crontab记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

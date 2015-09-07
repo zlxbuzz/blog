@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux常用笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##网络状态1netstat -an |grep ESTABLISHED |wc -l #查看网络连接状态
+##压缩命令123456789101112131415支持tar,tar.gz：	tar zxvf aaa.tar.gz #解压	tar zcvf aaa.tar.gz aaa #压缩	-c:建立新的存档	-x:解压	-v:详细内容	-f:指定存档或设备	zip:	unzip FileNam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用笔记">
+<meta property="og:url" content="http://yoursite.com/2014/12/10/linux-source/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##网络状态1netstat -an |grep ESTABLISHED |wc -l #查看网络连接状态
+##压缩命令123456789101112131415支持tar,tar.gz：	tar zxvf aaa.tar.gz #解压	tar zcvf aaa.tar.gz aaa #压缩	-c:建立新的存档	-x:解压	-v:详细内容	-f:指定存档或设备	zip:	unzip FileNam">
+<meta property="og:updated_time" content="2015-09-07T10:28:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux常用笔记">
+<meta name="twitter:description" content="##网络状态1netstat -an |grep ESTABLISHED |wc -l #查看网络连接状态
+##压缩命令123456789101112131415支持tar,tar.gz：	tar zxvf aaa.tar.gz #解压	tar zcvf aaa.tar.gz aaa #压缩	-c:建立新的存档	-x:解压	-v:详细内容	-f:指定存档或设备	zip:	unzip FileNam">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux-source" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/10/linux-source/" class="article-date">
+  <time datetime="2014-12-10T07:07:16.000Z" itemprop="datePublished">2014-12-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux常用笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##网络状态<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -an |grep ESTABLISHED |wc -l <span class="preprocessor">#查看网络连接状态</span></span><br></pre></td></tr></table></figure></p>
+<p>##压缩命令<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">支持tar,tar.gz：</span><br><span class="line">	tar zxvf aaa.tar.gz <span class="preprocessor">#解压</span></span><br><span class="line">	tar zcvf aaa.tar.gz aaa <span class="preprocessor">#压缩</span></span><br><span class="line">	-c:建立新的存档</span><br><span class="line">	-x:解压</span><br><span class="line">	-v:详细内容</span><br><span class="line">	-f:指定存档或设备	</span><br><span class="line">zip:</span><br><span class="line">	unzip FileName.zip</span><br><span class="line">	zip FileName.zip DirName</span><br><span class="line">	</span><br><span class="line">.gz</span><br><span class="line">gzip 源文件（压缩成.gz的压缩文件，源文件会消失）</span><br><span class="line">gzip -c 源文件 &gt; 压缩文件（压缩为.gz格式，源文件保留）</span><br><span class="line">gzip -r 目录(压缩目录下所有的子文件，但是不能压缩目录)</span><br></pre></td></tr></table></figure></p>
+<p>##查看端口的占用情况<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:<span class="number">80</span>  <span class="preprocessor">#查看<span class="number">80</span>端口 root下</span></span><br><span class="line">lsof <span class="preprocessor">#查看本地网络服务活动状态</span></span><br></pre></td></tr></table></figure></p>
+<p>##修改主机名称<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hostname <span class="preprocessor">#主机名</span></span><br><span class="line">vi /etc/hosts <span class="preprocessor">#域名解析</span></span><br></pre></td></tr></table></figure></p>
+<p>##apt操作<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search package 搜索包    </span><br><span class="line">apt-cache show package 获取包的相关信息，如说明、大小、版本等    </span><br><span class="line">sudo apt-get install package 安装包    </span><br><span class="line">sudo apt-get install package - - reinstall 重新安装包    </span><br><span class="line">sudo apt-get -f install 修复安装<span class="string">"-f = ——fix-missing"</span>    </span><br><span class="line">sudo apt-get remove package 删除包    </span><br><span class="line">sudo apt-get remove package - - purge 删除包，包括删除配置文件等    </span><br><span class="line">sudo apt-get update 更新源    </span><br><span class="line">sudo apt-get upgrade 更新已安装的包    </span><br><span class="line">sudo apt-get dist-upgrade 升级系统    </span><br><span class="line">sudo apt-get dselect-upgrade 使用 dselect 升级    </span><br><span class="line">apt-cache depends package 了解使用依赖    </span><br><span class="line">apt-cache rdepends package 是查看该包被哪些包依赖    </span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境    </span><br><span class="line">apt-get source package 下载该包的源代码    </span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包    </span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure></p>
+<p>##查看Linux内核版本或发布版本<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
+<p>##查看端口<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat –tlnp</span><br><span class="line">netstat -an</span><br></pre></td></tr></table></figure></p>
+<p>##debian 安装软件<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i &lt;file.deb&gt;<span class="preprocessor">#安装指定的deb包</span></span><br><span class="line">dpkg -R &lt;dir&gt; <span class="preprocessor">#安装目录下的所有deb包</span></span><br><span class="line">dpkg -r &lt;file.deb&gt;<span class="preprocessor">#删除指定的deb包</span></span><br><span class="line">dpkg -L apache2 <span class="preprocessor">#查看指定软件的目录</span></span><br></pre></td></tr></table></figure></p>
+<p>##grep 搜索<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">grep -c aaa file <span class="preprocessor">#显示 file中包含aaa内容的行数是几</span></span><br><span class="line">grep -n aaa flie <span class="preprocessor">#列出所有的匹配行，并在最前面添加行的序列数</span></span><br><span class="line">grep -v aaa file <span class="preprocessor">#显示文件中不包含所搜索内容的行数，这个和-c的参数正好相反</span></span><br><span class="line">grep -i aaa file <span class="preprocessor">#列出所搜索内容的匹配行，搜索过程中不区分大小写</span></span><br><span class="line">grep -l aaa * <span class="preprocessor">#列出所有包含aaa内容的文件的名</span></span><br><span class="line">grep -r aaa <span class="preprocessor">#对当前目录和所有的子目录进行搜索</span></span><br><span class="line">grep -w aaa file：<span class="preprocessor">#精确搜索，可以说准确性搜索，比如：grep -w b* a.txt：</span></span><br><span class="line">						<span class="preprocessor">#此命令执行时，*不会默认为任何字符，只表示字面意思，就是一个*字符.</span></span><br><span class="line">grep -x aaa file <span class="preprocessor">#完全匹配输出，比如：grep -x hello a.txt，只会输出某一行存在hello字符串，</span></span><br><span class="line"><span class="preprocessor">#并且此行仅包含hello的内容。假设a.txt中有一行“hello all”，执行上述命令，此行不会被搜索到。</span></span><br></pre></td></tr></table></figure></p>
+<p>##自启动<br><strong>运行级别(Runlevel)</strong>指的是Unix或者Linux等类Unix操作系统下不同的运行模式。运行级别通常分为7等，分别是从0到6.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">**<span class="number">0</span>** 停机</span><br><span class="line">**<span class="number">1</span>** 单用户，Does not configure network interfaces, start daemons, or allow non-root logins</span><br><span class="line">**<span class="number">2</span>** 多用户，无网络连接 Does not configure network interfaces or start daemons</span><br><span class="line">**<span class="number">3</span>** 多用户，启动网络连接 Starts the system normally.</span><br><span class="line">**<span class="number">4</span>** 用户自定义</span><br><span class="line">**<span class="number">5</span>** 多用户带图形界面</span><br><span class="line">**<span class="number">6</span>** 重启</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#在/etc下,根据不同的运行级别,通过脚本来启动服务</span></span><br><span class="line">/etc/rc0.d Run level <span class="number">0</span></span><br><span class="line">/etc/rc1.d Run level <span class="number">1</span></span><br><span class="line">/etc/rc2.d Run level <span class="number">2</span></span><br><span class="line">/etc/rc3.d Run level <span class="number">3</span></span><br><span class="line">/etc/rc4.d Run level <span class="number">4</span></span><br><span class="line">/etc/rc5.d Run level <span class="number">5</span></span><br><span class="line">/etc/rc6.d Run level <span class="number">6</span></span><br><span class="line"><span class="preprocessor">#可能会有:</span></span><br><span class="line">K01apache2与S91apache2</span><br><span class="line"></span><br><span class="line">K:终止,S:启动</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#修改常用的工具: sysv-rc-conf</span></span><br><span class="line">sudo apt-get install sysv-rc-conf</span><br></pre></td></tr></table></figure></p>
+<p>##设置软链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -n file1 file2 <span class="comment">#创建file1的软链接file2,最好用绝对路径,否则可能会造成目录错误</span></span><br></pre></td></tr></table></figure></p>
+<p>##安全关机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now <span class="comment">#安全重启服务器</span></span><br><span class="line">shutdown -h <span class="comment">#关机</span></span><br></pre></td></tr></table></figure></p>
+<p>##历史命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> 查看用户所有使用过的历史命令</span><br><span class="line"><span class="built_in">history</span> -w更新历史命令保存文件</span><br><span class="line"><span class="built_in">history</span> -c清空历史命令（错误信息及他人入侵的参考）</span><br><span class="line"><span class="comment">#注销后保存在 ~/.bash_history中</span></span><br><span class="line"></span><br><span class="line">使用上、下箭头调用以前的历史命令</span><br><span class="line">使用<span class="string">"!n"</span>重复执行第n条历史命令</span><br><span class="line">使用<span class="string">"!!"</span>重复执行上一条命令</span><br><span class="line">使用<span class="string">"!字串"</span>重复执行最后一条以该字串开头的命令</span><br></pre></td></tr></table></figure></p>
+<p>##重定向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">标准输入输出 <span class="number">0</span> 标准输入 <span class="number">1</span>标准输出 <span class="number">2</span> 标准错误输出</span><br><span class="line">命令 &gt; 文件（覆盖）,命令 &gt;&gt; 文件（追加） 都是正确语句的重定向,</span><br><span class="line">命令 &gt; 文件 <span class="number">2</span>&gt;&amp;<span class="number">1</span> (覆盖)，命令 &gt;&gt; 文件 <span class="number">2</span>&gt;&amp;<span class="number">1</span>，正确错误信息输出都保存到同一个文件。</span><br><span class="line">命令&amp;&gt;文件 （覆盖），命令&amp;&gt;&gt;文件 (追加)，正确错误信息输出都保存到同一个文件。</span><br><span class="line">命令 &gt;&gt; 文件<span class="number">1</span> <span class="number">2</span>&gt;&gt;文件<span class="number">2</span> 把正确的输出追加到文件<span class="number">1</span>中，错误输出追加到文件<span class="number">2</span>中。</span><br><span class="line">/dev/null 是系统预留的用来接受垃圾的文件，即任何东西写到这个文件里面都会消失即不存在。</span><br><span class="line"></span><br><span class="line">wc -c 统计字节数</span><br><span class="line">wc <span class="operator">-l</span> 统计单词数</span><br></pre></td></tr></table></figure></p>
+<p>##变量操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> 查看变量</span><br><span class="line"><span class="built_in">set</span> -u 调用未声明的变量时会报错</span><br><span class="line">x=<span class="variable">$&#123;x&#125;</span><span class="number">111</span> 变量叠加</span><br><span class="line"><span class="built_in">unset</span> x 删除变量x</span><br><span class="line">env 查看环境变量</span><br><span class="line">PS1变量：命令提示符设置</span><br><span class="line">	\d <span class="comment">#显示日期，格式为“星期 月 日”</span></span><br><span class="line">	\H <span class="comment">#显示完整的主机名，如默认的主机名“localhost.localdomain”</span></span><br><span class="line">	\h <span class="comment">#显示主机名，如localhost</span></span><br><span class="line">	\t <span class="comment">#显示24小时制时间，格式为“HH:MM:SS”</span></span><br><span class="line">	\A <span class="comment">#显示24小时制时间，格式为“HH:MM”</span></span><br><span class="line">	\u <span class="comment">#显示当前用户名</span></span><br><span class="line">	\w <span class="comment">#显示当前所在目录的最后一个目录</span></span><br><span class="line">	\W <span class="comment">#显示当前所在目录的最后一个目录</span></span><br><span class="line">	\$ <span class="comment">#提示符。如果是root用户会显示提示符为“#”，如果是普通用户会显示提示符为“$”</span></span><br><span class="line"></span><br><span class="line">命令行位置变量:</span><br><span class="line">	<span class="variable">$n</span>　 n为数字，<span class="variable">$0</span>代表命令本身，<span class="variable">$1</span>-<span class="variable">$9</span>代表第一到第九个参数，十以上的参数需要用大括号包含，如<span class="variable">$&#123;10&#125;</span></span><br><span class="line">	$* 这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体</span><br><span class="line">	<span class="variable">$@</span> 　这个变量也代表命令行中所有参数，不过<span class="variable">$@</span>把每个参数区分对待</span><br><span class="line">	<span class="variable">$#</span> 　这个变量代表命令行所有参数的个数</span><br><span class="line"></span><br><span class="line">预定义变量:</span><br><span class="line">	$? ：最后一次执行命令的返回状态，如果正确执行，则返回<span class="number">0</span>；</span><br><span class="line">	$$：返回当前进程的PID号；</span><br><span class="line">	</span><br><span class="line">	$!：返回后台的进程PID号；</span><br><span class="line"><span class="built_in">read</span> -n</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"please input name "</span> name <span class="comment">#-p表示输出提示信息 read [选项] 变量名</span></span><br><span class="line"><span class="built_in">read</span> -t <span class="number">30</span> <span class="comment">#-t 表示等待时间单位为秒 -t 30 表示30秒，若30秒后没有输入数据终止执行脚本</span></span><br><span class="line"><span class="built_in">read</span> <span class="operator">-s</span> <span class="comment">#隐藏信息</span></span><br><span class="line"></span><br><span class="line">变量声明:</span><br><span class="line">	<span class="built_in">declare</span>声明变量类型</span><br><span class="line">	<span class="built_in">declare</span> [+/-] [选项] 变量名 -设定类型 +取消类型</span><br><span class="line">	<span class="built_in">declare</span> -p 变量名 显示变量类型</span><br><span class="line">	<span class="built_in">declare</span> -i 变量名 声明为整形</span><br><span class="line">	<span class="built_in">declare</span> <span class="operator">-a</span> 声明为数组</span><br><span class="line">	<span class="built_in">declare</span> -x 变量 相当于 <span class="built_in">export</span> <span class="built_in">export</span>其实是调用了<span class="built_in">declare</span> -x</span><br><span class="line">	<span class="built_in">declare</span> -r 变量 将变量变为只读属性 改为只读属性后，无法进行操作了。</span><br><span class="line">	</span><br><span class="line">数值计算 dd=$(expr <span class="variable">$aa</span> + <span class="variable">$bb</span>)</span><br></pre></td></tr></table></figure></p>
+<p>##磁盘管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">分区类型：</span><br><span class="line">	主分区最多只能分<span class="number">4</span>个</span><br><span class="line">扩展分区：</span><br><span class="line">	最多只能有<span class="number">1</span>个</span><br><span class="line">	主分区加扩展分区最多有<span class="number">4</span>个</span><br><span class="line">	不能写入数据，只能包含逻辑分区</span><br><span class="line">逻辑分区</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df：查看磁盘分区使用状况</span><br><span class="line">	<span class="operator">-l</span>：仅显示本地默认磁盘（默认）</span><br><span class="line">	<span class="operator">-a</span>：显示所有文件系统的磁盘使用情况</span><br><span class="line">	-h以<span class="number">1024</span>进制计算最合适的单位显示磁盘容量</span><br><span class="line">	-H：显示以<span class="number">1000</span>进制计算最合适的单位显示磁盘容量</span><br><span class="line">	-T显示磁盘分区类型</span><br><span class="line">	-t显示指定类型文件系统的磁盘分区</span><br><span class="line">	-x不显示指定类型文件系统的磁盘分区</span><br><span class="line">du:统计磁盘上的文件大小</span><br><span class="line">	-b 以byte为单位统计文件</span><br><span class="line">	-k 以KB为单位统计文件</span><br><span class="line">	-m 以MB为单位统计文件</span><br><span class="line">	-h 按照<span class="number">1024</span>进制以最适合的单位统计文件</span><br><span class="line">	-H 按照<span class="number">1000</span>进制以最适合的单位统计文件</span><br><span class="line">	<span class="operator">-s</span> 指定统计目标</span><br><span class="line">du -sh *.zip <span class="comment">#以1024进制查看zip文件的大小</span></span><br><span class="line"><span class="number">1</span>.创建分区:</span><br><span class="line">一:MBR分区模式:</span><br><span class="line"> -主分区不超过<span class="number">4</span>个</span><br><span class="line"> -单个分区最大<span class="number">2</span>TB</span><br><span class="line"><span class="comment">#磁盘分区工具fdisk</span></span><br><span class="line">fdisk <span class="operator">-l</span> <span class="comment">#查看分区设备</span></span><br><span class="line">fdisk /dev/sdb <span class="comment">#进入分区的模式,m查看help,n添加新的分区,w保存,q改变分区类型</span></span><br><span class="line">二:GPT分区模式:(不适合安装<span class="number">32</span>位的系统)</span><br><span class="line"> -主分区最多有<span class="number">128</span>个</span><br><span class="line"> -单个分区几乎没有限制(<span class="number">18</span>EB=<span class="number">18874368</span>TB)</span><br><span class="line"> -可以说没有逻辑,扩展等说法,只是为了兼容MBR</span><br><span class="line"><span class="comment">#磁盘分区工具parted</span></span><br><span class="line"><span class="built_in">print</span> <span class="comment">#查看分区信息</span></span><br><span class="line">malabel gpt <span class="comment">#创建GPT分区(默认msdos为MBR分区模式)</span></span><br><span class="line">rm <span class="number">1</span> <span class="comment">#删除1号分区</span></span><br><span class="line">mkpart <span class="comment">#创建分区</span></span><br><span class="line">	-Partition name <span class="comment">#名称(类似windows卷标)</span></span><br><span class="line">	-File system <span class="built_in">type</span></span><br><span class="line">	-start <span class="comment">#从第几M开始    一般会让0-1M之间的一点点数据取消掉,使得数据对齐,从第1M开始 </span></span><br><span class="line">	-end  <span class="comment">#2000   2G</span></span><br><span class="line">mkpart name start end <span class="comment">#也可以一句话 </span></span><br><span class="line">quit <span class="comment">#退出 parted为立即生效</span></span><br><span class="line"><span class="number">2</span>.分区格式化:</span><br><span class="line"><span class="comment">#分区格式化工具 mkfs</span></span><br><span class="line">mkfs -t ext4 /dev/sda1 <span class="comment">#将第一块硬盘的1分区格式化为ext4文件系统</span></span><br><span class="line"><span class="comment">#MBR扩展分区不能格式化</span></span><br><span class="line"><span class="comment">#GPT分区 通过fdisk不能查看文件类型,只能通过parted</span></span><br><span class="line"><span class="number">3</span>.挂载分区</span><br><span class="line"><span class="comment">#挂载配置文件 /etc/fstab</span></span><br><span class="line">mount /dev/sdb1 /mnt/zlx <span class="comment">#临时挂载分区,重启失效</span></span><br><span class="line"><span class="number">4</span>.添加swap分区</span><br><span class="line">通过fdisk工具,先通过t选择分区 ,然后L显示类型,选择<span class="number">82</span>的swap id.</span><br><span class="line">mkswap /dev/sdb8 <span class="comment">#创建交换分区</span></span><br><span class="line">swapon /dev/sdb8 <span class="comment">#启用交换分区</span></span><br><span class="line">free <span class="comment">#查看交换分区</span></span><br><span class="line">swapoff /devsdb8 <span class="comment">#停用交换分区</span></span><br></pre></td></tr></table></figure></p>
+<p>##用户管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/etc/group</span><br><span class="line">组名:组密码占位符:组编号:组中用户名列表(相同则省略)</span><br><span class="line">组编号<span class="number">0</span>-<span class="number">499</span> 为系统的组</span><br><span class="line">/etc/gshadow <span class="comment">#存储当前系统中用户组的密码信息</span></span><br><span class="line">组名:组密码(*,!均为没有密码):组管理者:组中用户名列表</span><br><span class="line">/etc/passwd <span class="comment">#所有用户</span></span><br><span class="line">用户名:密码占位符:用户编号:用户组编号:用户注释信息:用户主目录:shell类型</span><br><span class="line">/etc/shadow <span class="comment">#所有用户密码</span></span><br></pre></td></tr></table></figure></p>
+<p>##系统服务管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#systemctl命令将service和chkconfig命令结合在了一起</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx.service <span class="comment">#使nginx自动启动</span></span><br><span class="line">systemctl <span class="built_in">disable</span> nginx.service <span class="comment">#取消nginx自动启动</span></span><br><span class="line">检查服务状态 systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active)</span><br><span class="line">显示所有已启动的服务	systemctl list-units --type=service</span><br><span class="line">启动某服务	systemctl start nginx.service</span><br><span class="line">停止某服务	systemctl stop nginx.service</span><br><span class="line">重启某服务	systemctl restart nginx.service</span><br></pre></td></tr></table></figure></p>
+<p>##数据同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rsync [option] 源路径 目标路径</span><br><span class="line">	a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性</span><br><span class="line">	b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用–suffix选项来指定不同的备份文件前缀。</span><br><span class="line">	–backup-dir 将备份文件(如~filename)存放在在目录下。</span><br><span class="line">	-suffix=SUFFIX 定义备份文件前缀</span><br><span class="line">	–delete 删除那些DST中SRC没有的文件</span><br><span class="line">	–bwlimit=KBPS 限制I/O带宽</span><br><span class="line">	</span><br><span class="line"><span class="comment">#将本机/tmp/a文件夹 同步至/tmp/b</span></span><br><span class="line">rsync -avzP --delete /tmp/a /tmp/b</span><br><span class="line"><span class="comment">#将远程主机x中/tmp/a下的文件下载至本机 /tmp/b</span></span><br><span class="line">rsync -avz <span class="operator">-e</span> ssh root@<span class="number">192.168</span>.<span class="number">0.1</span>:/tmp/a /tmp/b</span><br></pre></td></tr></table></figure></p>
+<p>##采集<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">wget [options] [URL]</span><br><span class="line">	-o:记录<span class="built_in">log</span>信息，用法-ofilename</span><br><span class="line">	<span class="operator">-a</span>:追加<span class="built_in">log</span>信息</span><br><span class="line">	-O:将文件保存到文件 -Ofilename</span><br><span class="line">	-c:断点续传</span><br><span class="line">	–referer,referer值，采集必用</span><br><span class="line">	–load-cookies=FILE 在开始会话前从文件 FILE中加载cookie</span><br><span class="line">	–save-cookies=FILE 在会话结束后将 cookies保存到 FILE文件中</span><br><span class="line">	-nc, –no-clobber 不要覆盖已经存在的文件</span><br><span class="line">	-T,–timeout=SECONDS 设置超时时间</span><br><span class="line">	-x,强制建立目录(保持目标网站的目录结构)</span><br><span class="line">	-r,递归下载整个网站</span><br><span class="line">curl [option] [url]</span><br><span class="line">	-c:断点续传</span><br><span class="line">	-o:文件名，要自己写</span><br><span class="line">	-O:文件名，自动(和服务器上的名字一样)</span><br><span class="line">	-D:保存cookie,curl -D cookie.txt URL</span><br><span class="line">	-b:使用cookie,curl -b cookie.txt URL</span><br><span class="line">	-A:发送浏览器信息，伪装成浏览器。curl -A “Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10</span>_8_5) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) Chrome/<span class="number">31.0</span>.<span class="number">1626.0</span>″ URL,这样对方服务器会认为我们是一个在macos上跑的chrom浏览器。</span><br><span class="line">	<span class="operator">-e</span>:填写referer值。</span><br><span class="line">	<span class="operator">-d</span>:post模式，以application/x-www-url-encoded发送请求。d后面填写要提交的参数即可 curl <span class="operator">-d</span>”a=xx&amp;b=xx&amp;c=xx”。</span><br><span class="line">	-F模拟 multipart/form-data 形式的 form 上传文件。curl -F “action=upload” -F”filename=@file.gz;<span class="built_in">type</span>=application/octet-stream” URL</span><br></pre></td></tr></table></figure></p>
+<p>##ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host <span class="comment">#远程登陆</span></span><br><span class="line">ssh -p port user@host <span class="comment">#远程登陆某个端口</span></span><br><span class="line">ssh-keygen <span class="comment">#在～/.ssh/下生成自己的公钥和私钥</span></span><br><span class="line">ssh-copy-id user@host <span class="comment">#将自己的公钥copy到远程 免登陆，也可以直接$ ssh user@host 'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub</span></span><br><span class="line">如果不行，远传配置/etc/ssh/sshd_config </span><br><span class="line">　RSAAuthentication yes</span><br><span class="line">　　PubkeyAuthentication yes</span><br><span class="line">　　AuthorizedKeysFile .ssh/authorized_keys</span><br><span class="line"></span><br><span class="line">　$ ssh -L 本地端口:目标主机:目标主机端口 <span class="comment">#本地端口转发</span></span><br><span class="line">　$ ssh -R 远程主机端口:目标主机:目标主机端口 <span class="comment">#远程端口转发</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/10/linux-source/" data-id="cie9xujev0039c5fy07e26uky" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/12/10/php-source/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          php常用笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/08/php-header/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php header函数的详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/angular/">angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/debian/">debian</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/apache/">apache</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/php/restful/">restful</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgresql/">postgresql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-ui/">angular-ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/">debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis/">gis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/header/">header</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful/">restful</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/参数/">参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/angular-ui/" style="font-size: 10px;">angular-ui</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gis/" style="font-size: 10px;">gis</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/postgresql/" style="font-size: 15px;">postgresql</a> <a href="/tags/restful/" style="font-size: 10px;">restful</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/参数/" style="font-size: 10px;">参数</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/php-auth/">HTTP Basic Authentication</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/elemjisuan/">ele.me外卖平分算钱</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/10/phalcon-config/">phalcon框架的nginx配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/03/crontab/">crontab记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

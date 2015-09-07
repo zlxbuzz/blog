@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-ui-calendar" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/07/ui-calendar/" class="article-date">
+  <time datetime="2015-04-07T09:35:57.000Z" itemprop="datePublished">2015-04-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/angularjs/">angularjs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/07/ui-calendar/">angulajs的ui日历插件--ui-calendar</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在做一个基于angularjs的项目，需要用到日历插件，基于jquery有一款插件<a href="http://fullcalendar.io/docs" target="_blank" rel="external">FullCalendar</a>。为了减少jquery的依赖性，还是采用一款基于angular的日历插件<a href="https://github.com/angular-ui/ui-calendar" target="_blank" rel="external">ui-calendar</a>，记录下使用方法。</p>
+<p>##引入对应的js和css<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/fullcalendar.css" target="_blank" rel="external">fullcalendar.css</a> –fullcalendar的样式<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/jquery.js" target="_blank" rel="external">jquery.js</a> –jQuery插件<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/angular/angular.js" target="_blank" rel="external">angular.js</a> –angularjs插件<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/calendar.min.js" target="_blank" rel="external">calendar.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/moment/moment.js" target="_blank" rel="external">moment.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/fullcalendar.js" target="_blank" rel="external">fullcalendar.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/gcal.js" target="_blank" rel="external">gcal.js</a> –必要的js包</p>
+<blockquote>
+<p><strong>注意：</strong>需要下载到本地使用。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">" fullcalendar/dist/fullcalendar.css"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">" jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">" angular/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">" moment/moment.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">" fullcalendar/dist/calendar.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">" fullcalendar/dist/fullcalendar.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">" fullcalendar/dist/gcal.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>##js初始化</p>
+<p>####1.依赖注入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  myAppModule= angular.module(<span class="string">'MyApp'</span>, [<span class="string">'ui.calendar'</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>####2.简单配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myAppModule.controller(<span class="string">'myappController'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">$scope.eventSources = [];<span class="comment">//事件源</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="根据api一共有多种数据的导入">根据api一共有多种数据的导入</h5><pre><code><span class="comment"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$scope.eventSource = &#123;</span><br><span class="line">		url: <span class="string">"http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic"</span>,</span><br><span class="line">		className: <span class="string">'gcal-event'</span>,           <span class="comment">// an option!</span></span><br><span class="line">		currentTimezone: <span class="string">'America/Chicago'</span> <span class="comment">// an option!</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$scope.events = [</span><br><span class="line">  &#123;title: <span class="string">'All Day Event'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">1</span>)&#125;,</span><br><span class="line">  &#123;title: <span class="string">'Long Event'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">5</span>),end: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">2</span>)&#125;,</span><br><span class="line">  &#123;id: <span class="number">999</span>,title: <span class="string">'Repeating Event'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">3</span>, <span class="number">16</span>, <span class="number">0</span>),allDay: <span class="literal">false</span>&#125;,</span><br><span class="line">  &#123;id: <span class="number">999</span>,title: <span class="string">'Repeating Event'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">4</span>, <span class="number">16</span>, <span class="number">0</span>),allDay: <span class="literal">false</span>&#125;,</span><br><span class="line">  &#123;title: <span class="string">'Birthday Party'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">1</span>, <span class="number">19</span>, <span class="number">0</span>),end: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">1</span>, <span class="number">22</span>, <span class="number">30</span>),allDay: <span class="literal">false</span>&#125;,</span><br><span class="line">  &#123;title: <span class="string">'Click for Google'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">28</span>),end: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">29</span>),url: <span class="string">'http://google.com/'</span>&#125;</span><br><span class="line">];</span><br><span class="line">如果allDay 为 <span class="literal">true</span> 则时间块可以在日历中进行拖动</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$scope.eventsF = <span class="function"><span class="keyword">function</span> (<span class="params">start, end, timezone, callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Date</span>(start).getTime() / <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">var</span> e = <span class="keyword">new</span> <span class="built_in">Date</span>(end).getTime() / <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Date</span>(start).getMonth();</span><br><span class="line">  <span class="keyword">var</span> events = [&#123;title: <span class="string">'Feed Me '</span> + m,start: s + (<span class="number">50000</span>),end: s + (<span class="number">100000</span>),allDay: <span class="literal">false</span>, className: [<span class="string">'customFeed'</span>]&#125;];</span><br><span class="line">  callback(events);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$scope.calEventsExt = &#123;</span><br><span class="line">   color: <span class="string">'#f00'</span>,</span><br><span class="line">   textColor: <span class="string">'yellow'</span>,</span><br><span class="line">   events: [ </span><br><span class="line">	  &#123;type:<span class="string">'party'</span>,title: <span class="string">'Lunch'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">12</span>, <span class="number">0</span>),end: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">14</span>, <span class="number">0</span>),allDay: <span class="literal">false</span>&#125;,</span><br><span class="line">	  &#123;type:<span class="string">'party'</span>,title: <span class="string">'Lunch 2'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">12</span>, <span class="number">0</span>),end: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">14</span>, <span class="number">0</span>),allDay: <span class="literal">false</span>&#125;,</span><br><span class="line">	  &#123;type:<span class="string">'party'</span>,title: <span class="string">'Click for Google'</span>,start: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">28</span>),end: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">29</span>),url: <span class="string">'http://google.com/'</span>&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>####3.对插件的参数配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$scope.uiConfig = &#123;</span><br><span class="line">	  calendar:&#123;</span><br><span class="line">		height: <span class="number">450</span>,<span class="comment">//宽度</span></span><br><span class="line">		editable: <span class="literal">true</span>,<span class="comment">//可编辑</span></span><br><span class="line">		header:&#123;<span class="comment">//各个部位的需要显示的内容</span></span><br><span class="line">		  left: <span class="string">'month basicWeek basicDay agendaWeek agendaDay'</span>,</span><br><span class="line">		  center: <span class="string">'title'</span>,</span><br><span class="line">		  right: <span class="string">'today prev,next'</span></span><br><span class="line">		&#125;,</span><br><span class="line">		dayClick: $scope.alertEventOnClick,<span class="comment">//日期点击触发函数</span></span><br><span class="line">		eventDrop: $scope.alertOnDrop,<span class="comment">//日期拖拽出发函数</span></span><br><span class="line">		eventResize: $scope.alertOnResize，</span><br><span class="line">		eventResize <span class="comment">//日期拉伸出发函数 这些函数写在配置的前面～</span></span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>####相关参数的中文<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$scope.uiConfig.calendar.dayNames = [<span class="string">"星期日"</span>, <span class="string">"星期一"</span>, <span class="string">"星期二"</span>, <span class="string">"星期三"</span>, <span class="string">"星期四"</span>, <span class="string">"星期五"</span>, <span class="string">"星期六"</span>];</span><br><span class="line">    $scope.uiConfig.calendar.dayNamesShort = [<span class="string">"星期日"</span>, <span class="string">"星期一"</span>, <span class="string">"星期二"</span>, <span class="string">"星期三"</span>, <span class="string">"星期四"</span>, <span class="string">"星期五"</span>, <span class="string">"星期六"</span>];</span><br><span class="line">    $scope.uiConfig.calendar.monthNamesShort = [<span class="string">"一月"</span>, <span class="string">"二月"</span>, <span class="string">"三月"</span>, <span class="string">"四月"</span>, <span class="string">"五月"</span>, <span class="string">"六月"</span>, <span class="string">"七月"</span>,<span class="string">"八月"</span>,<span class="string">"九月"</span>,<span class="string">"十月"</span>,<span class="string">"十一月"</span>,<span class="string">"十二月"</span>];</span><br><span class="line">    $scope.uiConfig.calendar.monthNames = [<span class="string">"一月"</span>, <span class="string">"二月"</span>, <span class="string">"三月"</span>, <span class="string">"四月"</span>, <span class="string">"五月"</span>, <span class="string">"六月"</span>, <span class="string">"七月"</span>,<span class="string">"八月"</span>,<span class="string">"九月"</span>,<span class="string">"十月"</span>,<span class="string">"十一月"</span>,<span class="string">"十二月"</span>];</span><br></pre></td></tr></table></figure></p>
+<p>####常见的问题<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//由于ui-calendar的ng-model会生成标志_d等参数,如果进行ajax 清空重复赋值可能会出现数据无法重新加载的问题</span></span><br><span class="line"><span class="comment">//当点击下个月的按钮时可以采用slice方法将数组清空后重新赋值</span></span><br><span class="line">$scope.uiConfig 下的calendar参数可以</span><br><span class="line">viewRender:<span class="function"><span class="keyword">function</span>(<span class="params">view</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> date =<span class="keyword">new</span> <span class="built_in">Date</span>(view.intervalStart._d).getMonth()+<span class="number">1</span>;</span><br><span class="line">		workorderService.get(&#123;type:<span class="number">4</span>,pid:$stateParams.sid,m:date&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		$scope.eventSources.splice(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">		$scope.events=[];</span><br><span class="line">		<span class="keyword">var</span> result=datas.handle(data);</span><br><span class="line">		<span class="keyword">if</span>(result)&#123;</span><br><span class="line">			$scope.workorders=result.workorders;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> $scope.workorders)&#123;</span><br><span class="line">				$scope.events.push(&#123;</span><br><span class="line">					<span class="string">'title'</span>:<span class="string">'&lt;i class="ace-icon fa fa-barcode" style="color:'</span>+$scope.workorders[i].color+<span class="string">'"&gt;&lt;/i&gt; '</span>+$scope.workorders[i].wkname,</span><br><span class="line">					<span class="string">'start'</span>:$scope.workorders[i].jihua_date,</span><br><span class="line">					<span class="string">'allDay'</span>:<span class="literal">true</span>,</span><br><span class="line">					<span class="string">'backgroundColor'</span>:<span class="string">'white'</span>,</span><br><span class="line">					<span class="string">'textColor'</span>:<span class="string">'black'</span>,</span><br><span class="line">					<span class="string">'borderColor'</span>:<span class="string">'white'</span>,</span><br><span class="line">					<span class="string">'wkid'</span>:$scope.workorders[i].wkid</span><br><span class="line">				&#125;);			</span><br><span class="line">			&#125;</span><br><span class="line">			$scope.eventSources.push($scope.events);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/04/07/ui-calendar/" data-id="cie9xujca0006c5fyv91oncis" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular-ui/">angular-ui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs/">angularjs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-php-book" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/17/php-book/" class="article-date">
+  <time datetime="2015-03-17T05:41:25.000Z" itemprop="datePublished">2015-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/17/php-book/">php-book</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####PHP：<br>PHP核心技术与最佳实践（PHP内核，缓存与优化）<br>深入PHP（面向对象，设计模式，单元测试与持续集成）<br>还有两本专门讲内核的：<br>PHP扩展开发及内核应用（在线）<br>TIPI（Thinking In PHP Internals，深入理解PHP内核，在线）</p>
+<p>####MySQL：<br>高性能MySQL（MySQL优化，复制与备份）<br>MySQL技术内幕：InnoDB存储引擎（InnoDB引擎配置与优化）<br>MySQL内核：InnoDB存储引擎（InnoDB引擎源码分析）</p>
+<p>####Linux：<br>Linux系统管理技术手册（全面描述Linux管理技术）<br>Unix环境高级编程（类Unix下系统编程）<br>Unix网络编程（socket编程）</p>
+<p>####Redis：<br>Redis设计与实现（redis源码分析）</p>
+<p>####Nginx：<br>Nginx开发从入门到精通（Nginx模块开发，在线）</p>
+<p>####算法与数据结构：<br>数据结构与算法分析（C语言版）<br>算法导论</p>
+<p>####其它：<br>深入理解计算机系统<br>现代操作系统（或操作系统概念）<br>数据库系统概念<br>TCP/IP详解<br>编译原理<br>离散数学及其应用</p>
+<p>.简单做一下自我介绍,? 然后谈一下近三年来你的得意之作?<br>1.面试官看过你的简历，会问一些你做的项目的用户量、pv、吞吐量、相关难点和解决方法等<br>2.数据库设计经验,为什么进行分表? 分库?<br>一般多少数据量开始分表? 分库? 分库分表的目的? 什么是数据库垂直拆分? 水平拆分? 分区等等？可以举例说明<br>3.数据库优化有哪些? 分别需要注意什么?<br>4.web开发方面会遇到哪些缓存? 分别如何优化?<br>5.给你256M的内存,对10G的文件进行排序(文件每行1个数字),如何实现？<br>对10G的文件进行查找如何实现？<br>统计10G文件每个关键字出现的次数如何实现？<br>6.假如你现在是12306火车订票的设计师,你该如何设计满足全国人民订票?<br>7.假如有1亿用户的访问量,你的服务器架构是怎样的? 用户信息的存储方案如何设计?<br>8.如果你是技术组长,所带团队任务进度无法完成你该如何解决?<br>如果在进度排满的前提下插入任务,你该如何保证总进度不延期?<br>如果有的工程师今天预定任务没有完成,你该如何解决?<br>9.从你的经验方面谈一下如何构建高性能web站点? 需要哪些环节? 步骤? 每个步骤需要注意什么如何优化等?</p>
+<ol>
+<li>为什么要对数据库进行主从分离? </li>
+<li>如何处理多服务器共享session?</li>
+<li>一个10G的表,你用php程序统计某个字段出现的次数,思路是?</li>
+<li>会告诉你一个nginx日志例子,用你认为最佳的编程语言统计一下http响应时间超过1秒的前10个url?</li>
+<li>给你一个mysql配置文件,用你认为最佳的编程语言解析该文件?</li>
+<li>给你两个路径a和b,写一个算法或思路计算a和b差距几层并显示a和b的交集?</li>
+<li>给你一个url,在nginx配置一下rewrite指定到某个具体路径?</li>
+<li>一个php文件的解释过程是? 一般加速php有哪些? 提高php整体性能会用到哪些技术?</li>
+<li>session和cookie生存周期区别? 存储位置区别?</li>
+<li>require、include、require_once、include_once区别? 加载区别? 如果程序按需加载某个php文件你如何实现?</li>
+<li>chrome号称为多线程的,所以多线程和多进程的区别为?</li>
+<li>php在2011年底出现hash碰撞,hash碰撞原理为? 如何进行修复?</li>
+<li>web不安全因素有哪些? 分别如何防范?</li>
+<li>假如两个单链表相交,写一个最优算法计算交点位置,说思路也可以?</li>
+<li>假如你是技术组长? 如何提高团队效率?</li>
+<li>nginx负载均衡有哪些? 如果其中一台服务器挂掉,报警机制如何实现?</li>
+<li>不优化前提下,apache一般最大连接数为? nginx一般最大连接数为? mysql 每秒insert ? select ? update ? delete?</li>
+<li>mysql 数据类型有哪些 ? 分别占用多少存储空间 ?</li>
+<li>nginx设置缓存js、css、图片等信息,缓存的实现原理是?</li>
+<li>如何提高缓存命中率? 如何对缓存进行颗粒化?</li>
+<li>php的内存回收机制是?</li>
+<li>我的所有问题都问完了,你有什么问题问我没有？</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/03/17/php-book/" data-id="cie9xujd9001cc5fyqlfohnkd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js-source" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/11/js-source/" class="article-date">
+  <time datetime="2015-03-11T09:20:11.000Z" itemprop="datePublished">2015-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/11/js-source/">js常用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##将时间戳转换成日期格式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(时间戳);</span><br><span class="line">Y = date.getFullYear() + <span class="string">'-'</span>;</span><br><span class="line">M = (date.getMonth()+<span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">'0'</span>+(date.getMonth()+<span class="number">1</span>) : date.getMonth()+<span class="number">1</span>) + <span class="string">'-'</span>;</span><br><span class="line">D = date.getDate() &lt;<span class="number">10</span> ? <span class="string">'0'</span>+date.getDate() : date.getDate() + <span class="string">' '</span>;</span><br><span class="line">h = date.getHours() + <span class="string">':'</span>;</span><br><span class="line">m = date.getMinutes() + <span class="string">':'</span>;</span><br><span class="line">s = date.getSeconds(); </span><br><span class="line"><span class="built_in">console</span>.log(Y+M+D+h+m+s);</span><br></pre></td></tr></table></figure></p>
+<p>##将日期格式转换成时间戳：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2014-04-23 18:55:49:123'</span>);</span><br><span class="line"><span class="comment">// 有三种方式获取</span></span><br><span class="line">time1 = date.getTime()</span><br><span class="line">time2 = date.valueOf()</span><br><span class="line">time3 = <span class="built_in">Date</span>.parse(date)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三种获取的区别</span></span><br><span class="line"><span class="comment">//第一、第二种：会精确到毫秒</span></span><br><span class="line"><span class="comment">//第三种：只能精确到秒，毫秒将用0来代替</span></span><br><span class="line"><span class="comment">// 比如上面代码输出的结果(一眼就能看出区别)：</span></span><br><span class="line"><span class="comment">//    1398250549123</span></span><br><span class="line"><span class="comment">//    1398250549123</span></span><br><span class="line"><span class="comment">//    1398250549000</span></span><br></pre></td></tr></table></figure></p>
+<p>##js数组去重<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.unique3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> res = [];</span><br><span class="line">	<span class="keyword">var</span> json = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!json[<span class="keyword">this</span>[i]])&#123;</span><br><span class="line">			res.push(<span class="keyword">this</span>[i]);</span><br><span class="line">			json[<span class="keyword">this</span>[i]] = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##字符串截取</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">substr(start [, length ])</span><br><span class="line">返回一个从指定位置开始的指定长度的子字符串</span><br><span class="line">substring(start, end)</span><br><span class="line">返回位于 <span class="built_in">String</span> 对象中指定位置的子字符串。</span><br></pre></td></tr></table></figure>
+<p>##页面跳转<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.navigate(<span class="string">"top.jsp"</span>);</span><br><span class="line"><span class="built_in">window</span>.history.back(-<span class="number">1</span>);</span><br><span class="line"><span class="built_in">window</span>.location.href=<span class="string">"login.jsp?backurl="</span>+<span class="built_in">window</span>.location.href; </span><br><span class="line">self.location=<span class="string">'top.htm'</span>;</span><br><span class="line">top.location=<span class="string">'xx.jsp'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>##加载完成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload </span><br><span class="line">必须等页面内包括图片的所有元素加载完成后才能执行。</span><br><span class="line">不能同时编写多个，只执行一个</span><br><span class="line">$(<span class="built_in">document</span>).ready()</span><br><span class="line">是DOM结构绘制完毕后就可以执行</span><br><span class="line">可以编写多个</span><br><span class="line">简写$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line">$(<span class="built_in">window</span>).load()等同与<span class="built_in">window</span>.onload</span><br></pre></td></tr></table></figure></p>
+<p>##刷新页面<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">history.go(<span class="number">0</span>) </span><br><span class="line">location.reload() </span><br><span class="line">location=location </span><br><span class="line">location.assign(location) </span><br><span class="line"><span class="built_in">document</span>.execCommand(<span class="string">'Refresh'</span>) </span><br><span class="line"><span class="built_in">window</span>.navigate(location) </span><br><span class="line">location.replace(location) </span><br><span class="line"><span class="built_in">document</span>.URL=location.href</span><br></pre></td></tr></table></figure></p>
+<p>##json转化和解析<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">"&#123;a:'111',b:'ccc'&#125;"</span>);  <span class="comment">//解析</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">"("</span>+<span class="string">""</span>+<span class="string">")"</span>); <span class="comment">//解析</span></span><br></pre></td></tr></table></figure></p>
+<p>##URI编码转换<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="string">"':'"</span>;</span><br><span class="line">en = <span class="built_in">encodeURI</span>(a);    <span class="comment">//编码</span></span><br><span class="line">a = <span class="built_in">decodeURI</span>(en);    <span class="comment">//解码</span></span><br></pre></td></tr></table></figure></p>
+<p>##HTML编码转换<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEncode</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> $(<span class="string">'&lt;div/&gt;'</span>).text(value).html();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlDecode</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> $(<span class="string">'&lt;div/&gt;'</span>).html(value).text();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##当属性名是另一个表达式时候<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.b[c] <span class="comment">// (a.b)[c]</span></span><br><span class="line">a[b] <span class="comment">//而不用 a.b</span></span><br></pre></td></tr></table></figure></p>
+<p>##js转义字符实体<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEscape</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (s + <span class="string">''</span>).replace(<span class="regexp">/&amp;/g</span>, <span class="string">'&amp;amp;'</span>)</span><br><span class="line">		.replace(<span class="regexp">/&lt;/g</span>, <span class="string">'&amp;lt;'</span>)</span><br><span class="line">		.replace(<span class="regexp">/&gt;/g</span>, <span class="string">'&amp;gt;'</span>)</span><br><span class="line">		.replace(<span class="regexp">/'/g</span>, <span class="string">'&amp;#039;'</span>)</span><br><span class="line">		.replace(<span class="regexp">/"/g</span>, <span class="string">'&amp;quot;'</span>)</span><br><span class="line">		.replace(<span class="regexp">/\n/g</span>, <span class="string">'&lt;br /&gt;'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##判断number<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isNumber = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) &amp;&amp; <span class="built_in">isFinite</span>(n);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>##js原型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承</span></span><br><span class="line"><span class="comment">//任何一个prototype对象都有一个constructor属性，指向它的构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果替换了prototype对象</span></span><br><span class="line">　　o.prototype = &#123;&#125;;</span><br><span class="line"><span class="comment">//下一步必然是为新的prototype对象加上constructor属性，并将这个属性指回原来的构造函数</span></span><br><span class="line">o.prototype.constructor = o;</span><br><span class="line"><span class="comment">//Object和Function都是构造函数，所有的构造函数的都是Function的实例对象,Object是Function的实例对象</span></span><br><span class="line"><span class="comment">//Function.prototype是Object的实例对象</span></span><br><span class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype</span><br><span class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype</span><br><span class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype</span><br><span class="line"><span class="comment">//instanceof的结果不要仅是: 如果右侧构造函数的prototype属性能在左侧的对象的原型链中找到,</span></span><br><span class="line"><span class="comment">// 那么就返回true, 否则就返回false</span></span><br><span class="line"><span class="built_in">Object</span> intanceof <span class="built_in">Function</span>: <span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>: <span class="built_in">Function</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">//true</span></span><br><span class="line"><span class="comment">//实例对象的constructor属性指向其构造函数</span></span><br><span class="line"><span class="built_in">Object</span>.constructor === <span class="built_in">Function</span></span><br><span class="line"><span class="built_in">Function</span>.constructor === <span class="built_in">Function</span></span><br></pre></td></tr></table></figure></p>
+<p>##js继承<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　<span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">　　　　F.prototype = Parent.prototype;</span><br><span class="line">　　　　Child.prototype = <span class="keyword">new</span> F();<span class="comment">//空对象实例化几乎不占内存</span></span><br><span class="line">　　　　Child.prototype.constructor = Child;</span><br><span class="line">　　　　Child.uber = Parent.prototype;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##js判断是否存在<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> myObj == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">　　　<span class="keyword">var</span> myObj = &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##修正js默认验证信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"data.IDcard"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> required  pattern=<span class="string">"\d&#123;6&#125;[12]\d&#123;3&#125;[01]\d&#123;6&#125;\w&#123;1&#125;"</span> oninput=<span class="string">"disValidate(this,'请输入18位身份证号码') "</span>/&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">disValidate</span><span class="params">(self,mes)</span></span>&#123;</span><br><span class="line">        self.validity.patternMismatch ? self.setCustomValidity(mes) : self.setCustomValidity(<span class="string">''</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/03/11/js-source/" data-id="cie9xujez003jc5fyl9kfbfje" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-src-href" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/04/src-href/" class="article-date">
+  <time datetime="2015-03-04T09:35:47.000Z" itemprop="datePublished">2015-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/04/src-href/">src与href属性的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##src和href之间存在区别，能混淆使用。src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。<br>src和href之间存在区别，能混淆使用。src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。</p>
+<p>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。</p>
+<script src="js.js"></script>
+
+<p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
+<p>href是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加</p>
+<link href="common.css" rel="stylesheet">
+
+<p>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/03/04/src-href/" data-id="cie9xujcf000dc5fy4f2rzewj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-debian-mod" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/04/debian-mod/" class="article-date">
+  <time datetime="2015-03-04T09:20:33.000Z" itemprop="datePublished">2015-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/debian/">debian</a>►<a class="article-category-link" href="/categories/debian/linux/">linux</a>►<a class="article-category-link" href="/categories/debian/linux/apache/">apache</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/04/debian-mod/">debian下启动apache的相应模块</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####在apache的配置目录里，有两个文件夹</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/mods-enabled/ <span class="preprocessor">#已经被启用的模块</span></span><br><span class="line"></span><br><span class="line">/etc/apache2/mods-available/ <span class="preprocessor">#当前系统中可用的模块</span></span><br></pre></td></tr></table></figure>
+<p>通过以下两个指令来启动或者停用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a2enmod 模块名</span><br><span class="line"></span><br><span class="line">a2dismod 模块名</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/03/04/debian-mod/" data-id="cie9xujfj0041c5fy254koro6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debian/">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs-lesson4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/18/nodejs-lesson4/" class="article-date">
+  <time datetime="2014-12-18T02:52:52.000Z" itemprop="datePublished">2014-12-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/18/nodejs-lesson4/">nodejs-lesson4 的挑战功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Node.js 包教不包会的lession4的挑战功能<br><a href="https://github.com/buzzmjx/node-lessons/tree/master/lesson4" target="_blank" rel="external">https://github.com/buzzmjx/node-lessons/tree/master/lesson4</a><br>主要思路是在每次并发请求每条文章的时候，获取作者名，同时访问到作者的页面抓取作者的积分信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eventproxy = <span class="built_in">require</span>(<span class="string">'eventproxy'</span>);</span><br><span class="line"><span class="keyword">var</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>);</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cnodeUrl = <span class="string">'https://cnodejs.org/'</span>;</span><br><span class="line"><span class="keyword">var</span> userUrl=<span class="string">'https://cnodejs.org/user/'</span>;</span><br><span class="line">superagent.get(cnodeUrl)</span><br><span class="line">  .end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.error(err);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> topicUrls = [];</span><br><span class="line">    <span class="keyword">var</span> $ = cheerio.load(res.text);</span><br><span class="line">    $(<span class="string">'#topic_list .topic_title'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">idx, element</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> $element = $(element);</span><br><span class="line">      <span class="keyword">var</span> href = url.resolve(cnodeUrl, $element.attr(<span class="string">'href'</span>));</span><br><span class="line">      topicUrls.push(href);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ep = <span class="keyword">new</span> eventproxy();</span><br><span class="line"></span><br><span class="line">    ep.after(<span class="string">'topic_html'</span>, topicUrls.length, <span class="function"><span class="keyword">function</span> (<span class="params">topics</span>) </span>&#123;</span><br><span class="line">      topics = topics.map(<span class="function"><span class="keyword">function</span> (<span class="params">topicPair</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> topicUrl = topicPair[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">var</span> topicHtml = topicPair[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">var</span> $ = cheerio.load(topicHtml);</span><br><span class="line">        <span class="keyword">return</span> (&#123;</span><br><span class="line">          title: $(<span class="string">'.topic_full_title'</span>).text().trim(),</span><br><span class="line">          href: topicUrl,</span><br><span class="line">          comment1: $(<span class="string">'.reply_content'</span>).eq(<span class="number">0</span>).text().trim(),</span><br><span class="line">          author:topicPair[<span class="number">2</span>],</span><br><span class="line">          score:topicPair[<span class="number">3</span>]</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">	<span class="built_in">console</span>.log(topics);</span><br><span class="line">    </span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    topicUrls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">topicUrl</span>) </span>&#123;</span><br><span class="line">      superagent.get(topicUrl)</span><br><span class="line">        .end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> $=cheerio.load(res.text);</span><br><span class="line">		<span class="keyword">var</span> author=$(<span class="string">'.changes'</span>).find(<span class="string">"a"</span>).text();</span><br><span class="line">		superagent.get(url.resolve(userUrl,author)).end(<span class="function"><span class="keyword">function</span>(<span class="params">err,res1</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> $ =cheerio.load(res1.text);</span><br><span class="line">			<span class="keyword">var</span> score=$(<span class="string">'.user_profile .big'</span>).text();</span><br><span class="line">			ep.emit(<span class="string">'topic_html'</span>, [topicUrl, res.text,author,score]);</span><br><span class="line">			&#125;)</span><br><span class="line">          </span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/18/nodejs-lesson4/" data-id="cie9xujdl001rc5fyo8n0qlv7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/18/linux-ftp/" class="article-date">
+  <time datetime="2014-12-18T02:52:52.000Z" itemprop="datePublished">2014-12-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/18/linux-ftp/">linux 下的ftp指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###1.连接ftp服务器<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp <span class="number">192.168</span><span class="number">.2</span><span class="number">.6</span></span><br></pre></td></tr></table></figure></p>
+<p>输入用户名和相应密码</p>
+<p>###2.常用的操作</p>
+<p>#####下载文件通常用get和mget这两条命令<br>    ftp&gt; get /usr/your/1.htm 1.htm (回车)<br>格式：get [remote-file] [local-file]<br>将文件从远端主机中传送至本地主机中。<br>如要获取远程服务器上/usr/your/1.htm</p>
+<pre><code>ftp&gt; cd /usr/your/
+ftp&gt; mget <span class="keyword">*</span>.<span class="keyword">*</span> (回车)
+</code></pre><p>格式：mget [remote-files]<br>从远端主机接收一批文件至本地主机。<br>如要获取服务器上/usr/your/下的所有文件，此时每下载一个文件，都会有提示。如果要除掉提示，则在mget <em>.</em> 命令前先执行:prompt off</p>
+<p>注意：文件都下载到了linux主机的当前目录下。比如，在　/usr/my下运行的ftp命令，则文件都下载到了/usr/my下。</p>
+<p>#####上传文件通常用put和mput这两条命令<br>格式：put local-file [remote-file]<br>将本地一个文件传送至远端主机中。<br>如要把本地的1.htm传送到远端主机/usr/your,并改名为2.htm<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp&gt; put <span class="number">1.</span>htm /usr/your/<span class="number">2.</span>htm (回车)</span><br></pre></td></tr></table></figure></p>
+<p>格式：mput local-files<br>将本地主机中一批文件传送至远端主机。<br>如要把本地当前目录下所有html文件上传到服务器/usr/your/ 下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ftp&gt; cd /usr/your （回车）</span><br><span class="line">ftp&gt; mput *.htm　（回车）</span><br></pre></td></tr></table></figure></p>
+<p>注意：上传文件都来自于主机的当前目录下。比如，在　/usr/my下运行的ftp命令，则只有在/usr/my下的文件linux才会上传到服务器/usr/your 下。</p>
+<p>##3.断开连接<br>bye：中断与服务器的连接<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp&gt; bye (回车)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/18/linux-ftp/" data-id="cie9xujex003ec5fyx8nhgts0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ftp/">ftp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node-man-4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/15/node-man-4/" class="article-date">
+  <time datetime="2014-12-15T03:52:34.000Z" itemprop="datePublished">2014-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/15/node-man-4/">Node.js Express 方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##express</p>
+<p>安装:</p>
+<p>新版本中命令行工具分家了</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> express  //安装 express</span>
+</code></pre><p>然后</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> express-generator    //安装 express 命令行工具</span>
+</code></pre><p>express -V 我现在查看到的版本是 4.9.0<br>npm start 代替 node app.js 启动</p>
+<p>##http.Server</p>
+<pre><code>var <span class="keyword">http</span> = <span class="built_in">require</span>(‘<span class="keyword">http</span>’); 
+var server = <span class="keyword">http</span>.createServer(callback); 返回一个<span class="keyword">http</span>.Server实例
+</code></pre><p>####属性:</p>
+<pre><code>server.maxHeadersCount 最大请求头数目限制, 默认 <span class="number">1000</span> 个. 如果设置为<span class="number">0</span>, 则代表不做任何限制
+</code></pre><p>####方法:</p>
+<pre><code>server.<span class="function"><span class="title">listnen</span><span class="params">(prot)</span></span> 监听一个端口
+server.<span class="function"><span class="title">close</span><span class="params">(callback)</span></span> 禁止服务端接收新的连接 
+server.<span class="function"><span class="title">setTimeout</span><span class="params">(msecs_Time, callback)</span></span> 设置套接字的超时值
+</code></pre><p>####事件:</p>
+<pre><code>‘request’ 每收到一个HTTP请求时触发, http.createServer的参数默认就是此事件的处理程序. 提供<span class="number">2</span>个参数: req, res 分别是http<span class="class">.ServerRequest</span> 和 http<span class="class">.ServerResponse</span> 的实例. 表示请求和响应消息
+‘connection’ 新的TCP建立时触发. 提供<span class="number">1</span>个 socket 参数 net<span class="class">.Socket</span> 实例
+‘close’ 服务器关闭时触发 无参
+</code></pre><p>##http.ServerRequest<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">HTTP请求的消息, 一般由 http.Server的 request 事件发送. </span><br><span class="line">HTTP 请求分: 请求头. 请求体</span><br><span class="line">```    </span><br><span class="line"><span class="preprocessor">####事件:</span></span><br><span class="line"></span><br><span class="line">    ‘data’ 请求体数据来到时. 参数 chunk 表示接收到的数据 </span><br><span class="line">    ‘end’ 请求体数据传输完成时 </span><br><span class="line">    ‘close’ 用户当前请求结束时</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">####属性:</span></span><br><span class="line"></span><br><span class="line">    complete 客户端请求是否已经发送完成</span><br><span class="line">    httpVersion HTTP 协议版本，通常是 <span class="number">1.0</span> 或 <span class="number">1.1</span></span><br><span class="line">    method HTTP 请求方法，如 GET、POST、PUT、DELETE 等</span><br><span class="line">    url 原始的请求路径，例如 /<span class="keyword">static</span>/image/x.jpg 或 /user?name=byvoid </span><br><span class="line">    headers HTTP 请求头</span><br><span class="line">    trailers HTTP 请求尾（不常见） </span><br><span class="line">    connection 当前 HTTP 连接套接字，为 net.Socket 的实例 </span><br><span class="line">    socket connection 属性的别名 </span><br><span class="line">    client client 属性的别名</span><br><span class="line">    params 多路由控制时的对象</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">##http.ServerResponse</span></span><br><span class="line"></span><br><span class="line">HTTP响应消息是返回给客户端的信息,决定了用户最终看到的结果</span><br><span class="line"><span class="preprocessor">####函数</span></span><br><span class="line"></span><br><span class="line">    res.writeHead(statusCode, [headers]) 该函数在一次请求中最多调用一次. statusCode, 是HTTP状态码. 如<span class="number">200</span>,<span class="number">404.</span> </span><br><span class="line">    headers 类似数组的对象,表示响应头的每个属性</span><br><span class="line">    res.write(data, [encoding]) 发送响应内容, 如果是字符串,需要制定编码方式, 默认 utf-<span class="number">8</span></span><br><span class="line">    res.end(data, data, [encoding]) 结束响应,告知客户端所有响应完成. 此函数必须调用一次</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">##API</span></span><br><span class="line"></span><br><span class="line">HTTP动词都是Express的方法. post 改、put 增、<span class="keyword">delete</span> 删、get 查</span><br><span class="line"><span class="preprocessor">####GET</span></span><br><span class="line"></span><br><span class="line">    GET 根据请求路径来处理客户端发出的GET请求</span><br><span class="line"></span><br><span class="line">    app.get(path, [callback(request, response)])</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">####ALL</span></span><br><span class="line"></span><br><span class="line">    ALL 以匹配所有的HTTP动词，也就是说它可以过滤所有路径的请求</span><br><span class="line"></span><br><span class="line">    app.all(path, [callback(request, response, next)])</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">####USE</span></span><br><span class="line"> USE express调用中间件的方法，它返回一个函数. path默认为<span class="string">"/"</span></span><br><span class="line"></span><br><span class="line">    app.use([path], [callback(request, response, next)])</span><br><span class="line">USE 不仅可以调用中间件,还可以根据请求的网址，返回不同的网页内容</span><br><span class="line">```js</span><br><span class="line">app.use(function(request, response, next) &#123;</span><br><span class="line">   <span class="keyword">if</span>(request.url == <span class="string">"/"</span>) &#123;</span><br><span class="line">      response.send(<span class="string">"Welcome to the homepage!"</span>);</span><br><span class="line">   &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      next();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(function(request, response, next) &#123;</span><br><span class="line">   <span class="keyword">if</span>(request.url == <span class="string">"/about"</span>) &#123;</span><br><span class="line">     response.send(<span class="string">"Welcome to the about page!"</span>);</span><br><span class="line">   &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">     next();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br><span class="line">        </span><br><span class="line">app.use(function(request, response) &#123;</span><br><span class="line">  response.send(<span class="string">"404 error!"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>####post<br>处理指定页面的post请求</p>
+<pre><code>app.post(path,<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>);</span>
+</code></pre><p>想要使用 body 需要安装中间件 </p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> <span class="keyword">body</span>-parser 
+npm <span class="keyword">install</span> multer</span>
+</code></pre><p>调用</p>
+<pre><code><span class="label">var</span> <span class="keyword">bodyParser </span>= <span class="preprocessor">require</span>(‘<span class="keyword">body-parser’); </span>
+<span class="label">var</span> <span class="keyword">multer </span>= <span class="preprocessor">require</span>(‘<span class="keyword">multer’);
+</span>… 
+<span class="label">app.use</span>(<span class="keyword">bodyParser.json());
+</span><span class="label">app.use</span>(<span class="keyword">bodyParser.urlencoded({ </span>extended: true }))<span class="comment">; </span>
+<span class="label">app.use</span>(<span class="keyword">multer());
+</span>
+<span class="label">req.body</span> 解析客户端的post请求参数
+格式：req.<span class="keyword">body.参数名；</span>
+</code></pre><p>注意: 表单所发送的 post请求 Accept 和 ajax 的不一样<br>服务器 send 发回来的数据,ajax是数据, 表单会反映称网页</p>
+<p>####param/query/params</p>
+<pre><code>获取主机名、路径名.[这里的req就是回调函数中的第一个参数]
+
+req.host 返回请求头里取的主机名(不包含端口号); 
+req.path 返回请求的URL的路径名 
+req.<span class="keyword">query</span> 是一个对象,存储着get请求路径参数的对象属性
+www.***.com/shoes?<span class="keyword">order</span>=<span class="keyword">desc</span>&amp;shoe[color]=blue&amp;shoe[<span class="keyword">type</span>]=converse 网址 
+得到: { <span class="keyword">order</span>: '<span class="keyword">desc</span>’, shoe: { color: 'blue’, <span class="keyword">type</span>: ‘converse’ } } 
+req.param() 功能同上,不过是函数形式 req.param(‘<span class="keyword">order</span>’) 返回 <span class="keyword">desc</span>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// req.param('name') 还可以获取具有相应路由规则的请求对象</span></span><br><span class="line">app.get(<span class="string">"/user/:name/"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.param(<span class="string">"name"</span>)); </span><br><span class="line">    res.send(<span class="string">"使用req.param属性获取具有路由规则的参数对象值!"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// req.params 同上,但可以匹配复杂命名路由规则的请求</span></span><br><span class="line">app.get(<span class="string">"/user/:name/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.params.id); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>####send</p>
+<pre><code>send 方法向浏览器发送一个响应信息，并可以智能处理不同类型的数据 send方法在输出响应时会自动进行一些设置，比如HEAD信息、HTTP缓存支持等等 类型可以是: <span class="built_in">String</span>, <span class="built_in">Array</span>, <span class="built_in">Object</span>, <span class="built_in">Number</span>. 当参数为一个<span class="built_in">String</span>时，Content-Type默认设置为<span class="string">"text/html"</span> 当参数为<span class="built_in">Array</span>或<span class="built_in">Object</span>时，Express会返回一个<span class="built_in">JSON</span> 当参数为一个NumberExpress会帮你设置一个响应体，比如：<span class="number">200</span>
+</code></pre><p>####set<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.set('view engine’, ‘ejs’); 设置默认模板引擎 </span><br><span class="line">app.engine( '.html’, require( ‘ejs’ ).__express ); </span><br><span class="line">修改模板引擎 "__express"，ejs模块的一个公共属性，表示要渲染的文件扩展名</span><br><span class="line"></span><br><span class="line">app.set('views’, __dirname); 设定views变量，意为视图存放的目录</span><br><span class="line"></span><br><span class="line">express.static —— 指定静态文件的查找目录 app.use(express.static(require(‘path’).join(__dirname, ‘public’)));</span><br><span class="line"></span><br><span class="line">模板操作: </span><br><span class="line">app.set('views’, path.join(__dirname, ‘views’)); </span><br><span class="line">app.set('view engine’, ‘html’); </span><br><span class="line">app.engine('.html’, require(‘ejs’).__express); </span><br><span class="line">这样模板后缀可以使 .html 但模板代码是ejs代码</span><br></pre></td></tr></table></figure></p>
+<p>####render</p>
+<p>何对网页模板进行访问. res对象的render函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.render(view, [locals], callback); view 视图名, locals 为模板传入变量</span><br></pre></td></tr></table></figure></p>
+<p>####redirect</p>
+<p>允许网址的重定向，跳转到指定的url并且可以指定status，默认为302方式 根据指定url来重定向，可以域内路径、网页间跳转也可以跳转至不同域名</p>
+<pre><code><span class="tag">res</span><span class="class">.redirect</span>(<span class="attr_selector">[status]</span>, <span class="tag">url</span>); <span class="tag">res</span><span class="class">.redirect</span>(“<span class="tag">login</span>”);
+</code></pre><p>####Middleware&lt;中间件&gt;</p>
+<p>中间件(middleware)就是处理HTTP请求的函数，用来完成各种特定的任务，比如检查用户是否登录、分析数据、以及其他在需要最终将数据发送给用户之前完成的任务。 它最大的特点就是，一个中间件处理完，可以把相应数据再传递给下一个中间件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//连续调用2个中间件</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">request, response, next</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"method："</span>+request.method+<span class="string">" ==== "</span>+<span class="string">"url："</span>+request.url);</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>)</span>&#123;</span><br><span class="line">    response.writeHead(<span class="number">200</span>, &#123; <span class="string">"Content-Type"</span>: <span class="string">"text/html;charset=utf-8"</span> &#125;);</span><br><span class="line">    response.end(<span class="string">'示例：连续调用两个中间件'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>#####由于这种原因,所以调用中间件的顺序非常重要</p>
+<p>设定静态文件目录的访问路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express.static(path.join(__dirname, ‘/public’))</span><br></pre></td></tr></table></figure></p>
+<pre><code>express-session
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);</span><br><span class="line">app.use(session(&#123;</span><br><span class="line">    secret:<span class="string">'secret'</span>,</span><br><span class="line">    resave:<span class="literal">true</span>,</span><br><span class="line">    saveUninitialized:<span class="literal">false</span>,</span><br><span class="line">    cookie:&#123;</span><br><span class="line">        maxAge:<span class="number">1000</span>*<span class="number">60</span>*<span class="number">10</span>  <span class="comment">//过期时间设置(单位毫秒)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//新增中间件并设置模板变量值</span></span><br><span class="line"></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    res.locals.user = req.session.user;</span><br><span class="line">    <span class="keyword">var</span> err = req.session.error;</span><br><span class="line">    res.locals.message = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">if</span> (err) res.locals.message = <span class="string">'&lt;div style="margin-bottom: 20px;color:red;"&gt;'</span> + err + <span class="string">'&lt;/div&gt;'</span>;</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>body-parser<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm install body-parser</span><br><span class="line">npm install multer</span><br><span class="line"></span><br><span class="line">调用</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>);</span><br><span class="line">   ......</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; extended: <span class="literal">true</span> &#125;));</span><br><span class="line">app.use(multer());</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/15/node-man-4/" data-id="cie9xuje20029c5fygygd87t0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node-man-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/15/node-man-3/" class="article-date">
+  <time datetime="2014-12-15T03:52:34.000Z" itemprop="datePublished">2014-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/15/node-man-3/">Node.js Mongoose 方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Mongoose 参考手册</p>
+<p>####Mongoose 是什么?</p>
+<p>一般我们不直接用MongoDB的函数来操作MongoDB数据库 Mongose就是一套操作MongoDB数据库的接口.</p>
+<p>#####Schema</p>
+<p>一种以文件形式存储的数据库模型骨架，无法直接通往数据库端，也就是说它不具备对数据库的操作能力.可以说是数据属性模型(传统意义的表结构)，又或着是“集合”的模型骨架<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义一个 Schema */</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name : &#123; type:<span class="built_in">String</span> &#125;,<span class="comment">//属性name,类型为String</span></span><br><span class="line">    age  : &#123; type:<span class="built_in">Number</span>, <span class="keyword">default</span>:<span class="number">0</span> &#125;,<span class="comment">//属性age,类型为Number,默认为0</span></span><br><span class="line">    time : &#123; type:<span class="built_in">Date</span>, <span class="keyword">default</span>:<span class="built_in">Date</span>.now &#125;,</span><br><span class="line">    email: &#123; type:<span class="built_in">String</span>,<span class="keyword">default</span>:<span class="string">''</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>上面这个 TestSchema包含4个属性 [name, age, time, email]</p>
+<p>#####Model</p>
+<p>由Schema构造生成的模型，除了Schema定义的数据库骨架以外，还具有数据库操作的行为，类似于管理数据库属性、行为的类<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建Model</span></span><br><span class="line"><span class="keyword">var</span> TestModel = db.model(<span class="string">"test1"</span>, TestSchema);</span><br></pre></td></tr></table></figure></p>
+<p>test1 数据库中的集合名称, 不存在会创建.</p>
+<p>#####Entity</p>
+<p>由Model创建的实体，使用save方法保存数据，Model和Entity都有能影响数据库的操作，但Model比Entity更具操作性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> TestEntity = <span class="keyword">new</span> TestModel(&#123;</span><br><span class="line">       name : <span class="string">"Lenka"</span>,</span><br><span class="line">       age  : <span class="number">36</span>,</span><br><span class="line">       email: <span class="string">"lenka@qq.com"</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(TestEntity.name); <span class="comment">// Lenka</span></span><br><span class="line"><span class="built_in">console</span>.log(TestEntity.age); <span class="comment">// 36</span></span><br></pre></td></tr></table></figure></p>
+<p>#####游标</p>
+<p>MongoDB 使用游标返回find的执行结果.客户端对游标的实现通常能够对最终结果进行有效的控制。可以限制结果的数量，略过部分结果，根据任意键按任意顺序的组合对结果进行各种排序，或者是执行其他一些强的操作。</p>
+<p>#####ObjectId</p>
+<p>存储在mongodb集合中的每个文档（document）都有一个默认的主键_id，这个主键名称是固定的，它可以是mongodb支持的任何数据类型，默认是ObjectId。</p>
+<p>ObjectId是一个12字节的 BSON 类型字符串。按照字节顺序，依次代表：<br>4字节：UNIX时间戳<br>3字节：表示运行MongoDB的机器<br>2字节：表示生成此_id的进程<br>1字节：由一个随机数开始的计数器生成的值</p>
+<p>#####Node.js 中</p>
+<p>package.json 中加入”mongoose”: “*” 字段<br>npm install 安装依赖.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">"mongodb://localhost:27017/test"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>然后引用</p>
+<p>#####API<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">"mongodb://localhost:27017/test"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>#####db - 数据库操作</p>
+<p>1.挂接数据库连接事件,参数1: 也可以是error.</p>
+<pre><code><span class="keyword">db</span>.connection.<span class="keyword">on</span>('<span class="keyword">open</span>’, callback);
+</code></pre><p>Schema - 表结构</p>
+<p>1.构造函数</p>
+<pre><code><span class="tag">new</span> <span class="tag">mongoose</span><span class="class">.Schema</span>( { <span class="tag">name</span>:{<span class="tag">type</span><span class="pseudo">:String</span>}, <span class="tag">age</span>:{<span class="attribute">type</span>:Number, <span class="attribute">default</span>:<span class="number">10</span>} } )
+</code></pre><p>2.添加属性</p>
+<pre><code><span class="tag">Schema</span><span class="class">.add</span>( { <span class="attribute">name</span>: <span class="string">'String’, email: '</span>String’, <span class="attribute">age</span>: ‘Number’ } )
+</code></pre><p>3.有时候Schema不仅要为后面的Model和Entity提供公共的属性，还要提供公共的方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Schema.method( <span class="string">'say’, function()&#123;console.log(‘hello’);&#125; ) //这样Model和Entity的实例就能使用这个方法了</span></span><br></pre></td></tr></table></figure></p>
+<p>4.添加静态方法</p>
+<pre><code>Schema.static( 'say’, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>console.<span class="built_in">log</span>(‘hello’);} ) <span class="comment">//静态方法，只限于在Model层就能使用</span>
+</code></pre><p>5.追加方法</p>
+<pre><code>Schema.methods.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(‘hello’);}; <span class="comment">//静态方法，只限于在Model层就能使用</span>
+</code></pre><p>#####model - 文档操作</p>
+<p>1.构造函数, 参数1:集合名称, 参数2:Schema实例</p>
+<pre><code><span class="keyword">db</span>.model(<span class="string">"test1"</span>, TestSchema );
+</code></pre><p>2.查询, 参数1忽略,或为空对象则返回所有集合文档</p>
+<pre><code><span class="tag">model</span><span class="class">.find</span>(<span class="rules">{}</span>, <span class="tag">callback</span>);
+
+<span class="tag">model</span><span class="class">.find</span>(<span class="rules">{}</span>,<span class="tag">field</span>,<span class="tag">callback</span>); 
+</code></pre><p>过滤查询,参数2: {’name’:1, ‘age’:0} 查询文档的返回结果包含name , 不包含age.(_id默认是1)</p>
+<pre><code><span class="tag">model</span><span class="class">.find</span>(<span class="rules">{}</span>,<span class="tag">null</span>,<span class="rules">{<span class="rule"><span class="attribute">limit</span>:<span class="value"><span class="number">20</span>})</span></span>;</span>
+</code></pre><p>过滤查询,参数3: 游标操作 limit限制返回结果数量为20个,如不足20个则返回所有.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.findOne(&#123;&#125;, callback); 查询找到的第一个文档</span><br><span class="line"></span><br><span class="line"> model.findById(<span class="string">'obj._id’, callback); 查询找到的第一个文档,同上. 但是只接受      __id 的值查询</span></span><br></pre></td></tr></table></figure></p>
+<p>3.创建, 在集合中创建一个文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Model.create(文档数据, callback))</span><br></pre></td></tr></table></figure></p>
+<p>4.更新,参数1:查询条件, 参数2:更新对象,可以使用MondoDB的更新修改器<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Model.update(conditions, update, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>5.删除, 参数1:查询条件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Model.remove(conditions,callback);</span><br></pre></td></tr></table></figure></p>
+<p>#####Entity - 文档操作</p>
+<p>1.构造函数, 其实就是model的实例</p>
+<pre><code><span class="tag">new</span> <span class="tag">TestModel</span>( { <span class="attribute">name</span>:’xueyou’, <span class="attribute">age</span>:<span class="number">21</span> } );
+</code></pre><p>2.创建, 在集合中创建一个文档.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entity.save(callback);</span><br></pre></td></tr></table></figure></p>
+<p>####修改器和更新器</p>
+<p>#####更新修改器:</p>
+<p>‘$inc’ 增减修改器,只对数字有效.下面的实例: 找到 age=22的文档,修改文档的age值自增1</p>
+<pre><code>Model.<span class="keyword">update</span>({’age’:<span class="number">22</span>}, {’<span class="variable">$inc</span>’:{’age’:<span class="number">1</span>} } ); 执行后: age=<span class="number">23</span>
+</code></pre><p>‘$set’ 指定一个键的值,这个键不存在就创建它.可以是任何MondoDB支持的类型.</p>
+<pre><code>Model.<span class="keyword">update</span>({’age’:<span class="number">22</span>}, {’<span class="variable">$set</span>’:{’age’:’haha’} } ); 执行后: age=’haha’
+</code></pre><p>‘$unset’ 同上取反,删除一个键</p>
+<pre><code>Model.<span class="keyword">update</span>({’age’:<span class="number">22</span>}, {’<span class="variable">$unset</span>’:{’age’:’haha’} } ); 执行后: age键不存在
+</code></pre><p>#####数组修改器:</p>
+<p>‘$push’ 给一个键push一个数组成员,键不存在会创建</p>
+<pre><code>Model.update({’age’:22}, {’$push’:{’array’:10} } <span class="function">)</span>; 执行后: 增加一个<span class="instruction"> array </span>键,类型为数组, 有一个成员 10
+</code></pre><p>‘$addToSet’ 向数组中添加一个元素,如果存在就不添加</p>
+<pre><code>Model.<span class="keyword">update</span>({’age’:<span class="number">22</span>}, {’<span class="variable">$addToSet</span>’:{’array’:<span class="number">10</span>} } ); 执行后: <span class="keyword">array</span>中有<span class="number">10</span>所以不会添加
+</code></pre><p>‘$each’ 遍历数组, 和 $push 修改器配合可以插入多个值</p>
+<pre><code>Model.<span class="keyword">update</span>({’age’:<span class="number">22</span>}, {’<span class="variable">$push</span>’:{’array’:{’<span class="variable">$each</span>’: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]}} } ); 执行后: <span class="keyword">array</span> : [<span class="number">10</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]
+</code></pre><p>‘$pop’ 向数组中尾部删除一个元素</p>
+<pre><code>Model.update({’age’:<span class="number">22</span>}, {’$pop’:{’<span class="built_in">array</span>’:<span class="number">1</span>} } ); 执行后: <span class="built_in">array</span> : [<span class="number">10</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] tips: 将<span class="number">1</span>改成-<span class="number">1</span>可以删除数组首部元素
+</code></pre><p>‘$pull’ 向数组中删除指定元素</p>
+<pre><code>Model.<span class="keyword">update</span>({’age’:<span class="number">22</span>}, {’<span class="variable">$pull</span>’:{’array’:<span class="number">10</span>} } ); 执行后: <span class="keyword">array</span> : [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] 匹配到<span class="keyword">array</span>中的<span class="number">10</span>后将其删除
+</code></pre><p>#####条件查询:</p>
+<pre><code>“<span class="variable">$lt</span>” 小于
+“<span class="variable">$lte</span>” 小于等于
+“<span class="variable">$gt</span>” 大于
+“<span class="variable">$gte</span>” 大于等于
+“<span class="variable">$ne</span>” 不等于
+
+Model.find({<span class="string">"age"</span>:{ <span class="string">"$get"</span>:<span class="number">18</span> , <span class="string">"$lte"</span>:<span class="number">30</span> } } );
+</code></pre><p>查询 age 大于等于18并小于等于30的文档</p>
+<p>####或查询 OR:</p>
+<pre><code>‘<span class="variable">$in</span>’ 一个键对应多个值
+‘<span class="variable">$nin</span>’ 同上取反, 一个键不对应指定值
+“<span class="variable">$or</span>” 多个条件匹配, 可以嵌套 <span class="variable">$in</span> 使用
+“<span class="variable">$not</span>” 同上取反, 查询与特定模式不匹配的文档
+
+Model.find({<span class="string">"age"</span>:{ <span class="string">"$in"</span>:[<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>.’haha’]} } );
+</code></pre><p>查询 age等于20或21或21或’haha’的文档</p>
+<pre><code>Model.find({<span class="string">"$or"</span> : [ {’age’:<span class="number">18</span>} , {’name’:’xueyou’} ] }); 查询 age等于<span class="number">18</span> 或 name等于’xueyou’ 的文档
+</code></pre><p>#####类型查询:</p>
+<p>null 能匹配自身和不存在的值, 想要匹配键的值 为null, 就要通过 “$exists” 条件判定键值已经存在 “$exists” (表示是否存在的意思)</p>
+<pre><code>Model.find(“age” : { “<span class="variable">$in</span>” : [null] , “exists” : true } );
+</code></pre><p>查询 age值为null的文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Model.find(&#123;name: &#123;$exists: <span class="literal">true</span>&#125;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">error,docs</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//查询所有存在name属性的文档</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Model.find(&#123;telephone: &#123;$exists: <span class="literal">false</span>&#125;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">error,docs</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//查询所有不存在telephone属性的文档</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>#####正则表达式:</p>
+<p>MongoDb 使用 Prel兼容的正则表达式库来匹配正则表达式</p>
+<pre><code><span class="function"><span class="title">find</span><span class="params">( {<span class="string">"name"</span> : /joe/i } )</span></span>
+查询name为 joe 的文档, 并忽略大小写
+
+<span class="function"><span class="title">find</span><span class="params">( {<span class="string">"name"</span> : /joe?/i } )</span></span> 查询匹配各种大小写组合
+</code></pre><p>#####查询数组:</p>
+<pre><code>Model.find({<span class="string">"array"</span>:<span class="number">10</span>} ); 查询 <span class="built_in">array</span>(数组类型)键中有<span class="number">10</span>的文档, <span class="built_in">array</span> : [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">10</span>] 会匹配到
+
+Model.find({<span class="string">"array[5]"</span>:<span class="number">10</span>} ); 查询 <span class="built_in">array</span>(数组类型)键中下标<span class="number">5</span>对应的值是<span class="number">10</span>, <span class="built_in">array</span> : [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">10</span>] 会匹配到
+</code></pre><p>‘$all’ 匹配数组中多个元素</p>
+<pre><code>Model.find({<span class="string">"array"</span>:[<span class="number">5</span>,<span class="number">10</span>]} ); 查询 匹配<span class="built_in">array</span>数组中 既有<span class="number">5</span>又有<span class="number">10</span>的文档
+</code></pre><p>‘$size’ 匹配数组长度</p>
+<pre><code>Model.find({<span class="string">"array"</span>:{<span class="string">"$size"</span> : <span class="number">3</span>} } ); 查询 匹配<span class="built_in">array</span>数组长度为<span class="number">3</span> 的文档
+</code></pre><p>‘$slice’ 查询子集合返回</p>
+<pre><code>Model.find({<span class="string">"array"</span>:{<span class="string">"$skice"</span> : <span class="number">10</span>} } ); 查询 匹配<span class="built_in">array</span>数组的前<span class="number">10</span>个元素
+
+Model.find({<span class="string">"array"</span>:{<span class="string">"$skice"</span> : [<span class="number">5</span>,<span class="number">10</span>] } } ); 查询 匹配<span class="built_in">array</span>数组的第<span class="number">5</span>个到第<span class="number">10</span>个元素
+</code></pre><p>#####where</p>
+<p>用它可以执行任意javacript语句作为查询的一部分,如果回调函数返回 true 文档就作为结果的一部分返回</p>
+<pre><code>find( {<span class="string">"$where"</span> : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">for</span>( <span class="keyword">var</span> x <span class="keyword">in</span> <span class="keyword">this</span> ){
+     <span class="comment">//这个函数中的 this 就是文档</span>
+    }
+
+    <span class="keyword">if</span>(<span class="keyword">this</span>.x !== <span class="literal">null</span> &amp;&amp; <span class="keyword">this</span>.y !== <span class="literal">null</span>){
+        <span class="keyword">return</span> <span class="keyword">this</span>.x + <span class="keyword">this</span>.y === <span class="number">10</span> ? <span class="literal">true</span> : <span class="literal">false</span>;
+    }<span class="keyword">else</span>{
+        <span class="keyword">return</span> <span class="literal">true</span>;
+    }
+</code></pre><p>}  }  )</p>
+<p>#####简化版本</p>
+<pre><code><span class="function"><span class="title">find</span><span class="params">( {<span class="string">"$where"</span> :  <span class="string">"this.x + this.y === 10"</span> } )</span></span>
+<span class="function"><span class="title">find</span><span class="params">( {<span class="string">"$where"</span> : <span class="string">" function(){ return this.x + this.y ===10; } "</span> } )</span></span>
+</code></pre><p>#####游标:</p>
+<pre><code><span class="function"><span class="title">limit</span><span class="params">(<span class="number">3</span>)</span></span> 限制返回结果的数量,
+<span class="function"><span class="title">skip</span><span class="params">(<span class="number">3</span>)</span></span> 跳过前<span class="number">3</span>个文档,返回其余的
+<span class="function"><span class="title">sort</span><span class="params">( {<span class="string">"username"</span>:<span class="number">1</span> , <span class="string">"age"</span>:-<span class="number">1</span> } )</span></span> 排序 键对应文档的键名, 值代表排序方向, <span class="number">1</span> 升序, -<span class="number">1</span>降序
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/15/node-man-3/" data-id="cie9xuje5002ec5fyldk5pitz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node-man-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/15/node-man-2/" class="article-date">
+  <time datetime="2014-12-15T03:52:34.000Z" itemprop="datePublished">2014-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node/">node</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/15/node-man-2/">Node.js MongoDB数据库方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##MongoDb</p>
+<p>####安装</p>
+<p>当前版本 2.X<br>解压至任意目录,最好不要是c盘. 在根目录下建立一个文件夹用来存储工程</p>
+<pre><code>安装至:
+d:<span class="command">\mongodb</span>
+建立存储目录
+d:<span class="command">\mongodb</span><span class="command">\blog</span>
+运行CMD,切入bin目录
+cd  d:<span class="command">\mongodb</span><span class="command">\bin</span>
+启用数据库
+mongod -dbpath “d:<span class="command">\mongodb</span><span class="command">\blog</span>”
+这样就完毕了,如果关闭CMD,数据库就会关闭.
+
+建立一个快速启动的bat文件,因为每次启动服务器都是这样的命令
+启动mongodb.bat:
+    d:<span class="command">\mongodb</span><span class="command">\bin</span><span class="command">\mongod</span>.exe -dbpath d:<span class="command">\mongodb</span><span class="command">\blog</span>
+</code></pre><p>####Node.js 中使用</p>
+<ol>
+<li>package.json dependencies对象中加入  “mongodb”: “*”</li>
+<li>在工程目录下运行 npm install  更新依赖文件</li>
+<li>引入<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Db = <span class="built_in">require</span>(‘mongodb’).Db;</span><br><span class="line"><span class="keyword">var</span> Connection = <span class="built_in">require</span>(‘mongodb’).Connection;</span><br><span class="line"><span class="keyword">var</span> Server = <span class="built_in">require</span>(‘mongodb’).Server; </span><br><span class="line"><span class="comment">// ‘blog’ 数据库名称 mongodb就是一个Db实例 </span></span><br><span class="line"><span class="keyword">var</span> mongodb = <span class="keyword">new</span> Db(<span class="string">'blog’, new Server('</span>localhost’, Connection.DEFAULT_PORT, &#123;&#125;));</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>###Db API</p>
+<p>属性:<br><code>serverConfig</code>  拓扑结构, 比如上面实例的 new Server(‘localhost’, Connection.DEFAULT_PORT, {})<br><code>bufferMaxEntries</code> 数据库当前缓冲区值<br><code>databaseName</code>当前数据库名称, 比如上面实例的’blog’</p>
+<p><code>API:</code><br>//将用户添加到该数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.addUser(username, password, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除用户<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.removeUser(username, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//返回管理员数据库实例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.admin()</span><br></pre></td></tr></table></figure></p>
+<p>//验证用户<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.authenticate(username, password, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//关闭连接 force布尔值,是否强制关闭<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.close(force, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//取一个特定集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.collection(name, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//获取所有集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.collections(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//创建一个集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.createCollection(name, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//创建索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.createIndex(name, fieldOrSpec, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.dropCollection(name, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.dropDatabase(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//获取集合中的信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.listCollections(name, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//打开数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.open(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//登出数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.logout(options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//统计所有数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Db.stats(options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>######一般使用流程:<br>//打开数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Db.open(<span class="function"><span class="keyword">function</span>(<span class="params">err,db</span>)</span>&#123;</span><br><span class="line"><span class="comment">//读取集合 </span></span><br><span class="line">db.collection(name,<span class="function"><span class="keyword">function</span>(<span class="params">err,collection</span>)</span>&#123; </span><br><span class="line"><span class="comment">//在集合中插入数据 </span></span><br><span class="line">collection.insert(&#123;’age’:<span class="number">21</span>,’email’:’xxxx’&#125;, &#123;safe: <span class="literal">true</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>)</span>&#123;Db.close();&#125;) &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>####collection API</p>
+<p><code>API:</code><br>//查询匹配文档的数目<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count(query, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//创建索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">createIndex(fieldOrSpec, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除多个文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deleteMany(filter, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除一个文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deleteOne(filter, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除集合中的索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dropAllIndexes(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除指定索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dropIndex(indexName, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//是否存在索引,不存在就创建<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ensureIndex(fieldOrSpec, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//查询<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find(query)</span><br></pre></td></tr></table></figure></p>
+<p>//查询第一个<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findOne(query, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//查找和替换文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findAndModify(query, sort, doc, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//查找并删除<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findAndRemove(query, sort, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//找到一个文件并删除<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findOneAndDelete(filter, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//找到一个文件并替换<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findOneAndReplace(filter, replacement, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//找到一个文件并更新<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findOneAndUpdate(filter, update, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//所有索引集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indexes(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//检查集合中是否存在索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indexExists(indexes, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//获取此集合的索引信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indexInformation(options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//批量写<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initializeOrderedBulkOp(options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//插入文档到数据库中 docs 对象或数组,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert(docs, options, callback)</span><br><span class="line">实例</span><br><span class="line">inset(&#123;<span class="string">'a'</span>:<span class="number">1</span>&#125;, &#123;w:<span class="number">1</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>//插入数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insertMany(docs, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//插入一个单个文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insertOne(doc, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//重建索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reIndex(callback)</span><br></pre></td></tr></table></figure></p>
+<p>//删除文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remove(selector, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//重命名集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename(newName, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//保存<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save(doc, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//统计所有数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stats(options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>//更新集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update(selector, <span class="built_in">document</span>, options, callback)</span><br></pre></td></tr></table></figure></p>
+<p>##基础</p>
+<p>####文档</p>
+<pre><code>多个键和值有序的放置在一起便是文档,基本数据单元
+javascript 中,文档表示为对象.
+每个文档都有一个 _id 的键,值在所处集合中是唯一的
+
+有序的:   (下面<span class="number">2</span>个文档完全不同)
+{<span class="string">'title'</span>:<span class="string">'xueyou'</span>, <span class="string">'Age'</span>:<span class="number">21</span>}
+{<span class="string">'Age'</span>:<span class="number">21</span>, <span class="string">'title'</span>:<span class="string">'xueyou'</span>}
+</code></pre><h4 id="语法:">语法:</h4><pre><code>键不能包含 \0 空字符, 这个字符表示键的结尾
+<span class="bullet">. </span>和 $ 有特殊含义,通常保留
+_ 开头的键通常也要保留,虽然不强制
+MongoDb区分类型也区分大小写
+文档不能有重复的键
+</code></pre><p>####集合</p>
+<pre><code>看做是表,多个文档组成集合
+
+语法:
+不能包含 \<span class="number">0</span> 空字符
+不能使空串 <span class="string">""</span>
+不能包含 $
+不能 <span class="keyword">system</span> 开头.系统保留   
+<span class="keyword">system</span>.users存储着数据库内用户的信息
+<span class="keyword">system</span>.namespaces 存储着所有数据库集合的信息
+</code></pre><p>数据库</p>
+<pre><code>多个集合组成数据库. 一个MongoDB实例可以承载多个数据库,每个数据库有独立的权限
+语法:
+不能空串,全部小写,最多<span class="number">64</span>字节,不能特殊字符
+因为数据库名称会变成系统的文件
+数据库保留名称:
+admin -   <span class="keyword">local</span>   -  config
+</code></pre><p>####shell</p>
+<pre><code>MongoDb 自带javascript <span class="keyword">shell</span>;
+可以运行任何javascript程序, DOM和浏览器模型不算
+启动数据库, 进入bin 运行mongo 启动<span class="keyword">shell</span>
+当前版本 2.6.5
+默认连接 <span class="keyword">test</span> 数据库, 并将这个数据库赋值给全局变量 <span class="keyword">db</span>
+</code></pre><p>#####API<br><code>helo</code> 获取帮助<br><code>exit</code> 退出shell<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">db.help() 查看数据库的API</span><br><span class="line">db.foo.help() 查看集合的API</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取集合</span></span><br><span class="line">db.getCollection(<span class="string">'集合名'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//切换到 foobar数据库,这个时候全局变量 db 就是foobar数据库</span></span><br><span class="line">switched to db foobar</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//插入一个文档到集合中, db.集合名.insert</span></span><br><span class="line">db.blog.insert(对象)</span><br><span class="line"></span><br><span class="line">**查询时shell默认最多显示<span class="number">20</span>个匹配文档**</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回集合里所有文档</span></span><br><span class="line">db.blog.find()</span><br><span class="line"><span class="comment">//查看集合里的一个文档</span></span><br><span class="line">db.blog.findOne()</span><br><span class="line"><span class="comment">//更新文档</span></span><br><span class="line">db/blog.update(&#123;title:<span class="string">'aa'</span>&#125;,文档对象)</span><br><span class="line"><span class="comment">//从数据库永久删除文档,无参时删除集合内所有文档</span></span><br><span class="line">db.blog.remove();</span><br></pre></td></tr></table></figure></p>
+<p>####其他</p>
+<pre><code>mongod.exe   启动数据库,没参数的时候默认数据目录在 c:\data\dbm
+使用<span class="number">27017</span>端口, 同时还会启动一个HTTP服务器,监听比端口号大<span class="number">1000</span>的端口
+<span class="number">28017</span>端口. 访问:  http:<span class="comment">//localhost:28017 可以获取数据库的管理信息</span>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/15/node-man-2/" data-id="cie9xuje8002jc5fy96v51mw8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/angular/">angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angularjs/">angularjs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/debian/">debian</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/debian/linux/apache/">apache</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/php/restful/">restful</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/postgresql/">postgresql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular-ui/">angular-ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/">debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis/">gis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/header/">header</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful/">restful</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/参数/">参数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/angular-ui/" style="font-size: 10px;">angular-ui</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gis/" style="font-size: 10px;">gis</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/postgresql/" style="font-size: 15px;">postgresql</a> <a href="/tags/restful/" style="font-size: 10px;">restful</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/参数/" style="font-size: 10px;">参数</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/数据库/" style="font-size: 12.5px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/php-auth/">HTTP Basic Authentication</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/11/elemjisuan/">ele.me外卖平分算钱</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/10/phalcon-config/">phalcon框架的nginx配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/03/crontab/">crontab记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
