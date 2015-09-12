@@ -178,3 +178,15 @@ if (typeof myObj == "undefined") {
 　　　var myObj = { };
 }
 ```
+
+##修正js默认验证信息
+```js
+<input type="text" ng-model="data.IDcard" class="form-control" required  pattern="\d{6}[12]\d{3}[01]\d{6}\w{1}" oninput="disValidate(this,'请输入18位身份证号码') "/>
+
+<script>
+    function disValidate(self,mes){
+        self.validity.patternMismatch ? self.setCustomValidity(mes) : self.setCustomValidity('');
+    }
+</script>
+
+```
