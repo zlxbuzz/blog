@@ -6,8 +6,8 @@
 title: Hexo
 subtitle:
 description:
-author: John Doe
-language:
+author: buzzmjx 
+language: zh_Hans
 timezone:
 
 # URL
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: landscape 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
