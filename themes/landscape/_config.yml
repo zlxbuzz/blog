@@ -1,93 +1,63 @@
-# when running hexo in a subdirectory (e.g. domain.tld/blog), remove leading slashes ( "/archives" -> "archives" )
+# Header
 menu:
-  home: /
-  #categories: /categories
-  #about: /about
-  archives: /archives
-  tags: /tags
-  #commonweal: /404.html
+  主页: /
+  所有文章: /archives
+  # 随笔: /tags/随笔
 
-# Place your favicon.ico to /source directory.
-favicon: /favicon.ico
+# SubNav
+subnav:
+  github: "#"
+  weibo: "#"
+  rss: "#"
+  zhihu: "#"
+  #douban: "#"
+  #mail: "#"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
 
-# Set default keywords (Use a comma to separate)
-keywords: "Hexo,next"
+rss: /atom.xml
 
-# Set rss to false to disable feed link.
-# Leave rss as empty to use site's feed link.
-# Set rss to specific value if you have burned your feed already.
-rss:
-
-# Icon fonts
-# Place your font into next/source/fonts, specify directory-name and font-name here
-# Avialable: default | linecons | fifty-shades | feather
-icon_font: default
-#icon_font: fifty-shades
-#icon_font: feather
-#icon_font: linecons
-
-# Code Highlight theme
-# Available value: normal | night | night eighties | night blue | night bright
-# https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
-
-
-# MathJax Support
-mathjax:
-
-
-# Schemes
-#scheme: Mist
-
-
-# Sidebar, available value:
-#  - post    expand on posts automatically. Default.
-#  - always  expand for all pages automatically
-#  - hide    expand only when click on the sidebar toggle icon.
-sidebar: post
-#sidebar: always
-#sidebar: hide
-
-
-# Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
-
-
-# Automatically add list number to toc.
-toc_list_number: true
-
-# Automatically Excerpt
-auto_excerpt:
-  enable: false
-  length: 150
-
-# Use Lato font
-# Note: this option is avialable only when the language is not `zh-Hans`
-use_font_lato: true
-
-# Make duoshuo show UA
-# user_id must NOT be null when admin_enable is true!
-# you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 0
-  #admin_nickname: ROOT
-
-## DO NOT EDIT THE FOLLOWING SETTINGS
-## UNLESS YOU KNOW WHAT YOU ARE DOING
-
-# Use velocity to animate everything.
-use_motion: true
-
-# Fancybox
+# Content
+excerpt_link: more
 fancybox: true
+mathjax: true
 
-# Static files
-vendors: vendors
-css: css
-js: js
-images: images
+# 是否开启动画效果
+animate: true
 
-# Theme version
-version: 0.4.5.1
+# 是否在新窗口打开链接
+open_in_new: false
+
+# Miscellaneous
+google_analytics: ''
+favicon: /favicon.png
+
+#你的头像url
+avatar: 
+#是否开启分享
+share: true
+#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
+#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
+duoshuo: true
+#是否开启云标签
+tagcloud: true
+
+#是否开启友情链接
+#不开启——
+#friends: false
+#开启——
+friends:
+  奥巴马的博客: http://localhost:4000/
+  卡卡的美丽传说: http://localhost:4000/
+  本泽马的博客: http://localhost:4000/
+  吉格斯的博客: http://localhost:4000/
+  习大大大不同: http://localhost:4000/
+  托蒂的博客: http://localhost:4000/
+
+#是否开启“关于我”。
+#不开启——
+#aboutme: false
+#开启——
+aboutme: 我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…
