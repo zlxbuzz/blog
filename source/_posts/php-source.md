@@ -116,3 +116,9 @@ curl_setopt($curlobj, CURLOPT_HTTPHEADER, array("Content-Type: application/soap+
 //关闭
 curl_close($curlobj);
 ```
+
+
+## mysql 导出数据到csv格式
+```bash
+echo "select * from hero" | mysql --host=ayidev02.mysql.rds.aliyuncs.com --user=ayi_dev --password=ayibang ayisvc_zhonglingxiao > /tmp/zlx.csv
+```
