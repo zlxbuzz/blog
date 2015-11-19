@@ -79,3 +79,13 @@ git clean -f #删除未跟踪的文件
   参数d:删除未跟踪的目录
 
 ```
+
+
+## gitignore生效
+```c
+#中途加进.gitignore的文件或文件夹不会生效
+git rm -r --cached .#之前已经在版本管理中了，需要删除本地缓存，在提交
+git add .
+git commit -m"add"
+
+``` 
