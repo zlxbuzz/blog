@@ -3,7 +3,7 @@ date: 2015-03-11 17:20:11
 categories: js
 tags: js
 ---
-##将时间戳转换成日期格式：
+## 将时间戳转换成日期格式：
 ```js
 var date = new Date(时间戳);
 Y = date.getFullYear() + '-';
@@ -11,11 +11,11 @@ M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-'
 D = date.getDate() <10 ? '0'+date.getDate() : date.getDate() + ' ';
 h = date.getHours() + ':';
 m = date.getMinutes() + ':';
-s = date.getSeconds(); 
+s = date.getSeconds();
 console.log(Y+M+D+h+m+s);
 ```
 
-##将日期格式转换成时间戳：
+## 将日期格式转换成时间戳：
 ```js
 date = new Date('2014-04-23 18:55:49:123');
 // 有三种方式获取
@@ -29,10 +29,10 @@ time3 = Date.parse(date)
 // 比如上面代码输出的结果(一眼就能看出区别)：
 //    1398250549123
 //    1398250549123
-//    1398250549000 
+//    1398250549000
 ```
 
-##js数组去重
+## js数组去重
 ```js
 Array.prototype.unique3 = function(){
 	var res = [];
@@ -47,7 +47,7 @@ Array.prototype.unique3 = function(){
 }
 ```
 
-##字符串截取
+## 字符串截取
 
 ```js
 substr(start [, length ])
@@ -56,18 +56,18 @@ substring(start, end)
 返回位于 String 对象中指定位置的子字符串。
 ```
 
-##页面跳转
+## 页面跳转
 ```js
 window.navigate("top.jsp");
 window.history.back(-1);
-window.location.href="login.jsp?backurl="+window.location.href; 
+window.location.href="login.jsp?backurl="+window.location.href;
 self.location='top.htm';
 top.location='xx.jsp';
 ```
 
-##加载完成
+## 加载完成
 ```js
-window.onload 
+window.onload
 必须等页面内包括图片的所有元素加载完成后才能执行。
 不能同时编写多个，只执行一个
 $(document).ready()
@@ -77,32 +77,32 @@ $(document).ready()
 $(window).load()等同与window.onload
 ```
 
-##刷新页面
+## 刷新页面
 ```js
-history.go(0) 
-location.reload() 
-location=location 
-location.assign(location) 
-document.execCommand('Refresh') 
-window.navigate(location) 
-location.replace(location) 
-document.URL=location.href 
+history.go(0)
+location.reload()
+location=location
+location.assign(location)
+document.execCommand('Refresh')
+window.navigate(location)
+location.replace(location)
+document.URL=location.href
 ```
 
-##json转化和解析
+## json转化和解析
 ```js
 JSON.parse("{a:'111',b:'ccc'}");  //解析
 eval("("+""+")"); //解析
 ```
 
-##URI编码转换
+## URI编码转换
 ```js
 var a="':'";
 en = encodeURI(a);    //编码
 a = decodeURI(en);    //解码
 ```
 
-##HTML编码转换
+## HTML编码转换
 ```js
 function htmlEncode(value){
   return $('<div/>').text(value).html();
@@ -114,13 +114,13 @@ function htmlDecode(value){
 ```
 
 
-##当属性名是另一个表达式时候
+## 当属性名是另一个表达式时候
 ```js
 a.b[c] // (a.b)[c]
 a[b] //而不用 a.b
 ```
 
-##js转义字符实体
+## js转义字符实体
 ```js
 function htmlEscape(s) {
 	return (s + '').replace(/&/g, '&amp;')
@@ -132,14 +132,14 @@ function htmlEscape(s) {
 }
 ```
 
-##判断number
+## 判断number
 ```js
 var isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
 ```
 
-##js原型
+## js原型
 ```js
 //每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承
 //任何一个prototype对象都有一个constructor属性，指向它的构造函数
@@ -161,7 +161,7 @@ Function instanceof Object: Function.__proto__.__proto__ === Object.prototype //
 Object.constructor === Function
 Function.constructor === Function
 ```
-##js继承
+## js继承
 ```js
 　function extend(Child, Parent) {
 　　　　var F = function(){};
@@ -172,14 +172,14 @@ Function.constructor === Function
 　　}
 ```
 
-##js判断是否存在
+## js判断是否存在
 ```js
 if (typeof myObj == "undefined") {
 　　　var myObj = { };
 }
 ```
 
-##修正js默认验证信息
+## 修正js默认验证信息
 ```js
 <input type="text" ng-model="data.IDcard" class="form-control" required  pattern="\d{6}[12]\d{3}[01]\d{6}\w{1}" oninput="disValidate(this,'请输入18位身份证号码') "/>
 
@@ -188,5 +188,33 @@ if (typeof myObj == "undefined") {
         self.validity.patternMismatch ? self.setCustomValidity(mes) : self.setCustomValidity('');
     }
 </script>
+## obj 转 arr
+```js
+function(obj){
+  if(!obj){
+	return [];
+}
+var keys = Object.keys(obj);
 
+return keys.filter(function(key){
+	return obj[key];
+});
+}
+```
+
+## js 操作cookie
+```js
+ getCookie:function(name){
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+       },
+setCookie:function(name,value){
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days*24*60*60*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+       }
 ```

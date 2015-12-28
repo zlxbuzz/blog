@@ -89,3 +89,10 @@ git add .
 git commit -m"add"
 
 ``` 
+
+
+##  git add submodule
+```c
+git submodule add git@github.com:zlxbuzz/gulp.git ./gulp
+
+```
