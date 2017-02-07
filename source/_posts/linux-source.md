@@ -15,11 +15,11 @@ netstat -an |grep ESTABLISHED |wc -l #查看网络连接状态
 	-c:建立新的存档
 	-x:解压
 	-v:详细内容
-	-f:指定存档或设备	
+	-f:指定存档或设备
 zip:
 	unzip FileName.zip
 	zip FileName.zip DirName
-	
+
 .gz
 gzip 源文件（压缩成.gz的压缩文件，源文件会消失）
 gzip -c 源文件 > 压缩文件（压缩为.gz格式，源文件保留）
@@ -42,22 +42,22 @@ vi /etc/hosts #域名解析
 
 ##apt操作
 ```c
-apt-cache search package 搜索包    
-apt-cache show package 获取包的相关信息，如说明、大小、版本等    
-sudo apt-get install package 安装包    
-sudo apt-get install package - - reinstall 重新安装包    
-sudo apt-get -f install 修复安装"-f = ——fix-missing"    
-sudo apt-get remove package 删除包    
-sudo apt-get remove package - - purge 删除包，包括删除配置文件等    
-sudo apt-get update 更新源    
-sudo apt-get upgrade 更新已安装的包    
-sudo apt-get dist-upgrade 升级系统    
-sudo apt-get dselect-upgrade 使用 dselect 升级    
-apt-cache depends package 了解使用依赖    
-apt-cache rdepends package 是查看该包被哪些包依赖    
-sudo apt-get build-dep package 安装相关的编译环境    
-apt-get source package 下载该包的源代码    
-sudo apt-get clean && sudo apt-get autoclean 清理无用的包    
+apt-cache search package 搜索包
+apt-cache show package 获取包的相关信息，如说明、大小、版本等
+sudo apt-get install package 安装包
+sudo apt-get install package - - reinstall 重新安装包
+sudo apt-get -f install 修复安装"-f = ——fix-missing"
+sudo apt-get remove package 删除包
+sudo apt-get remove package - - purge 删除包，包括删除配置文件等
+sudo apt-get update 更新源
+sudo apt-get upgrade 更新已安装的包
+sudo apt-get dist-upgrade 升级系统
+sudo apt-get dselect-upgrade 使用 dselect 升级
+apt-cache depends package 了解使用依赖
+apt-cache rdepends package 是查看该包被哪些包依赖
+sudo apt-get build-dep package 安装相关的编译环境
+apt-get source package 下载该包的源代码
+sudo apt-get clean && sudo apt-get autoclean 清理无用的包
 sudo apt-get check 检查是否有损坏的依赖
 ```
 
@@ -127,7 +127,7 @@ sudo apt-get install sysv-rc-conf
 ls -n file1 file2 #创建file1的软链接file2,最好用绝对路径,否则可能会造成目录错误
 ```
 
-##安全关机 
+##安全关机
 ```bash
 shutdown -r now #安全重启服务器
 shutdown -h #关机
@@ -187,7 +187,7 @@ PS1变量：命令提示符设置
 预定义变量:
 	$? ：最后一次执行命令的返回状态，如果正确执行，则返回0；
 	$$：返回当前进程的PID号；
-	
+
 	$!：返回后台的进程PID号；
 read -n
 read -p "please input name " name #-p表示输出提示信息 read [选项] 变量名
@@ -202,7 +202,7 @@ read -s #隐藏信息
 	declare -a 声明为数组
 	declare -x 变量 相当于 export export其实是调用了declare -x
 	declare -r 变量 将变量变为只读属性 改为只读属性后，无法进行操作了。
-	
+
 数值计算 dd=$(expr $aa + $bb)
 ```
 
@@ -252,9 +252,9 @@ rm 1 #删除1号分区
 mkpart #创建分区
 	-Partition name #名称(类似windows卷标)
 	-File system type
-	-start #从第几M开始    一般会让0-1M之间的一点点数据取消掉,使得数据对齐,从第1M开始 
+	-start #从第几M开始    一般会让0-1M之间的一点点数据取消掉,使得数据对齐,从第1M开始
 	-end  #2000   2G
-mkpart name start end #也可以一句话 
+mkpart name start end #也可以一句话
 quit #退出 parted为立即生效
 2.分区格式化:
 #分区格式化工具 mkfs
@@ -306,7 +306,7 @@ rsync [option] 源路径 目标路径
 	-suffix=SUFFIX 定义备份文件前缀
 	–delete 删除那些DST中SRC没有的文件
 	–bwlimit=KBPS 限制I/O带宽
-	
+
 #将本机/tmp/a文件夹 同步至/tmp/b
 rsync -avzP --delete /tmp/a /tmp/b
 #将远程主机x中/tmp/a下的文件下载至本机 /tmp/b
@@ -341,18 +341,63 @@ curl [option] [url]
 ```
 
 
-##ssh
+## ssh
 
 ```bash
  ssh user@host #远程登陆
  ssh -p port user@host #远程登陆某个端口
  ssh-keygen #在～/.ssh/下生成自己的公钥和私钥
  ssh-copy-id user@host #将自己的公钥copy到远程 免登陆，也可以直接$ ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
- 如果不行，远传配置/etc/ssh/sshd_config 
+ 如果不行，远传配置/etc/ssh/sshd_config
  　RSAAuthentication yes
 　　PubkeyAuthentication yes
 　　AuthorizedKeysFile .ssh/authorized_keys
- 
+
  　$ ssh -L 本地端口:目标主机:目标主机端口 #本地端口转发
  　$ ssh -R 远程主机端口:目标主机:目标主机端口 #远程端口转发
+```
+
+## 获取某个进程id
+```bash
+ aux |grep static_server |grep -v grep |awk '{print $2}'
+```
+
+i
+# nd命令
+```bash
+find ./ -name "*.sw[a-eg-zA-EG-Z0-9]" | xargs rm -f #删除当前目录下的临时文件
+find ./ -type f -exec ls -l {} \; #查当前目录下的所有普通文件，并在- e x e c选项中使用ls -l命令将它们列出
+find . -name  -type f -mmin -30 -ls #查看30分钟之内修改的文件
+
+
+-name   filename             #查找名为filename的文件
+-perm                        #按执行权限来查找
+-user    username             #按文件属主来查找
+-group groupname            #按组来查找
+-mtime   -n +n                #按文件更改时间来查找文件，-n指n天以内，+n指n天以前
+-atime    -n +n               #按文件访问时间来查GIN: 0px">
+-ctime    -n +n              #按文件创建时间来查找文件，-n指n天以内，+n指n天以前
+
+-nogroup                     #查无有效属组的文件，即文件的属组在/etc/groups中不存在
+-nouser                     #查无有效属主的文件，即文件的属主在/etc/passwd中不存
+-newer   f1 !f2              找文件，-n指n天以内，+n指n天以前
+-ctime    -n +n               #按文件创建时间来查找文件，-n指n天以内，+n指n天以前
+-nogroup                     #查无有效属组的文件，即文件的属组在/etc/groups中不存在
+-nouser                      #查无有效属主的文件，即文件的属主在/etc/passwd中不存
+-newer   f1 !f2               #查更改时间比f1新但比f2旧的文件
+-type    b/d/c/p/l/f         #查是块设备、目录、字符设备、管道、符号链接、普通文件
+-size      n[c]               #查长度为n块[或n字节]的文件
+-depth                       #使查找在进入子目录前先行查找完本目录
+-fstype                     #查更改时间比f1新但比f2旧的文件
+-type    b/d/c/p/l/f         #查是块设备、目录、字符设备、管道、符号链接、普通文件
+-size      n[c]               #查长度为n块[或n字节]的文件
+-depth                       #使查找在进入子目录前先行查找完本目录
+-fstype                      #查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到
+-mount                       #查文件时不跨越文件系统mount点
+-follow                      #如果遇到符号链接文件，就跟踪链接所指的文件
+-cpio                %;      #查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到
+-mount                       #查文件时不跨越文件系统mount点
+-follow                      #如果遇到符号链接文件，就跟踪链接所指的文件
+-cpio                        #对匹配的文件使用cpio命令，将他们备份到磁带设备中
+-prune                       #忽略某个目录
 ```

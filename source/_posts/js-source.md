@@ -3,6 +3,23 @@ date: 2015-03-11 17:20:11
 categories: js
 tags: js
 ---
+## js 函数集合
+
+```js
+JSON.stringify(value [, replacer] [, space])
+
+//value 必填，通常为数组或者对象
+
+//replacer 如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。
+// 使用返回值而不是原始值。 如果此函数返回 undefined，则排除成员。 根对象的键是一个空字符串：""。
+//如果 replacer 是一个数组，则仅转换该数组中具有键值的成员。 成员的转换顺序与键在数组中的顺序一样。
+//当 value 参数也为数组时，将忽略 replacer 数组。
+
+//space 向返回值 JSON 文本添加缩进、空格和换行符以使其更易于读取。
+
+```
+
+
 ## 将时间戳转换成日期格式：
 ```js
 var date = new Date(时间戳);
@@ -188,6 +205,8 @@ if (typeof myObj == "undefined") {
         self.validity.patternMismatch ? self.setCustomValidity(mes) : self.setCustomValidity('');
     }
 </script>
+```
+
 ## obj 转 arr
 ```js
 function(obj){
@@ -217,4 +236,36 @@ setCookie:function(name,value){
         exp.setTime(exp.getTime() + Days*24*60*60*1000);
         document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
        }
+```
+
+
+## 驼峰命名转换
+```js
+function cameltoDash(string) {
+      return string.replace(/([A-Z])/g, function($1) {
+          return '-' + $1.toLowerCase();
+      });
+}
+```
+
+##  js限制输入两位小数字
+
+```js
+if($scope.order.amount !== undefined && $scope.order.amount.match(/(0(\.\d{0,2})?)|([1-9]+(\.\d{0,2})?)/)){
+       $scope.order.amount = $scope.order.amount.match(/(0(\.\d{0,2})?)|([1-9]+(\.\d{0,2})?)/)[0];
+  }else{
+     $scope.order.amount = '';
+}
+```
+
+## js trim
+```js
+trim = function (source) {
+        return source.replace(/(^[\s\t\xa0\u3000]+|[\s\t\xa0\u3000]+$)/g, '');
+}
+```
+
+## js 判断类型
+```js
+Object.prototype.toString.call(arr) === "[object Array]"
 ```
