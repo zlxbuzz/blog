@@ -3,6 +3,25 @@ date: 2016-10-18 14:10:08
 tags:
 ---
 
+##  华为等部分android手机可能出现最终的font－size不一致的情况
+
+```c
+#默写华为手机 设置的fontSize，不等于最终编译得到的
+getComputedStyle(html).fontSize 和 html.style.fontSize 不一致
+所以可能会导致rem的计算有问题。
+
+解决方法就是让计算出来的getComputedStyle(html).fontSize 的值等于html.style.fontSize
+
+可以通过循环或者比例相除的方式计算
+
+比如:
+    做一个循环
+    不断的获取parseInt(window.getComputedStyle(html).fontSize),如果返回值等于
+    parseInt(html.style.fontSize),则html.setAttribute('style', 'font-size:'+font + 'px!important');
+    否则parseInt(html.style.fontSize)＋＋
+```
+
+
 
 ## 滚动
 ```c
