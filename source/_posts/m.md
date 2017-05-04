@@ -22,6 +22,15 @@ getComputedStyle(html).fontSize 和 html.style.fontSize 不一致
 ```
 
 
+##  华为部分手机不支持jusify-content space-between
+
+```
+如题，采用autoprefixer也是无效，后来就用了子元素的flex属性，要实现两边排列的效果，
+首先必须是块元素，左右的子元素flex设为1，右边不设置（默认为自身大小即可）
+
+```
+
+
 
 ## 滚动
 ```c
