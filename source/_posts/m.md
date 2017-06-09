@@ -3,6 +3,21 @@ date: 2016-10-18 14:10:08
 tags:
 ---
 
+
+## 弹窗蒙层滚动遇到的坑
+
+```js
+
+移动端局部滚动我一般都用
+overflow:auto;/*android*/
+-webkit-overflow-scrolling:touch;/*iphone*/
+
+
+但是`-webkit-overflow-scrolling`有比较多的坑，网上有很多介绍，我这里说下我遇到的问题的解决方案：
+1.fixed元素不能放在有`-webkit-overflow-scrolling:touch`中的容器内，尽量放在和他同级的地方。
+2.由于`fastclick`在部分手机内会有兼容问题，比如body为100%高度，内容却超出了这个高度，则这个内容超出的部分点击事件会有坑，所以建议所有的页面都放在100%高度的容器中，如果有弹出框等蒙层效果的dom，一律已fixed放在body下面即可。
+```
+
 ##  华为等部分android手机可能出现最终的font－size不一致的情况
 
 ```c

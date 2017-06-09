@@ -12,6 +12,8 @@ https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest
 
 ## 部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止.
 
+## ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如`axios`,`axios.defaults.headers.common['If-Modified-Since'] = '0'`;
+
 
 ## ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持.
 
