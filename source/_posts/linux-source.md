@@ -401,3 +401,10 @@ find . -name  -type f -mmin -30 -ls #查看30分钟之内修改的文件
 -cpio                        #对匹配的文件使用cpio命令，将他们备份到磁带设备中
 -prune                       #忽略某个目录
 ```
+
+
+# 批量替换内容
+
+```bash
+sed -i "s/px;\/\*\!no\*\//rpx/g" `grep "px;\/\*\!no\*\/" -rl ./src/`
+```

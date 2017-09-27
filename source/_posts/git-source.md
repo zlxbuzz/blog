@@ -203,3 +203,19 @@ hotfix
 完成后merge回master分支并且merge到develop分支。
 master分支需要进行修复版本tag的定义。
 ```
+
+## git 对比两个tag，并且排除某些目录
+
+```c
+ git diff 1.1.1.179...1.1.1.182 -- . ':!dist' ':!lib'
+```
+
+
+## git diff 三个点
+
+```c
+//两个点 直接就是2个分支(tag)的差别
+//三个点相当于A和B的公共祖先与B的差异
+git diff $(git-merge-base A B) B
+
+```

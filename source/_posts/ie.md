@@ -17,3 +17,4 @@ https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest
 
 ## ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持.
 
+## ie9 及其以下不支持classList属性 需要采用pollyfill`https://github.com/eligrey/classList.js`
