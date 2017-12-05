@@ -219,3 +219,10 @@ master分支需要进行修复版本tag的定义。
 git diff $(git-merge-base A B) B
 
 ```
+
+
+## git 修改commit内容
+
+```c
+git commit --amend
+```

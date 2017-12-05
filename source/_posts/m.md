@@ -325,3 +325,11 @@ img则设置100%即可.
 
 
 ```
+
+
+## fastclick 无法触发普通click
+
+```
+给元素加一个`needclick`的class即可
+
+```

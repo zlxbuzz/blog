@@ -408,3 +408,10 @@ find . -name  -type f -mmin -30 -ls #查看30分钟之内修改的文件
 ```bash
 sed -i "s/px;\/\*\!no\*\//rpx/g" `grep "px;\/\*\!no\*\/" -rl ./src/`
 ```
+
+
+# 查看占用cpu资源的进程
+
+```bash
+ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head
+```

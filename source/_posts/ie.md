@@ -10,7 +10,7 @@ tags:
 https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest
 
 
-## 部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止.
+## 部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止,可以采用`console polyfill`.
 
 ## ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如`axios`,`axios.defaults.headers.common['If-Modified-Since'] = '0'`;
 
